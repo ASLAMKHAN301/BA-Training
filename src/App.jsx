@@ -300,7 +300,7 @@ export default function CyberSecurityPage() {
         <span className="text-[#C9A84C] font-semibold">
           New Batch Starting Soon
         </span>{" "}
-        — SOC Analyst seats are limited.
+        — Limited seats available. Reserve your spot →
       </div>
 
       {/* Navbar */}
