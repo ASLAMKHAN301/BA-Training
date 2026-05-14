@@ -619,7 +619,7 @@ export default function CyberSecurityPage() {
                   >
                     <div className="flex items-center gap-5">
                       {/* Number */}
-                      <div className="w-16 h-16 rounded-full bg-black text-[#C9A84C] flex items-center justify-center text-xl font-serif font-bold">
+                      <div className="w-12 h-12 bg-black text-[#C9A84C] flex items-center justify-center font-serif font-bold">
                         {module.id}
                       </div>
 
