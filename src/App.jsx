@@ -386,8 +386,9 @@ export default function CyberSecurityPage() {
               ].map((item) => (
                 <div
                   key={item}
-                  className="border border-[#C9A84C]/30 bg-[#C9A84C]/10 text-[#C9A84C] px-4 py-2 text-xs rounded-sm"
+                  className="flex gap-2 border border-[#C9A84C]/30 bg-[#C9A84C]/10 text-[#C9A84C] px-4 py-2 text-xs rounded-sm"
                 >
+                  <div className="w-[5px] h-[5px] rounded-full bg-[#C9A84C] mt-[6px] " />
                   {item}
                 </div>
               ))}
