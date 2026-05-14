@@ -619,7 +619,7 @@ export default function CyberSecurityPage() {
                   >
                     <div className="flex items-center gap-5">
                       {/* Number */}
-                      <div className="w-16 h-16 rounded-2xl bg-black text-[#C9A84C] flex items-center justify-center text-xl font-serif font-bold">
+                      <div className="w-16 h-16 rounded-full bg-black text-[#C9A84C] flex items-center justify-center text-xl font-serif font-bold">
                         {module.id}
                       </div>
 
@@ -642,7 +642,7 @@ export default function CyberSecurityPage() {
                       </span>
 
                       <div className="w-8 h-8 rounded-full border flex items-center justify-center text-2xl bg-black text-[#C9A84C]">
-                        <div className="pb-[4px]">{isOpen ? "−" : "+"}</div>
+                        <div className="md:pb-[4px]">{isOpen ? "−" : "+"}</div>
                       </div>
                     </div>
                   </button>
