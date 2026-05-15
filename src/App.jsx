@@ -1,65 +1,9 @@
 import { useState } from "react";
 
-const curriculumData = [
-  {
-    id: "01",
-    tag: "Foundation Module",
-    title: "Business Analyst Introduction",
-    topics: [
-      "Business Analyst Introduction",
-      "Business Analysis Overview & Origin",
-      "What is Business Analysis",
-      "Who is a Business Analyst",
-      "Types of IT Companies",
-      "IT Hierarchy",
-      "Roles and Responsibilities of a BA",
-      "Do's and Don'ts of a BA",
-    ],
-  },
-  {
-    id: "02",
-    tag: "Methodology Module",
-    title: "Waterfall Methodology",
-    topics: [
-      "Identifying Stakeholders",
-      "Stakeholder Management",
-      "RACI Matrix",
-      "Defining Roles and Responsibilities",
-      "Types of Requirements",
-      "Role of the BA in Requirements",
-      "Elicitation Techniques",
-      "Introduction to Requirements",
-      "Importance of Documentation",
-      "Business Requirements Document (BRD)",
-      "Functional Requirements Document (FRD)",
-      "Software Requirements Specification (SRS)",
-      "Requirements Traceability Matrix (RTM)",
-      "Use Case Document",
-    ],
-  },
-  {
-    id: "03",
-    tag: "Advanced Module",
-    title: "Agile / Scrum",
-    topics: [
-      "Introduction to Agile",
-      "Agile Frameworks",
-      "Scrum",
-      "Waterfall vs Scrum",
-      "Scrum Events & Epics",
-      "User Stories",
-      "Velocity and Prioritization",
-      "Story Estimations",
-      "Planning Poker",
-      "T-Shirt Sizing",
-    ],
-  },
-];
-
 const items = [
   {
-    title: "Industry Mentors",
-    subtitle: "Practising BAs",
+    title: "ICICI Bank",
+    subtitle: "Banking",
     icon: (
       <svg viewBox="0 0 16 16" className="w-4 h-4 fill-current">
         <path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.8l-3.8 2 .7-4.3L1.8 5.5l4.3-.6z" />
@@ -67,8 +11,8 @@ const items = [
     ),
   },
   {
-    title: "Live + Recorded",
-    subtitle: "Flexible learning",
+    title: "Bajaj Allianz",
+    subtitle: "Insurance",
     icon: (
       <svg viewBox="0 0 16 16" className="w-4 h-4 fill-current">
         <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm-.5 12L3 7.5l1.4-1.4 3.1 3.1 5.1-5.1L14 5.5 7.5 12z" />
@@ -76,8 +20,8 @@ const items = [
     ),
   },
   {
-    title: "Real Case Studies",
-    subtitle: "Industry projects",
+    title: "Apollo Hospitals",
+    subtitle: "Healthcare",
     icon: (
       <svg viewBox="0 0 16 16" className="w-4 h-4 fill-current">
         <path d="M13 2H3a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1V3a1 1 0 00-1-1zM7 11L4 8l1.4-1.4L7 8.2l3.6-3.6L12 6l-5 5z" />
@@ -85,8 +29,8 @@ const items = [
     ),
   },
   {
-    title: "IIBA-Aligned",
-    subtitle: "Globally recognised",
+    title: "Wipro",
+    subtitle: "Technology",
     icon: (
       <svg viewBox="0 0 16 16" className="w-4 h-4 fill-current">
         <path d="M8 0l2 6h6l-5 3.6 1.9 5.9L8 12l-4.9 3.5L5 9.6 0 6h6z" />
@@ -94,155 +38,49 @@ const items = [
     ),
   },
   {
-    title: "100% Placement",
-    subtitle: "Assistance assured",
+    title: "Razorpay",
+    subtitle: "Fintech",
     icon: (
       <svg viewBox="0 0 16 16" className="w-4 h-4 fill-current">
         <path d="M8 1C4.1 1 1 4.1 1 8s3.1 7 7 7 7-3.1 7-7-3.1-7-7-7zm1 10H7V7h2v4zm0-6H7V3h2v2z" />
       </svg>
     ),
   },
-];
-
-const myths = [
   {
-    myth: "You need a technical background to become a Business Analyst.",
-    reality:
-      "Business Analysis is fundamentally about communication, requirements gathering, and bridging business and technology. Domain knowledge and analytical thinking matter far more than writing code. Our graduates come from commerce, humanities, science, and everything in between.",
-  },
-  {
-    myth: "It is very difficult to start a career as a BA without a technical background.",
-    reality:
-      "Thousands of BAs worldwide started their careers with zero IT background. The role is designed to be the bridge — not the engineer. Our curriculum equips you with the vocabulary, tools, and frameworks to operate confidently in any IT environment from day one.",
-  },
-  {
-    myth: "A fresher cannot become a Business Analyst.",
-    reality:
-      "Freshers are actively hired as junior or associate BAs across the industry. Organisations value structured training and fresh perspectives. Our placement track record includes hundreds of candidates placed directly out of college.",
-  },
-  {
-    myth: "We don't need a Business Analyst — we have SMEs.",
-    reality:
-      "Subject Matter Experts bring domain depth. Business Analysts bring process: structured elicitation, documentation, traceability, and stakeholder alignment. The two roles are complementary — not interchangeable. Projects without a BA consistently suffer from scope creep and miscommunication.",
-  },
-];
-
-const outcomes = [
-  {
-    title: "Role and importance",
-    text: "of a Business Analyst within an IT project lifecycle",
-  },
-  {
-    title: "Plan BA requirements activities",
-    text: "from stakeholder identification to sign-off",
-  },
-  {
-    title: "Elicit requirements",
-    text: "from stakeholders, with an emphasis on interviews and workshops",
-  },
-  {
-    title: "Analyse stated requirements",
-    text: "with an overview of key modelling techniques",
-  },
-  {
-    title: "Document requirements",
-    text: "for Waterfall, Agile, and hybrid project types",
-  },
-  {
-    title: "Write and validate requirements",
-    text: "to industry-standard quality benchmarks",
-  },
-  {
-    title: "Requirements management and communication",
-    text: "— the BA's end-to-end role",
-  },
-];
-
-const stats = [
-  {
-    number: "94%",
-    label: "of graduates placed within 90 days of completion",
-    dark: false,
-  },
-  {
-    number: "3×",
-    label: "average salary increase vs prior role",
-    dark: true,
-  },
-  {
-    number: "37+",
-    label: "topics covered across three core modules",
-    dark: false,
-  },
-  {
-    number: "100%",
-    label: "placement assistance until you land your offer",
-    dark: true,
-  },
-];
-
-const tools = [
-  "Jira",
-  "Confluence",
-  "MS Visio",
-  "Balsamiq",
-  "Lucidchart",
-  "Excel / Sheets",
-  "BRD Templates",
-  "Use Case Docs",
-];
-
-const steps = [
-  {
-    number: "01",
-    title: "Free Counselling Call",
-    description:
-      "Speak with an advisor who has worked as a BA. They'll assess your background, goals, and whether this program is the right fit — honestly, with no hard sell.",
-  },
-  {
-    number: "02",
-    title: "Live Training Begins",
-    description:
-      "Weekday evenings and weekend batches. Every session is recorded so working professionals never fall behind. Direct access to your instructor throughout.",
-  },
-  {
-    number: "03",
-    title: "Projects & Portfolio",
-    description:
-      "Build real BRDs, FRDs, use-case documents, and Agile artefacts using live case studies. Graduate with a portfolio that demonstrates what you can do, not just what you've studied.",
-  },
-  {
-    number: "04",
-    title: "Placement Support",
-    description:
-      "Resume builds, mock interviews, LinkedIn optimisation, and active employer introductions — dedicated support until you receive your offer letter.",
+    title: "Max Life",
+    subtitle: "Insurance",
+    icon: (
+      <svg viewBox="0 0 16 16" className="w-4 h-4 fill-current">
+        <path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.8l-3.8 2 .7-4.3L1.8 5.5l4.3-.6z" />
+      </svg>
+    ),
   },
 ];
 
 const testimonials = [
   {
-    initials: "SR",
-    name: "Sunita Reddy",
-    role: "Junior BA — Wipro, Hyderabad",
-    tag: "Non-Tech",
-    quote:
-      "I had zero IT background — I was in retail management for four years. Within eight weeks of completing the program I had my first BA interview, and within twelve I had an offer. The curriculum is genuinely practical.",
-  },
-  {
     initials: "AM",
-    name: "Arjun Mehta",
-    role: "Associate BA — TCS, Pune",
-    tag: "Fresher",
+    name: "Ananya Mehta",
+    role: "Business Analyst, ICICI Bank",
+    tag: "Bankingh",
     quote:
-      "The Waterfall module alone transformed my understanding of documentation. I was writing BRDs from week three. My hiring manager told me I came in better prepared than most candidates with two years of experience.",
+      "I came in with zero BA experience and left with two full project implementations on my portfolio. Within six weeks of completing the program I had three offers. BACentric doesn't just train you — they build you.",
   },
   {
-    initials: "KP",
-    name: "Kavya Pillai",
-    role: "Business Analyst — Infosys, Bengaluru",
-    tag: "Career Switch",
+    initials: "RS",
+    name: "Rohan Shetty",
+    role: "Senior BA, Bajaj Allianz",
+    tag: "Insurance",
     quote:
-      "The Agile and Scrum module was what made me stand out. Every company I interviewed at was running Scrum, and I was the only candidate who could talk about planning poker, velocity, and user story refinement with confidence.",
+      "After 7 years in operations I thought switching to BA would take years of effort. The batch of 5 model meant I got personal attention every class. The mentor feedback on my documents was what actually made the difference.",
+  },
+  {
+    initials: "KR",
+    name: "Kavya Reddy",
+    role: "Product BA, Razorpay",
+    tag: "Fintech",
+    quote:
+      "The GenAI integration in the curriculum was something no other program offered. I walked into interviews talking about how I use AI tools to accelerate documentation — and the interviewers were genuinely impressed. Got a 68% hike.",
   },
 ];
 function StarIcon() {
@@ -253,36 +91,374 @@ function StarIcon() {
   );
 }
 
+const pathData = [
+  {
+    label: "Duration",
+    value: "12–16 Weeks",
+    sub: "Intensive program designed to match real project timelines, not classroom calendars.",
+  },
+  {
+    label: "Timings",
+    value: "Weekday Evenings & Weekends",
+    sub: "Schedules built for working professionals. Study without leaving your current job.",
+    dark: true,
+  },
+  {
+    label: "Mode",
+    value: "Live Online + LMS",
+    sub: "Real-time live sessions with 24×7 LMS access for recorded content and resources.",
+  },
+  {
+    label: "Batch Size",
+    value: "5 Students Per Class",
+    sub: "Small batches ensure every participant receives focused mentorship and personal attention.",
+  },
+  {
+    label: "Who Can Join?",
+    value: "All Graduates Welcome",
+    sub: "No technical background required. Open to freshers, career changers, and working professionals.",
+  },
+  {
+    label: "Course Fee",
+    value: "EMI Available",
+    sub: "Zero-cost EMI across all major credit cards. No hidden fees. Scholarship options available.",
+    dark: true,
+  },
+];
+
+const objectives = [
+  {
+    number: "01",
+    title: "Learn",
+    description:
+      "Build strong hands-on exposure to Business Analysis essentials and develop a solid professional foundation — from requirements elicitation to stakeholder management and SDLC frameworks.",
+  },
+  {
+    number: "02",
+    title: "Practice",
+    description:
+      "Every concept you learn is reinforced through workshops, simulations, and practical exercises that mirror real project scenarios. Because mastery is built through repetition — not observation.",
+  },
+  {
+    number: "03",
+    title: "Work",
+    description:
+      "Execute 2 complete end-to-end project implementations as a Business Analyst and gain the kind of experience employers value most — regardless of what's on your resume today.",
+  },
+];
+
+const syllabusData = [
+  {
+    title: "Introduction to Business Analysis",
+    content:
+      "Understand what a Business Analyst actually does inside a real organization. We go beyond job descriptions — you will learn how BA fits within project structures, how to navigate cross-functional teams, and what it means to be the bridge between business and technology.",
+    tags: ["Foundation", "Role Clarity"],
+  },
+  {
+    title: "Requirements Elicitation & Elicitation Techniques",
+    content:
+      "Master the art of drawing out accurate, complete requirements from stakeholders who don't always know what they want. Covers interviews, workshops, prototyping, observation, and document analysis — applied through live simulation exercises.",
+    tags: ["Core Skill", "Stakeholder Management"],
+  },
+  {
+    title: "SDLC — Waterfall & Agile Frameworks",
+    content:
+      "Learn how software delivery actually works — from traditional Waterfall to modern Agile delivery. Understand where the BA role shifts in each model, and how to adapt your approach for the environment you're placed in.",
+    tags: ["Waterfall", "Agile", "Scrum"],
+  },
+  {
+    title: "Scrum Framework in Practice",
+    content:
+      "Go beyond reading the Scrum guide. Participate in sprint ceremonies, write user stories that developers can actually build from, manage backlogs under time pressure, and understand the Product Owner–BA dynamic from the inside.",
+    tags: ["Scrum", "User Stories", "Backlog"],
+  },
+  {
+    title: "Requirement Documentation",
+    content:
+      "Write BRDs, FRDs, SRS documents, and use-case specifications the way senior BAs produce them — with precision, traceability, and zero ambiguity. Every document you produce is reviewed and refined until it meets professional standards.",
+    tags: ["BRD", "FRD", "Use Cases"],
+  },
+  {
+    title: "Software Testing for Business Analysts",
+    content:
+      "Understand how testing connects to BA responsibilities. Learn to write test cases, participate in UAT, raise and track defects, and communicate with QA teams — skills that make you far more valuable in any project environment.",
+    tags: ["UAT", "Test Cases", "Defect Tracking"],
+  },
+  {
+    title: "Operational Challenges & Post-Implementation Support",
+    content:
+      "Most courses end at go-live. We train you for what happens after — handling change requests, managing stakeholder expectations post-delivery, and navigating the operational realities that define a BA's long-term credibility.",
+    tags: ["Change Management", "Post-Go-Live"],
+  },
+  {
+    title: "Elective — SQL for Business Analysts",
+    content:
+      "A practical introduction to SQL designed for BAs — not developers. Learn to query databases, understand data structures, and validate business logic through data, so you can have intelligent conversations with technical teams and make better decisions.",
+    tags: ["Elective", "SQL", "Data Analysis"],
+  },
+  {
+    title: "Elective — Power BI for Business Analysts",
+    content:
+      "Learn to build dashboards and reports that communicate business insights to stakeholders. In an environment where data-driven decision making is standard, Power BI fluency is rapidly becoming an expected BA skill across industries.",
+    tags: ["Elective", "Power BI", "Data Visualization"],
+  },
+];
+
+const tools = [
+  {
+    icon: "📋",
+    name: "JIRA",
+    desc: "Backlog management, sprint tracking, user story creation and defect logging in Agile projects.",
+  },
+  {
+    icon: "🗂️",
+    name: "Confluence",
+    desc: "Documentation collaboration, requirement pages, and knowledge management across project teams.",
+  },
+  {
+    icon: "✏️",
+    name: "Balsamiq",
+    desc: "Rapid wireframing and low-fidelity prototyping to communicate UI requirements to developers.",
+  },
+  {
+    icon: "🔷",
+    name: "MS Visio",
+    desc: "Process flow diagrams, swimlane charts, and UML modelling for requirements documentation.",
+  },
+  {
+    icon: "📊",
+    name: "Power BI",
+    desc: "Building stakeholder dashboards and data visualizations that turn business data into decisions.",
+  },
+  {
+    icon: "🗄️",
+    name: "SQL",
+    desc: "Querying and validating data to support requirements analysis, testing, and business reporting.",
+  },
+  {
+    icon: "📝",
+    name: "MS Excel",
+    desc: "Advanced data analysis, gap analysis matrices, traceability documents and requirement tracking.",
+  },
+  {
+    icon: "🤖",
+    name: "GenAI Tools",
+    desc: "Leveraging AI to accelerate documentation, requirements drafting, and stakeholder communication.",
+  },
+];
+
+const methods = [
+  {
+    pct: "40%",
+    title: "Case Studies & Discussion",
+    desc: "We use real project cases to create meaningful exercises and practical understanding. Every case is drawn from actual engagements our trainers have delivered.",
+    dark: false,
+  },
+  {
+    pct: "30%",
+    title: "Simulation & Games",
+    desc: "People learn best when they engage deeply. Our simulations create decision-making under realistic project conditions — ambiguity, pressure, conflicting stakeholders.",
+    dark: true,
+  },
+  {
+    pct: "30%",
+    title: "Theory & Application",
+    desc: "We use theory only where it adds value — and immediately connect it to application. No isolated concepts. No passive memorization. Only what matters.",
+    dark:false,
+  },
+];
+
+const domains = [
+  {
+    icon: "🏦",
+    title: "Banking",
+    tags: ["Retail", "Corporate", "Wealth", "Credit", "Investment"],
+  },
+  {
+    icon: "🛡️",
+    title: "Insurance",
+    tags: ["Life", "P&C", "General Insurance"],
+  },
+  {
+    icon: "🏥",
+    title: "Healthcare",
+    tags: ["RCM", "Medical Coding", "EMR/EHR", "Operations"],
+  },
+  {
+    icon: "⚙️",
+    title: "Operations",
+    tags: ["BPO", "KPO", "Risk Management", "Fraud Investigation"],
+  },
+  {
+    icon: "💻",
+    title: "Technology",
+    tags: ["CRM/ERP", "HCM", "Fintech", "Mobile Apps", "Salesforce"],
+  },
+  {
+    icon: "📈",
+    title: "Finance",
+    tags: ["Capital Markets", "Trade Finance", "Forex", "Mutual Funds"],
+  },
+];
+
+const step = [
+  {
+    number: "01",
+    title: "Assignment",
+    description:
+      "Real project case studies are explained in detail and assigned to participants for practical execution — across banking, insurance, healthcare, and technology domains.",
+  },
+  {
+    number: "02",
+    title: "Review",
+    description:
+      "Once participants submit their work, our mentors review every detail and provide structured feedback during live sessions — not automated suggestions.",
+  },
+  {
+    number: "03",
+    title: "Revise / Rework",
+    description:
+      "Based on mentor feedback, participants improve their documentation, correct mistakes, and strengthen their approach. This is where real learning happens.",
+  },
+  {
+    number: "04",
+    title: "Adapt",
+    description:
+      "This process continues until participants naturally adopt the working style, thinking process, and professional discipline of a Business Analyst.",
+  },
+];
+
+const panelItems = [
+  "2 complete end-to-end project implementations as a Business Analyst",
+  "BRD, FRD, and SRS documents reviewed to professional standard",
+  "Stakeholder workshop simulations with live role-playing",
+  "Sprint ceremonies and backlog grooming exercises in real Scrum format",
+  "UAT planning and test case writing against real business scenarios",
+  "Domain-specific capstone projects — banking, insurance, healthcare, and tech",
+  "Post-implementation review and change request handling",
+];
+
+const features = [
+  {
+    icon: "🏋️",
+    title: "Professional Workshop",
+    desc: "Completely practical. Real-time. A strong BA foundation built through actual project work across every major responsibility of the role.",
+  },
+  {
+    icon: "🎯",
+    title: "Hands-On Experience",
+    desc: "Our facilitators are experienced professionals with deep project delivery experience as practicing Business Analysts — not part-time educators.",
+  },
+  {
+    icon: "👁️",
+    title: "Personal Attention",
+    desc: "We limit every batch to 5 students to ensure every participant receives focused mentorship based on their individual learning needs.",
+  },
+  {
+    icon: "🕐",
+    title: "24×7 LMS Access",
+    desc: "Access premium learning resources including articles, white papers, case studies, frameworks, and practical reference material throughout the year.",
+  },
+  {
+    icon: "📹",
+    title: "Video Tutorials Included",
+    desc: "Beyond live sessions, visual learning support helps reinforce concepts and improve retention on your own schedule.",
+  },
+  {
+    icon: "🔄",
+    title: "Resit Anytime for Free",
+    desc: "Missed sessions or need deeper clarity? You can revisit the course anytime at no additional cost — because learning doesn't stop on a fixed date.",
+  },
+  {
+    icon: "📱",
+    title: "Phone & Email Support",
+    desc: "Ongoing support from faculty whenever guidance is needed — before, during, and after the program.",
+  },
+  {
+    icon: "📚",
+    title: "100+ Lessons Included",
+    desc: "Extensive learning modules and practical resources built to strengthen your long-term career growth, not just your first 90 days.",
+  },
+  {
+    icon: "✅",
+    title: "100% Placement Assistance",
+    desc: "Training is only the beginning. We actively support placement outcomes by strengthening both your capability and your employability.",
+  },
+];
+
+const careerServices = [
+  {
+    icon: "🤝",
+    title: "One-to-One Mentoring",
+    desc: "Every career journey is different. We provide personalized mentoring based on your background, goals, and transition path.",
+  },
+  {
+    icon: "🧭",
+    title: "Career Coaching",
+    desc: "Our dedicated career coaches help define a clear strategy for your next professional move — not a generic job search plan.",
+  },
+  {
+    icon: "📄",
+    title: "Portfolio & Resume",
+    desc: "Build a strong professional profile that reflects your capability, credibility, and project readiness.",
+  },
+  {
+    icon: "🔗",
+    title: "Recruitment & Profile Marketing",
+    desc: "We actively market participant profiles through alumni networks, corporate HRs, and recruitment firms across India.",
+  },
+  {
+    icon: "🎤",
+    title: "Mock Interview Events",
+    desc: "Practice with mentors and industry professionals so real interviews feel familiar — not intimidating.",
+  },
+  {
+    icon: "🔍",
+    title: "Interview Analysis",
+    desc: "We prepare you based on real job descriptions and analyze your interview performance so every attempt becomes stronger.",
+  },
+  {
+    icon: "🏗️",
+    title: "Capstone Projects",
+    desc: "Domain-specific projects across banking, insurance, healthcare, fintech, operations, HR, and technology for your portfolio.",
+  },
+  {
+    icon: "🛡️",
+    title: "Job Support",
+    desc: "Our support continues after placement. Because the first few months on the job matter just as much as getting hired.",
+  },
+];
+
 const faqs = [
   {
-    question: "Do I need any technical knowledge to enrol?",
+    question: "Do I need a technical background to enroll?",
     answer:
-      "No technical background is required. The program starts from absolute fundamentals, including what a BA is, how IT companies are structured, and the SDLC. Analytical thinking and communication skills matter far more than coding experience.",
+      "No. The Business Analyst program is open to all graduates regardless of background. We train engineers, MBAs, commerce graduates, science graduates, and working professionals from non-IT roles. Our curriculum is designed to build your technical fluency from the ground up — alongside your BA skills.",
   },
   {
-    question: "Can a fresher get a job as a Business Analyst?",
+    question: "Can I study while working full-time?",
     answer:
-      "Yes. A significant share of our placements are fresh graduates. Companies actively recruit junior and associate BAs. What they look for is structured training, documentation skills, and a confident grasp of requirements processes — all of which this program delivers.",
+      "Yes — this is how the majority of our students enroll. All sessions run on weekday evenings and weekends. Every live session is recorded and accessible via LMS, so if you miss a class you can catch up on your own schedule. The workload is designed around employed professionals.",
   },
   {
-    question: "Can I study this program while working full-time?",
+    question: "What is the batch size and why does it matter?",
     answer:
-      "Absolutely — this is how the majority of our students enrol. Classes run on weekday evenings and weekends. Every session is recorded, so if you miss a live class you can catch up on your own schedule. The workload is designed around employed professionals.",
+      "We limit every batch to 5 students. This is not a marketing claim — it is central to our training model. With 5 participants, every person's assignment gets reviewed in detail, every question gets answered fully, and your mentor can adapt the session to your specific challenges. No one gets left behind.",
   },
   {
-    question: "What tools will I learn during the program?",
+    question: "What makes this different from other BA training programs?",
     answer:
-      "You will get hands-on exposure to the tools BAs use daily in industry — Jira for Agile project tracking, Confluence for documentation, Lucidchart and MS Visio for process modelling, Balsamiq for wireframing, and Excel for requirement matrices. All tool work is embedded within real case studies.",
+      "Three things: our trainers are full-time working BA professionals from active delivery teams (not part-time educators), our batch size is capped at 5 for genuine mentorship, and participants execute 2 complete end-to-end project implementations — not just case study exercises. We prepare you for the interview, the onboarding, and the first year on the job.",
   },
   {
-    question: "What certifications will I receive?",
+    question: "Is placement assistance included? What does it cover?",
     answer:
-      "You will receive the Edtech Academy program completion certificate, plus intensive preparation materials and mock exams aligned to the IIBA Certification of Competency in Business Analysis (CCBA) — a globally recognised professional credential for Business Analysts.",
+      "Yes. 100% placement assistance is included — meaning dedicated, active support from your assigned placement manager until you receive an offer. This covers resume building, profile marketing through our recruiter network, mock interview preparation, job description analysis, and post-placement support for your first few months.",
   },
   {
-    question: "What does placement assistance actually involve?",
+    question: "What payment and financing options are available?",
     answer:
-      "You will be assigned a named placement manager who will work with you on your resume, LinkedIn profile, mock interviews, and employer introductions. This support is active and ongoing — not a job board subscription — and continues until you receive an offer. 94% of graduates receive at least one offer within 90 days of completing the program.",
+      "We offer zero-cost EMI across all major credit cards, direct bank transfer, and merit-based scholarships for eligible candidates. There are no hidden fees. Your advisor will walk you through all options during your counselling call so you can make a fully informed decision without any pressure.",
   },
 ];
 export default function CyberSecurityPage() {
@@ -318,23 +494,33 @@ export default function CyberSecurityPage() {
 
             <div>
               <h1 className="font-serif text-lg font-bold text-black">
-                Edtech Academy
+                CodersBloom
               </h1>
               <p className="text-[10px] tracking-[2px] uppercase text-[#7A7060]">
-                Professional Training
+                Business Analyst Training
+              </p>
+            </div>
+            <div className="border h-10 border-l-2 border-gray-700"></div>
+            <div>
+              <h1 className="font-serif text-lg font-bold text-black">17+</h1>
+              <p className="text-[10px] tracking-[2px] uppercase text-[#7A7060]">
+                Years
               </p>
             </div>
           </div>
 
           <ul className="hidden lg:flex items-center gap-8 text-sm font-medium">
             <li className="text-[#7A7060] hover:text-black">
-              <a href="#">Programs</a>
-            </li>
-            <li className="text-[#7A7060] hover:text-black">
               <a href="#curriculum">Curriculum</a>
             </li>
             <li className="text-[#7A7060] hover:text-black">
-              <a href="#outcomes">Outcomes</a>
+              <a href="#tools">Tools</a>
+            </li>
+            <li className="text-[#7A7060] hover:text-black">
+              <a href="#methodology">Methodology</a>
+            </li>
+            <li className="text-[#7A7060] hover:text-black">
+              <a href="#careerServices">Career Services</a>
             </li>
             <li className="text-[#7A7060] hover:text-black">
               <a href="#faq">FAQ</a>
@@ -360,57 +546,54 @@ export default function CyberSecurityPage() {
             <div className="flex items-center gap-3 mb-8">
               <div className="w-8 h-[1px] bg-[#C9A84C]" />
               <span className="uppercase tracking-[3px] text-[#C9A84C] text-xs font-semibold">
-                Cybersecurity Program
+                Business Analyst Training with GenAI
               </span>
             </div>
 
-            <h1 className="text-white font-serif text-3xl lg:text-7xl leading-tight font-bold">
-              Become a{" "}
-              <span className="italic text-[#C9A84C]">Business Analyst</span>
-              <br />
-              from Scratch.
+            <h1 className="text-white font-serif text-3xl lg:text-6xl leading-tight font-bold">
+              Master Business Analysis Through <br />
+              <span className="italic text-[#C9A84C]">Real Practice.</span>
             </h1>
 
-            <p className="text-white/60 text-lg leading-8 mt-8 max-w-xl">
-              A structured, industry-aligned curriculum spanning BA
-              fundamentals, Waterfall methodology, and Agile/Scrum — designed to
-              get you interview-ready with real skills and real confidence.
-            </p>
-
             {/* Tags */}
-            <div className="flex flex-wrap gap-3 mt-8">
-              {[
-                "BA Introduction & SDLC",
-                "Waterfall Methodology",
-                "Agile / Scrum",
-              ].map((item) => (
-                <div
-                  key={item}
-                  className="flex gap-2 border border-[#C9A84C]/30 bg-[#C9A84C]/10 text-[#C9A84C] px-4 py-2 text-xs rounded-sm"
-                >
-                  <div className="w-[5px] h-[5px] rounded-full bg-[#C9A84C] mt-[6px] " />
-                  {item}
-                </div>
-              ))}
+            <div className="flex flex-wrap gap-6 mt-5">
+              {["Practical", "Industry-Aligned", "Experience-Driven"].map(
+                (item) => (
+                  <div
+                    key={item}
+                    className="flex gap-2 text-white/60 py-2 text-lg"
+                  >
+                    <div className="w-[5px] h-[5px] rounded-full bg-[#C9A84C] mt-[12px] " />
+                    {item}
+                  </div>
+                ),
+              )}
             </div>
+
+            <p className="text-white/60 text-lg leading-8 mt-5 max-w-xl">
+              Build the confidence to lead projects independently from day one —
+              with hands-on training designed for today's project environments,
+              not just certification exams.
+            </p>
 
             {/* Buttons */}
             <div className="flex flex-wrap gap-4 mt-10">
               <button className="bg-[#C9A84C] text-black px-8 py-4 font-semibold rounded-sm">
-                Book Free Counselling →
+                Enroll Now
               </button>
 
               <button className="border border-white/30 text-white px-8 py-4 rounded-sm">
-                View Curriculum
+                Explore Curriculum
               </button>
             </div>
 
             {/* Stats */}
             <div className="flex flex-wrap gap-10 border-t border-white/10 mt-14 pt-10">
               {[
-                { number: "3", label: "Core modules" },
-                { number: "37+", label: "Topic sessions" },
-                { number: "100%", label: "Placement support" },
+                { number: "34.5L", label: "Highest Salary Offered" },
+                { number: "3,200+", label: "Careers Transitioned" },
+                { number: "55%", label: "Average Hike Offered" },
+                { number: "185+", label: "Companies Hired So Far" },
               ].map((stat) => (
                 <div key={stat.label}>
                   <h2 className="text-white w-[150px] md:w-full text-4xl font-serif font-bold">
@@ -480,8 +663,8 @@ export default function CyberSecurityPage() {
       <div className="w-full bg-[#F0EDE6] border-y border-[#E2DDD4]">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row lg:items-center gap-6 py-5 px-5">
           {/* Label */}
-          <div className="text-[#7A7060] font-bold text-lg whitespace-nowrap">
-            Why Edtech
+          <div className="text-[#7A7060] font-bold text-lg whitespace-nowrap uppercase">
+            Trained & Placed In
           </div>
 
           {/* Items */}
@@ -509,324 +692,949 @@ export default function CyberSecurityPage() {
         </div>
       </div>
 
-      {/* {<!-- MYTHS & ASSUMPTIONS -->} */}
-      <section className="bg-black">
-        <div className="max-w-7xl  mx-auto px-5 lg:px-12 py-10 lg:py-24">
-          {/* Header */}
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-14">
-            <div>
-              {/* Eyebrow */}
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-[1px] bg-[#C9A84C]" />
-                <span className="uppercase tracking-[0.18em] text-[11px] font-semibold text-[#C9A84C]">
-                  Myths & Assumptions
-                </span>
-              </div>
-
-              {/* Title */}
-              <h2 className="text-[38px] sm:text-[52px] leading-[1.05] tracking-[-0.04em] font-semibold text-white font-serif">
-                Misconceptions That
-                <br />
-                Hold People{" "}
-                <em className="italic text-[#c9a84c] font-serif">Back.</em>
-              </h2>
-            </div>
-
-            {/* Lead */}
-            <p className="max-w-[520px] text-[15px] leading-8 text-[#5f6b76] font-light lg:text-left">
-              The BA profession is surrounded by myths. Let's clear them up —
-              because they might be the only thing standing between you and a
-              career you love.
-            </p>
-          </div>
-
-          {/* Grid */}
-          <div className="grid md:grid-cols-2 gap-5 lg:gap-7">
-            {myths.map((item, index) => (
-              <div
-                key={index}
-                className="bg-black border border-white/10 rounded-lg p-7 sm:p-9 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.06)]"
-              >
-                {/* Top label */}
-                <div className="mb-5">
-                  <span className="inline-block bg-yellow-400/10 text-[#5f6b76] text-xs font-semibold px-3 py-1 rounded-sm tracking-wide uppercase">
-                    myth
-                  </span>
-                </div>
-
-                {/* Myth */}
-                <h3 className="text-[22px] sm:text-[25px] leading-[1.45] tracking-[-0.02em] text-[#5f6b76] font-medium mb-8 italic">
-                  “{item.myth}”
-                </h3>
-
-                {/* Reality */}
-                <div className="border-t border-[#ece7de] pt-6">
-                  <span className="block text-[#c9a84c] text-[13px] tracking-[0.12em] uppercase font-semibold mb-3">
-                    The Reality
-                  </span>
-
-                  <p className="text-[15px] leading-8 text-[#5f6b76] font-light">
-                    {item.reality}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Curriculum */}
-      <section id="curriculum" className="bg-[#F8F5EF]">
-        <div className="max-w-7xl  mx-auto px-5 lg:px-12 py-10 lg:py-24">
-          {/* Header */}
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-14">
-            <div>
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-[2px] bg-[#C9A84C]" />
-                <span className="uppercase tracking-[0.2em] text-sm text-[#C9A84C] font-medium">
-                  Course Content
-                </span>
-              </div>
-
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight font-serif text-black">
-                Everything You Need.
-                <br />
-                <em className="font-serif italic text-[#C9A84C]">
-                  Nothing You Don't.
-                </em>
-              </h2>
-            </div>
-
-            <p className="max-w-xl text-[#5B6470] text-lg leading-relaxed">
-              Three comprehensive modules covering the full lifecycle of
-              business analysis — from fundamentals to advanced Agile practices.
-            </p>
-          </div>
-
-          {/* Modules */}
-          <div className="space-y-6">
-            {curriculumData.map((module) => {
-              const isOpen = openModule === module.id;
-
-              return (
-                <div
-                  key={module.id}
-                  className="border-t overflow-hidden transition-all duration-300 shadow-sm"
-                >
-                  {/* Header */}
-                  <button
-                    onClick={() => toggleModule(module.id)}
-                    className="w-full flex items-center justify-between p-6 md:p-8 text-left"
-                  >
-                    <div className="flex items-center gap-5">
-                      {/* Number */}
-                      <div className="w-12 h-12 bg-black text-[#C9A84C] flex items-center justify-center font-serif font-bold">
-                        {module.id}
-                      </div>
-
-                      {/* Info */}
-                      <div>
-                        <div className="text-sm uppercase tracking-widest text-[#C9A84C] font-semibold mb-1">
-                          {module.tag}
-                        </div>
-
-                        <h3 className="text-2xl font-bold text-black font-serif">
-                          {module.title}
-                        </h3>
-                      </div>
-                    </div>
-
-                    {/* Right */}
-                    <div className="flex items-center gap-5">
-                      <span className="text-[#6B7280] font-medium">
-                        {module.topics.length} topics
-                      </span>
-
-                      <div className="w-8 h-8 rounded-full border flex items-center justify-center text-2xl bg-black text-[#C9A84C]">
-                        <div className="md:pb-[4px]">{isOpen ? "−" : "+"}</div>
-                      </div>
-                    </div>
-                  </button>
-
-                  {/* Body */}
-                  <div
-                    className={`transition-all duration-300 overflow-hidden ${
-                      isOpen ? "max-h-[1200px]" : "max-h-0"
-                    }`}
-                  >
-                    <div className="px-6 md:px-8 pb-8">
-                      <div className="grid md:grid-cols-2 gap-4">
-                        {module.topics.map((topic, index) => (
-                          <div
-                            key={index}
-                            className="flex items-start gap-4 bg-[#FAF8F3] border border-[#ECE4D7] rounded-2xl p-4"
-                          >
-                            <div className="min-w-[38px] h-[38px] rounded-full bg-[#C9A84C] text-white flex items-center justify-center text-sm font-semibold">
-                              {index + 1}
-                            </div>
-
-                            <p className="text-[#1F2937] leading-relaxed">
-                              {topic}
-                            </p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* <!-- WHAT YOU'LL LEARN + TOOLS --> */}
-      <section id="outcomes" className="bg-white">
-        <div className="max-w-7xl mx-auto px-5 lg:px-12 py-10 lg:py-24">
-          <div className="grid lg:grid-cols-2 gap-14 lg:gap-20">
+      {/* <!-- ABOUT --> */}
+      <section id="about" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-5 lg:px-10">
+          <div className="grid lg:grid-cols-2 gap-14 items-start">
             {/* Left Content */}
             <div>
               {/* Eyebrow */}
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-[2px] bg-[#C9A84C]" />
-                <span className="uppercase tracking-[0.2em] text-sm text-[#C9A84C] font-medium">
-                  What You'll Learn
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-[1px] bg-[#C9A84C]"></div>
+                <span className="uppercase tracking-[3px] text-sm font-semibold text-[#C9A84C]">
+                  What We Do
                 </span>
               </div>
 
               {/* Heading */}
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-black font-serif mb-6">
-                Skills That
+              <h2 className="text-4xl md:text-5xl font-bold leading-tight text-black mb-6 font-serif">
+                We Train You for the
                 <br />
-                Actually{" "}
-                <em className="font-serif italic text-[#C9A84C]">
-                  Get You Hired.
-                </em>
+                <em className="italic text-[#C9A84C]">Job. Not the Exam.</em>
               </h2>
 
-              {/* Description */}
-              <p className="text-[#B7C0CC] text-lg leading-relaxed max-w-2xl mb-10">
-                By the end of this program, you won't just understand business
-                analysis — you'll be able to practise it confidently in any
-                organisation.
+              {/* Paragraphs */}
+              <p className="text-[#4B5563] leading-8 text-lg mb-6">
+                Our Business Analyst Training with GenAI is built to deliver
+                what the industry actually expects from a modern Business
+                Analyst — clarity of thinking, structured problem-solving,
+                stakeholder management, and the ability to drive projects with
+                confidence.
               </p>
 
-              {/* Outcomes List */}
-              <div className="space-y-5">
-                {outcomes.map((item, index) => (
-                  <div key={index} className="flex items-start gap-4">
-                    <div className="w-3 h-3 rounded-full bg-[#C9A84C] mt-2 flex-shrink-0" />
-
-                    <p className="text-black leading-relaxed text-base md:text-lg">
-                      <strong className="text-black">{item.title}</strong>{" "}
-                      {item.text}
-                    </p>
-                  </div>
-                ))}
+              {/* Highlight Box */}
+              <div className="border-l-4 border-[#C9A84C] bg-white p-5 rounded-xl shadow-sm mb-6">
+                <p className="text-[#0E1A2B] text-lg font-medium leading-8">
+                  True Business Analysis cannot be learned from slides alone. It
+                  is built through experience.
+                </p>
               </div>
+
+              <p className="text-[#4B5563] leading-8 text-lg mb-6">
+                From requirements elicitation and documentation to stakeholder
+                communication, project delivery, and post-implementation support
+                — every part of the program is designed around{" "}
+                <strong className="text-black">practical application</strong>.
+              </p>
+
+              <p className="text-[#4B5563] leading-8 text-lg">
+                Unlike conventional institutes that rely on textbook-heavy
+                teaching and part-time trainers, our programs are led by{" "}
+                <strong className="text-black">
+                  full-time working professionals
+                </strong>{" "}
+                from our in-house delivery teams — experts who have successfully
+                delivered projects across insurance, fintech, banking, mobile
+                applications, and US healthcare.
+              </p>
             </div>
 
-            {/* Right Side */}
-            <div className="space-y-8">
-              {/* Stats */}
-              <div className="grid sm:grid-cols-2 gap-5">
-                {stats.map((stat, index) => (
-                  <div
-                    key={index}
-                    className={`rounded-3xl p-6 border transition hover:-translate-y-1 font-serif ${
-                      stat.dark
-                        ? "bg-black text-[#C9A84C] border-gray-800"
-                        : "bg-[#F0EDE6] text-gray-900 border-gray-200"
-                    }`}
-                  >
-                    <div className="text-4xl font-bold">{stat.number}</div>
-                    <p
-                      className={`mt-3 text-sm leading-relaxed ${
-                        stat.dark ? "text-gray-300" : "text-gray-600"
-                      }`}
-                    >
-                      {stat.label}
-                    </p>
-                  </div>
-                ))}
+            {/* Right Stats */}
+            <div className="grid sm:grid-cols-2 ">
+              <div className="bg-[#FFF8E8] border-[1px] border-gray-300 p-8 shadow-md">
+                <div className="text-4xl font-bold text-black font-serif mb-3">
+                  34.5L
+                </div>
+                <p className="text-[#4B5563] leading-7">
+                  Highest salary offered to a BACentric graduate
+                </p>
               </div>
 
-              {/* Tools Card */}
-              <div className="bg-white rounded-3xl p-7 md:p-8 shadow-xl">
-                <h3 className="text-2xl font-bold text-[#0E1A2B] mb-4">
-                  Tools & Case Studies
-                </h3>
-
-                <p className="text-[#6B7280] leading-relaxed text-sm md:text-base mb-6">
-                  Industrial-standard tools and real-world case studies are
-                  woven throughout the program so you graduate with a portfolio,
-                  not just a certificate.
-                </p>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-3">
-                  {tools.map((tool, index) => (
-                    <span
-                      key={index}
-                      className="px-4 py-2 rounded-full bg-[#F5F1E8] border border-[#E8DDC7] text-[#7A6330] text-sm font-medium"
-                    >
-                      {tool}
-                    </span>
-                  ))}
+              <div className="bg-black border-[1px] border-gray-300 p-8 shadow-md">
+                <div className="text-4xl font-bold text-[#C9A84C] mb-3 font-serif">
+                  3,200+
                 </div>
+                <p className="text-[#4B5563] leading-7">
+                  Careers successfully transitioned since inception
+                </p>
+              </div>
+
+              <div className="bg-[#FFF8E8] border-[1px] border-gray-300 p-8 shadow-md">
+                <div className="text-4xl font-bold text-black mb-3 font-serif">
+                  55%
+                </div>
+                <p className="text-[#4B5563] leading-7">
+                  Average salary hike for working professionals
+                </p>
+              </div>
+
+              <div className="bg-[#FFF8E8] border-[1px] border-gray-300 p-8 shadow-md">
+                <div className="text-4xl font-bold text-black mb-3 font-serif">
+                  185+
+                </div>
+                <p className="text-[#4B5563] leading-7">
+                  Companies that have hired BACentric graduates
+                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
+      <hr />
 
-      {/* <!-- HOW IT WORKS --> */}
-      <section className="bg-black overflow-hidden">
-        <div className="max-w-[1280px]  mx-auto px-5 lg:px-12 py-10 lg:py-24">
+      {/* <!-- PATH / LOGISTICS --> */}
+      <section id="path" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-5 lg:px-10">
           {/* Eyebrow */}
-          <div className="flex items-center gap-3 mb-6">
+          <div className="flex items-center gap-3 mb-5">
             <div className="w-10 h-[1px] bg-[#C9A84C]"></div>
-
-            <span className="uppercase tracking-[2px] text-[12px] font-medium text-[#C9A84C]">
-              How It Works
+            <span className="uppercase tracking-[3px] text-sm font-semibold text-[#C9A84C]">
+              Program Details
             </span>
           </div>
 
           {/* Heading */}
-          <h2 className="text-[42px] md:text-[56px] leading-[1.05] tracking-[-2px] font-semibold font-serif text-white max-w-[760px]">
-            From Enrolment to{" "}
-            <em className="italic font-light text-[#C9A84C]">Offer Letter.</em>
+          <h2 className="text-4xl md:text-5xl font-bold text-black font-serif mb-14 leading-tight">
+            Your Path to <em className="text-[#C9A84C] italic">Success.</em>
           </h2>
 
-          {/* Process Grid */}
-          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6 mt-16">
-            {steps.map((step, index) => (
+          {/* Grid */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {pathData.map((item, index) => (
               <div
                 key={index}
-                className="relative bg-black border border-white/10 rounded-sm p-8 min-h-[360px] flex flex-col"
+                className={`rounded-2xl p-8 shadow-md transition duration-300 hover:-translate-y-1 ${
+                  item.dark ? "bg-black" : "bg-[#FFF8E8]"
+                }`}
               >
-                {/* Large Number */}
-                <div className="text-[72px] leading-none font-bold font-serif tracking-[-4px]">
-                  {step.number}
+                {/* Label */}
+                <div
+                  className={`text-sm uppercase tracking-[2px] font-semibold mb-4 ${
+                    item.dark ? "text-[#C9A84C]" : "text-[#C9A84C]"
+                  }`}
+                >
+                  {item.label}
                 </div>
 
-                {/* Marker */}
-                <div className="w-3 h-3 rounded-full bg-[#C9A84C] mt-6"></div>
-
-                {/* Title */}
-                <h3 className="mt-6 text-[24px] leading-[1.3] font-semibold text-white font-serif">
-                  {step.title}
-                </h3>
+                {/* Value */}
+                <div
+                  className={`text-2xl font-bold leading-snug mb-4 font-serif ${
+                    item.dark ? "text-white" : "text-black"
+                  }`}
+                >
+                  {item.value}
+                </div>
 
                 {/* Description */}
-                <p className="mt-5 text-[15px] leading-[1.9] text-gray-400 font-light">
-                  {step.description}
+                <p
+                  className={`leading-7 text-base ${
+                    item.dark ? "text-white/60" : "text-[#4B5563]"
+                  }`}
+                >
+                  {item.sub}
                 </p>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      {/* <!-- PROGRAM OBJECTIVES --> */}
+      <section id="objectives" className="py-20 bg-black">
+        <div className="max-w-7xl mx-auto px-5 lg:px-10">
+          {/* Eyebrow */}
+          <div className="flex items-center gap-3 mb-5">
+            <div className="w-10 h-[1px] bg-[#C9A84C]"></div>
+            <span className="uppercase tracking-[3px] text-sm font-semibold text-[#C9A84C]">
+              Program Objectives
+            </span>
+          </div>
+
+          {/* Heading */}
+          <h2 className="text-4xl md:text-5xl font-bold text-white font-serif leading-tight mb-6">
+            Three Areas to Work
+            <br />
+            Towards <em className="text-[#C9A84C] italic">Success.</em>
+          </h2>
+
+          {/* Lead Text */}
+          <p className="text-lg leading-8 text-[#4B5563] max-w-3xl mb-16">
+            This is not a random list of topics. It is a carefully structured
+            experience designed to build competence, confidence, and
+            credibility.
+          </p>
+
+          {/* Grid */}
+          <div className="grid md:grid-cols-3 gap-8">
+            {objectives.map((item, index) => (
+              <div
+                key={index}
+                className="relative bg-black border-[1px] border-[#4B5563] rounded-xl p-8  hover:-translate-y-1 transition duration-300"
+              >
+                {/* Number */}
+                <div className="text-5xl font-bold text-[#C9A84C]/20 mb-6 font-serif">
+                  {item.number}
+                </div>
+
+                {/* Marker */}
+                <div className="w-2 h-2 bg-[#C9A84C] rounded-full mb-6"></div>
+
+                {/* Title */}
+                <h3 className="text-2xl font-bold text-white mb-5 font-serif">
+                  {item.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-[#4B5563] leading-8 text-base">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* <!-- CURRICULUM --> */}
+      <section id="curriculum" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-5 lg:px-10">
+          <div className="grid lg:grid-cols-[420px_1fr] gap-14">
+            {/* Left Side */}
+            <div className="lg:sticky lg:top-24 h-fit">
+              {/* Eyebrow */}
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-10 h-[1px] bg-[#C9A84C]"></div>
+                <span className="uppercase tracking-[3px] text-sm font-semibold text-[#C9A84C]">
+                  Course Syllabus
+                </span>
+              </div>
+
+              {/* Heading */}
+              <h2 className="text-4xl md:text-5xl font-bold leading-tight text-black font-serif">
+                The Most
+                <br />
+                Comprehensive
+                <br />
+                Curriculum. <em className="text-[#C9A84C] italic">Period.</em>
+              </h2>
+
+              {/* Lead */}
+              <p className="text-lg leading-8 text-[#4B5563] mt-6 mb-10">
+                We bridge every gap that conventional programs leave open —
+                combining traditional BA foundations with modern project
+                realities and future-ready thinking.
+              </p>
+
+              {/* Author */}
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 rounded-full bg-black text-[#C9A84C] flex items-center justify-center font-bold text-lg">
+                  RA
+                </div>
+
+                <div className="flex flex-col">
+                  <strong className="text-black text-lg">Reeti Ahuja</strong>
+                  <span className="text-[#6B7280]">
+                    Program Lead, BACentric
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Side */}
+            <div className="space-y-5">
+              {syllabusData.map((item, index) => {
+                const isOpen = openIndex === index;
+
+                return (
+                  <div
+                    key={index}
+                    className="bg-white rounded-2xl shadow-md overflow-hidden transition duration-300"
+                  >
+                    {/* Question */}
+                    <button
+                      onClick={() => setOpenIndex(isOpen ? null : index)}
+                      className="w-full flex items-center justify-between text-left p-6"
+                    >
+                      <h3 className="text-lg md:text-xl font-semibold text-black leading-7">
+                        {item.title}
+                      </h3>
+
+                      <span className="text-3xl text-[#C9A84C] ml-4">
+                        {isOpen ? "−" : "+"}
+                      </span>
+                    </button>
+
+                    {/* Answer */}
+                    <div
+                      className={`transition-all duration-300 overflow-hidden ${
+                        isOpen
+                          ? "max-h-[500px] opacity-100 pb-6 px-6"
+                          : "max-h-0 opacity-0"
+                      }`}
+                    >
+                      <p className="text-[#4B5563] leading-8 mb-5">
+                        {item.content}
+                      </p>
+
+                      {/* Tags */}
+                      <div className="flex flex-wrap gap-3">
+                        {item.tags.map((tag, idx) => (
+                          <span
+                            key={idx}
+                            className="px-4 py-2 bg-[#F4EFE2] text-[#C9A84C] text-sm font-medium"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* <!-- TOOLS --> */}
+      <section id="tools" className="py-20 bg-black">
+        <div className="max-w-7xl mx-auto px-5 lg:px-10">
+          {/* Eyebrow */}
+          <div className="flex items-center gap-3 mb-5">
+            <div className="w-10 h-[1px] bg-[#C9A84C]"></div>
+
+            <span className="uppercase tracking-[3px] text-sm font-semibold text-[#C9A84C]">
+              Tools We Cover
+            </span>
+          </div>
+
+          {/* Heading */}
+          <h2 className="text-4xl md:text-5xl font-bold leading-tight text-white font-serif mb-6">
+            Professional <em className="text-[#C9A84C] italic">Readiness,</em>
+            <br />
+            Not Just Familiarity.
+          </h2>
+
+          {/* Lead Text */}
+          <p className="max-w-3xl text-lg leading-8 text-[#4B5563] mb-16">
+            You must know how to use tools confidently under real project
+            conditions. Our participants leave with the practical confidence to
+            contribute from day one.
+          </p>
+
+          {/* Tools Grid */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {tools.map((tool, index) => (
+              <div
+                key={index}
+                className="bg-black border border-[#4B5563] rounded-xl p-8 shadow-md hover:-translate-y-1 transition duration-300"
+              >
+                {/* Icon */}
+                <div className="w-16 h-16 rounded-2xl bg-[#F4EFE2] flex items-center justify-center mb-6">
+                  <div className="text-3xl">{tool.icon}</div>
+                </div>
+
+                {/* Name */}
+                <h3 className="text-2xl font-bold text-white mb-4">
+                  {tool.name}
+                </h3>
+
+                {/* Description */}
+                <p className="text-[#4B5563] leading-7 text-base">
+                  {tool.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* <!-- METHODOLOGY --> */}
+      <section id="methodology" className="py-20 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-5 lg:px-10">
+          {/* Header */}
+          <div className="mb-16 text-center">
+            {/* Eyebrow */}
+            <div className="flex items-center gap-1 md:gap-3 mb-5 justify-center">
+              <div className="w-10 h-[1px] bg-[#C9A84C] "></div>
+
+              <span className="uppercase tracking-[3px] text-sm font-semibold text-[#C9A84C] w-full">
+                Our Learning Methodology
+              </span>
+            </div>
+
+            {/* Heading */}
+            <h2 className="text-3xl md:text-5xl font-bold leading-tight font-serif text-black">
+              How Real{" "}
+              <em className="text-[#C9A84C] not-italic">Professionals</em>
+              <br />
+              Are Made.
+            </h2>
+          </div>
+
+          {/* Learning Cycle */}
+          <div className="bg-white p-6 md:p-10 overflow-x-auto mb-16">
+            <svg
+              className="w-[280px] md:w-full"
+              viewBox="0 0 780 340"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <marker
+                  id="arrow"
+                  viewBox="0 0 10 10"
+                  refX="8"
+                  refY="5"
+                  markerWidth="7"
+                  markerHeight="7"
+                  orient="auto-start-reverse"
+                >
+                  <path
+                    d="M2 1L8 5L2 9"
+                    fill="none"
+                    stroke="#C9A84C"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </marker>
+              </defs>
+
+              {/* Arrows */}
+              <path
+                d="M 178 128 Q 260 60 322 128"
+                fill="none"
+                stroke="#C9A84C"
+                strokeWidth="1.5"
+                strokeDasharray="5 4"
+                markerEnd="url(#arrow)"
+                opacity="0.7"
+              />
+
+              <path
+                d="M 422 170 Q 490 230 422 258"
+                fill="none"
+                stroke="#C9A84C"
+                strokeWidth="1.5"
+                strokeDasharray="5 4"
+                markerEnd="url(#arrow)"
+                opacity="0.7"
+              />
+
+              <path
+                d="M 322 258 Q 260 320 178 258"
+                fill="none"
+                stroke="#C9A84C"
+                strokeWidth="1.5"
+                strokeDasharray="5 4"
+                markerEnd="url(#arrow)"
+                opacity="0.7"
+              />
+
+              <path
+                d="M 78 170 Q 10 95 78 95"
+                fill="none"
+                stroke="#C9A84C"
+                strokeWidth="1.8"
+                strokeDasharray="5 4"
+                markerEnd="url(#arrow)"
+                opacity="0.9"
+              />
+
+              {/* Center Text */}
+              <text
+                x="250"
+                y="192"
+                textAnchor="middle"
+                fontSize="13"
+                fill="#C9A84C"
+                opacity="0.6"
+                fontStyle="italic"
+              >
+                continuous
+              </text>
+
+              <text
+                x="250"
+                y="208"
+                textAnchor="middle"
+                fontSize="13"
+                fill="#C9A84C"
+                opacity="0.6"
+                fontStyle="italic"
+              >
+                cycle
+              </text>
+
+              {/* Node 1 */}
+              <rect
+                x="18"
+                y="110"
+                width="120"
+                height="80"
+                rx="6"
+                fill="#000000"
+              />
+
+              <rect
+                x="18"
+                y="110"
+                width="120"
+                height="3"
+                rx="2"
+                fill="#C9A84C"
+              />
+
+              <text
+                x="78"
+                y="147"
+                textAnchor="middle"
+                fontSize="16"
+                fontWeight="700"
+                fill="#C9A84C"
+                fontFamily="serif"
+              >
+                Experiment
+              </text>
+
+              <text
+                x="78"
+                y="164"
+                textAnchor="middle"
+                fontSize="11"
+                fill="rgba(255,255,255,0.5)"
+              >
+                Try it in practice
+              </text>
+
+              {/* Node 2 */}
+
+              <rect
+                x="322"
+                y="95"
+                width="124"
+                height="80"
+                rx="6"
+                fill="#1A1A1A"
+                stroke="#C9A84C"
+                strokeOpacity="0.3"
+              />
+
+              <text
+                x="384"
+                y="132"
+                textAnchor="middle"
+                fontSize="16"
+                fontWeight="700"
+                fill="white"
+                fontFamily="serif"
+              >
+                Experience
+              </text>
+
+              <text
+                x="384"
+                y="149"
+                textAnchor="middle"
+                fontSize="11"
+                fill="rgba(255,255,255,0.45)"
+              >
+                Concrete encounter
+              </text>
+
+              {/* Node 3 */}
+              <rect
+                x="322"
+                y="225"
+                width="124"
+                height="80"
+                rx="6"
+                fill="#1A1A1A"
+                stroke="#C9A84C"
+                strokeOpacity="0.3"
+              />
+
+              <text
+                x="384"
+                y="262"
+                textAnchor="middle"
+                fontSize="16"
+                fontWeight="700"
+                fill="white"
+                fontFamily="serif"
+              >
+                Reflect
+              </text>
+
+              <text
+                x="384"
+                y="279"
+                textAnchor="middle"
+                fontSize="11"
+                fill="rgba(255,255,255,0.45)"
+              >
+                Observe & review
+              </text>
+
+              {/* Node 4 */}
+              <rect
+                x="18"
+                y="225"
+                width="120"
+                height="80"
+                rx="6"
+                fill="#1A1A1A"
+                stroke="#C9A84C"
+                strokeOpacity="0.3"
+              />
+
+              <text
+                x="78"
+                y="259"
+                textAnchor="middle"
+                fontSize="14"
+                fontWeight="700"
+                fill="white"
+                fontFamily="serif"
+              >
+                Conceptualize
+              </text>
+
+              <text
+                x="78"
+                y="276"
+                textAnchor="middle"
+                fontSize="11"
+                fill="rgba(255,255,255,0.45)"
+              >
+                Form new ideas
+              </text>
+
+              {/* Attribution */}
+              <text
+                x="390"
+                y="320"
+                textAnchor="middle"
+                fontSize="12"
+                fill="rgba(201,168,76,0.45)"
+                fontStyle="italic"
+              >
+                Based on Kolb's Experiential Learning Cycle
+              </text>
+            </svg>
+          </div>
+
+          {/* Method Bars */}
+          <div className="grid md:grid-cols-3 gap-6">
+            {methods.map((item, index) => (
+              <div
+                key={index}
+                className={`bg-black border border-[#C9A84C]/10 rounded-2xl p-8 hover:-translate-y-1 transition duration-300 ${
+                  item.dark ? "bg-black" : "bg-[#F8F5EE]"
+                }`}
+              >
+                {/* Percentage */}
+                <div className={`text-5xl font-bold  mb-5 font-serif  ${
+                    item.dark ? "text-[#C9A84C]" : "text-black"
+                  }`}>
+                  {item.pct}
+                </div>
+
+                {/* Title */}
+                <h3
+                  className={`text-2xl font-semibold mb-4 ${
+                    item.dark ? "text-white" : "text-black"
+                  }`}
+                >
+                  {item.title}
+                </h3>
+
+                {/* Description */}
+                <p className={`mb-4 leading-8 ${
+                    item.dark ? "text-slate-400" : "text-slate-900"
+                  }`}>{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <hr />
+
+      {/* <!-- DOMAINS --> */}
+      <section id="domains" className="py-20 bg-[#F8F5EE]">
+        <div className="max-w-7xl mx-auto px-5 lg:px-10">
+          {/* Header */}
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
+            <div>
+              {/* Eyebrow */}
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-10 h-[1px] bg-[#C9A84C]"></div>
+
+                <span className="uppercase tracking-[3px] text-sm font-semibold text-[#C9A84C]">
+                  Domain Expertise
+                </span>
+              </div>
+
+              {/* Heading */}
+              <h2 className="text-4xl md:text-5xl font-bold leading-tight text-black font-serif">
+                We Work Across
+                <br />
+                Every Major{" "}
+                <em className="text-[#C9A84C] italic">Industry.</em>
+              </h2>
+            </div>
+
+            {/* Lead Text */}
+            <p className="max-w-md text-lg leading-8 text-[#4B5563]">
+              Our trainers have delivered projects in these domains — and they
+              bring that lived experience into every session.
+            </p>
+          </div>
+
+          {/* Domains Grid */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {domains.map((domain, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-xl p-8 shadow-md hover:-translate-y-1 transition duration-300"
+              >
+                {/* Icon */}
+                <div className="w-16 h-16 rounded-xl bg-[#F4EFE2] flex items-center justify-center text-3xl mb-6">
+                  {domain.icon}
+                </div>
+
+                {/* Title */}
+                <h3 className="text-2xl font-bold text-black mb-5">
+                  {domain.title}
+                </h3>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-3">
+                  {domain.tags.map((tag, idx) => (
+                    <span
+                      key={idx}
+                      className="px-4 py-2 bg-[#F8F5EE] text-[#0E1A2B] text-sm font-medium border border-[#E7DFC8]"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <hr />
+
+      {/* <!-- CASE STUDIES & ASSIGNMENTS --> */}
+      <section id="projects" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-5 lg:px-10">
+          <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-10 items-start">
+            {/* Left Content */}
+            <div>
+              {/* Eyebrow */}
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-10 h-[1px] bg-[#C9A84C]"></div>
+
+                <span className="uppercase tracking-[3px] text-sm font-semibold text-[#C9A84C]">
+                  Case Studies & Assignments
+                </span>
+              </div>
+
+              {/* Heading */}
+              <h2 className="text-4xl md:text-5xl font-bold leading-tight text-black font-serif mb-6">
+                Built Through
+                <br />
+                <em className="text-[#C9A84C] italic">Doing,</em> Not
+                Watching.
+              </h2>
+
+              {/* Lead */}
+              <p className="text-lg leading-8 text-[#4B5563] max-w-3xl mb-14">
+                Mastery is built through repetition — not observation. Every
+                assignment cycle takes you closer to operating like a
+                professional.
+              </p>
+
+              {/* Steps */}
+              <div className="space-y-8">
+                {step.map((step, index) => (
+                  <div key={index} className="flex gap-5 items-start">
+                    {/* Number Badge */}
+                    <div className="w-14 h-14 rounded-full bg-black text-[#C9A84C] flex items-center justify-center font-bold text-lg shrink-0 shadow-md">
+                      {step.number}
+                    </div>
+
+                    {/* Content */}
+                    <div>
+                      <h4 className="text-2xl font-bold text-black mb-3">
+                        {step.title}
+                      </h4>
+
+                      <p className="text-[#4B5563] leading-8">
+                        {step.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right Panel */}
+            <div className="bg-black rounded-sm p-8 lg:p-10 sticky top-24 shadow-xl">
+              {/* Label */}
+              <div className="uppercase tracking-[3px] text-sm font-semibold text-[#C9A84C] mb-5">
+                What You'll Work On
+              </div>
+
+              {/* Headline */}
+              <h3 className="text-4xl font-bold leading-tight font-serif text-white mb-10">
+                Beyond
+                <br />
+                <em className="text-[#C9A84C] italic">
+                  Theoretical Classes.
+                </em>
+              </h3>
+
+              {/* Items */}
+              <div className="space-y-5">
+                {panelItems.map((item, index) => (
+                  <div
+                    key={index}
+                    className="flex gap-4 items-start border-b border-white/10 pb-5"
+                  >
+                    {/* Bullet */}
+                    <div className="w-3 h-3 rounded-full bg-[#C9A84C] mt-2 shrink-0"></div>
+
+                    {/* Text */}
+                    <p className="text-white/75 leading-7">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* <!-- WHY US --> */}
+      <section id="why" className="py-20 bg-black">
+        <div className="max-w-7xl mx-auto px-5 lg:px-10">
+          {/* Eyebrow */}
+          <div className="flex items-center gap-3 mb-5">
+            <div className="w-10 h-[1px] bg-[#C9A84C]"></div>
+
+            <span className="uppercase tracking-[3px] text-sm font-semibold text-[#C9A84C]">
+              Why BACentric
+            </span>
+          </div>
+
+          {/* Heading */}
+          <h2 className="text-4xl md:text-5xl font-bold leading-tight text-white font-serif mb-6">
+            What Makes
+            <br />
+            Us <em className="text-[#C9A84C] italic">Different.</em>
+          </h2>
+
+          {/* Lead Text */}
+          <p className="max-w-3xl text-lg leading-8 text-[#4B5563] mb-16">
+            We train you to become the kind of Business Analyst we would trust
+            on our own projects. That standard shows in everything we do.
+          </p>
+
+          {/* Grid */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {features.map((item, index) => (
+              <div
+                key={index}
+                className="bg-black border border-[#4B5563] rounded-xl p-8 shadow-md hover:-translate-y-1 transition duration-300"
+              >
+                {/* Icon */}
+                <div className="w-16 h-16 rounded-2xl bg-zinc-500 flex items-center justify-center text-3xl mb-6">
+                  {item.icon}
+                </div>
+
+                {/* Title */}
+                <h3 className="text-2xl font-bold text-white mb-4 leading-snug">
+                  {item.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-[#4B5563] leading-8 text-base">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* <!-- CAREER SERVICES --> */}
+      <section id="career" className="py-20 bg-[#F8F5EE]">
+        <div className="max-w-7xl mx-auto px-5 lg:px-10">
+          {/* Header */}
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
+            <div>
+              {/* Eyebrow */}
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-10 h-[1px] bg-[#C9A84C]"></div>
+
+                <span className="uppercase tracking-[3px] text-sm font-semibold text-[#C9A84C]">
+                  Career Services
+                </span>
+              </div>
+
+              {/* Heading */}
+              <h2 className="text-4xl md:text-5xl font-bold leading-tight text-black font-serif">
+                From Job Search
+                <br />
+                to <em className="text-[#C9A84C] not-italic">Job Success.</em>
+              </h2>
+            </div>
+
+            {/* Lead */}
+            <p className="max-w-md text-lg leading-8 text-[#4B5563]">
+              BACentric connects top talent with recruiters across India. Our
+              participants have been hired by leading global enterprises and
+              consulting firms.
+            </p>
+          </div>
+
+          {/* Grid */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {careerServices.map((item, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-2xl p-8 shadow-md hover:-translate-y-1 transition duration-300"
+              >
+                {/* Icon */}
+                <div className="w-16 h-16 rounded-2xl bg-[#F4EFE2] flex items-center justify-center text-3xl mb-6">
+                  {item.icon}
+                </div>
+
+                {/* Title */}
+                <h3 className="text-2xl font-bold text-black mb-4 leading-snug">
+                  {item.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-[#4B5563] leading-8 text-base">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <hr />
 
       {/* <!-- TESTIMONIALS --> */}
       <section className="bg-[#f8f6f1]">
@@ -837,14 +1645,14 @@ export default function CyberSecurityPage() {
               <div className="w-10 h-[1px] bg-[#C9A84C]"></div>
 
               <span className="uppercase tracking-[2px] text-[12px] font-medium text-[#C9A84C]">
-                Student Stories
+                What Our Graduates Say
               </span>
             </div>
 
             <h2 className="text-[42px] md:text-[56px] leading-[1.05] tracking-[-2px] font-semibold font-serif text-[#111111]">
-              Real People.{" "}
+              Real Careers.{" "} <br />
               <em className="italic font-light text-[#C9A84C]">
-                Real Careers.
+                Real Results.
               </em>
             </h2>
           </div>
@@ -900,9 +1708,10 @@ export default function CyberSecurityPage() {
           </div>
         </div>
       </section>
+      <hr />
 
       {/* <!-- FAQ --> */}
-      <section id="faq" className="bg-[#f8f6f1]">
+      <section id="faq" className="bg-white">
         <div className="max-w-7xl mx-auto px-5 lg:px-12 py-10 lg:py-24">
           <div className="grid lg:grid-cols-[0.95fr_1.2fr] gap-14 lg:gap-20">
             {/* Left Side */}
@@ -1020,9 +1829,7 @@ export default function CyberSecurityPage() {
               </h2>
 
               <p className="mt-8 text-[15px] sm:text-[16px] leading-8 text-[#b6c0cb] font-light max-w-2xl">
-                Our advisors are practising Business Analysts who have been
-                exactly where you are. No scripts, no pressure — just honest
-                guidance about whether this program is right for you.
+                Our advisors are working professionals who have been exactly where you are. No scripts, no hard sell — just honest guidance about whether this program is right for you and your goals.
               </p>
 
               {/* Checklist */}
