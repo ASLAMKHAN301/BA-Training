@@ -1,58 +1,65 @@
 import { useState } from "react";
+import iconBank from "./assets/iconBank.svg";
 
 const items = [
   {
     title: "ICICI Bank",
     subtitle: "Banking",
-    icon: (
-      <svg viewBox="0 0 16 16" className="w-4 h-4 fill-current">
-        <path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.8l-3.8 2 .7-4.3L1.8 5.5l4.3-.6z" />
-      </svg>
-    ),
+    icon: <img src={iconBank} alt="" srcset="" />,
   },
   {
     title: "Bajaj Allianz",
     subtitle: "Insurance",
     icon: (
-      <svg viewBox="0 0 16 16" className="w-4 h-4 fill-current">
-        <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm-.5 12L3 7.5l1.4-1.4 3.1 3.1 5.1-5.1L14 5.5 7.5 12z" />
-      </svg>
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0dBGBxGxlv32ru2f2G1QiH2oTv7VL_T0bzw&s"
+        alt=""
+        srcset=""
+      />
     ),
   },
   {
     title: "Apollo Hospitals",
     subtitle: "Healthcare",
     icon: (
-      <svg viewBox="0 0 16 16" className="w-4 h-4 fill-current">
-        <path d="M13 2H3a1 1 0 00-1 1v10a1 1 0 001 1h10a1 1 0 001-1V3a1 1 0 00-1-1zM7 11L4 8l1.4-1.4L7 8.2l3.6-3.6L12 6l-5 5z" />
-      </svg>
+      <img
+        src="https://thumbnail.imgbin.com/13/1/14/imgbin-apollo-hospitals-city-centre-apollo-hospital-indraprastha-health-care-hospital-rREpSfLCiSpmaYWSwtDsi4qAz_t.jpg"
+        alt=""
+        srcset=""
+      />
     ),
   },
   {
     title: "Wipro",
     subtitle: "Technology",
     icon: (
-      <svg viewBox="0 0 16 16" className="w-4 h-4 fill-current">
-        <path d="M8 0l2 6h6l-5 3.6 1.9 5.9L8 12l-4.9 3.5L5 9.6 0 6h6z" />
-      </svg>
+      <img
+        src="https://static.vecteezy.com/system/resources/previews/075/561/491/non_2x/wipro-glossy-logo-transparent-background-free-png.png"
+        alt=""
+        srcset=""
+      />
     ),
   },
   {
     title: "Razorpay",
     subtitle: "Fintech",
     icon: (
-      <svg viewBox="0 0 16 16" className="w-4 h-4 fill-current">
-        <path d="M8 1C4.1 1 1 4.1 1 8s3.1 7 7 7 7-3.1 7-7-3.1-7-7-7zm1 10H7V7h2v4zm0-6H7V3h2v2z" />
-      </svg>
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8EvJxYike5wLY78TG6Nr5s5f6_mwOFmf4Bw&s"
+        alt=""
+        srcset=""
+      />
     ),
   },
   {
     title: "Max Life",
     subtitle: "Insurance",
     icon: (
-      <svg viewBox="0 0 16 16" className="w-4 h-4 fill-current">
-        <path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.8l-3.8 2 .7-4.3L1.8 5.5l4.3-.6z" />
-      </svg>
+      <img
+        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjR6Q5tn_dfh_YYlDv0VsT6QbYA9AFGqcecfSVoVte8UXyhrJRQ9HqEAe1ly-8JLglHwWiFJNZ36jt2-a2pXWtvd2yQk35ph3iZqSsI4blsTeSGqCRQTGgOuIEDB5JL3JdYx86C6yes_Vv4/s1600/max-life-insurance.jpg"
+        alt=""
+        srcset=""
+      />
     ),
   },
 ];
@@ -264,7 +271,7 @@ const methods = [
     pct: "30%",
     title: "Theory & Application",
     desc: "We use theory only where it adds value — and immediately connect it to application. No isolated concepts. No passive memorization. Only what matters.",
-    dark:false,
+    dark: false,
   },
 ];
 
@@ -675,7 +682,7 @@ export default function CyberSecurityPage() {
                 className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl p-4 hover:bg-white/10 transition"
               >
                 {/* Icon */}
-                <div className="w-10 h-10 rounded-full bg-black text-[#C9A84C] flex items-center justify-center shrink-0">
+                <div className="w-10 h-10">
                   {item.icon}
                 </div>
 
@@ -1084,7 +1091,7 @@ export default function CyberSecurityPage() {
           {/* Learning Cycle */}
           <div className="bg-white p-6 md:p-10 overflow-x-auto mb-16">
             <svg
-              className="w-[280px] md:w-full"
+              className="w-[480px] md:w-full"
               viewBox="0 0 780 340"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -1338,14 +1345,16 @@ export default function CyberSecurityPage() {
             {methods.map((item, index) => (
               <div
                 key={index}
-                className={`bg-black border border-[#C9A84C]/10 rounded-2xl p-8 hover:-translate-y-1 transition duration-300 ${
+                className={`border border-[#C9A84C]/10 rounded-2xl p-8 hover:-translate-y-1 transition duration-300 ${
                   item.dark ? "bg-black" : "bg-[#F8F5EE]"
                 }`}
               >
                 {/* Percentage */}
-                <div className={`text-5xl font-bold  mb-5 font-serif  ${
+                <div
+                  className={`text-5xl font-bold  mb-5 font-serif  ${
                     item.dark ? "text-[#C9A84C]" : "text-black"
-                  }`}>
+                  }`}
+                >
                   {item.pct}
                 </div>
 
@@ -1359,9 +1368,13 @@ export default function CyberSecurityPage() {
                 </h3>
 
                 {/* Description */}
-                <p className={`mb-4 leading-8 ${
+                <p
+                  className={`mb-4 leading-8 ${
                     item.dark ? "text-slate-400" : "text-slate-900"
-                  }`}>{item.desc}</p>
+                  }`}
+                >
+                  {item.desc}
+                </p>
               </div>
             ))}
           </div>
@@ -1388,8 +1401,7 @@ export default function CyberSecurityPage() {
               <h2 className="text-4xl md:text-5xl font-bold leading-tight text-black font-serif">
                 We Work Across
                 <br />
-                Every Major{" "}
-                <em className="text-[#C9A84C] italic">Industry.</em>
+                Every Major <em className="text-[#C9A84C] italic">Industry.</em>
               </h2>
             </div>
 
@@ -1454,8 +1466,7 @@ export default function CyberSecurityPage() {
               <h2 className="text-4xl md:text-5xl font-bold leading-tight text-black font-serif mb-6">
                 Built Through
                 <br />
-                <em className="text-[#C9A84C] italic">Doing,</em> Not
-                Watching.
+                <em className="text-[#C9A84C] italic">Doing,</em> Not Watching.
               </h2>
 
               {/* Lead */}
@@ -1500,9 +1511,7 @@ export default function CyberSecurityPage() {
               <h3 className="text-4xl font-bold leading-tight font-serif text-white mb-10">
                 Beyond
                 <br />
-                <em className="text-[#C9A84C] italic">
-                  Theoretical Classes.
-                </em>
+                <em className="text-[#C9A84C] italic">Theoretical Classes.</em>
               </h3>
 
               {/* Items */}
@@ -1650,7 +1659,7 @@ export default function CyberSecurityPage() {
             </div>
 
             <h2 className="text-[42px] md:text-[56px] leading-[1.05] tracking-[-2px] font-semibold font-serif text-[#111111]">
-              Real Careers.{" "} <br />
+              Real Careers. <br />
               <em className="italic font-light text-[#C9A84C]">
                 Real Results.
               </em>
@@ -1829,7 +1838,9 @@ export default function CyberSecurityPage() {
               </h2>
 
               <p className="mt-8 text-[15px] sm:text-[16px] leading-8 text-[#b6c0cb] font-light max-w-2xl">
-                Our advisors are working professionals who have been exactly where you are. No scripts, no hard sell — just honest guidance about whether this program is right for you and your goals.
+                Our advisors are working professionals who have been exactly
+                where you are. No scripts, no hard sell — just honest guidance
+                about whether this program is right for you and your goals.
               </p>
 
               {/* Checklist */}
