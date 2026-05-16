@@ -1074,7 +1074,7 @@ export default function CyberSecurityPage() {
             <div className="flex items-center gap-1 md:gap-3 mb-5 justify-center">
               <div className="w-10 h-[1px] bg-[#C9A84C] "></div>
 
-              <span className="uppercase tracking-[3px] text-sm font-semibold text-[#C9A84C] w-full">
+              <span className="uppercase tracking-[3px] text-sm font-semibold text-[#C9A84C] w-full md:w-[290px]">
                 Our Learning Methodology
               </span>
             </div>
