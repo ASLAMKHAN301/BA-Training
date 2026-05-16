@@ -213,42 +213,42 @@ const syllabusData = [
 
 const tools = [
   {
-    icon: "📋",
+    icon: <img src="https://w7.pngwing.com/pngs/935/1018/png-transparent-jira-cloud-macos-bigsur-icon-thumbnail.png" alt="" srcset="" />,
     name: "JIRA",
     desc: "Backlog management, sprint tracking, user story creation and defect logging in Agile projects.",
   },
   {
-    icon: "🗂️",
+    icon: <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/atlassian-confluence-icon.png" alt="" srcset="" />,
     name: "Confluence",
     desc: "Documentation collaboration, requirement pages, and knowledge management across project teams.",
   },
   {
-    icon: "✏️",
+    icon: <img src="https://images.softwaresuggest.com/software_logo/1649329367_5246_mock.png" alt="" srcset="" />,
     name: "Balsamiq",
     desc: "Rapid wireframing and low-fidelity prototyping to communicate UI requirements to developers.",
   },
   {
-    icon: "🔷",
+    icon: <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQby45tq6mdmiBFtf2UefYQtrdudg_0LZlAsg&s" alt="" srcset="" />,
     name: "MS Visio",
     desc: "Process flow diagrams, swimlane charts, and UML modelling for requirements documentation.",
   },
   {
-    icon: "📊",
+    icon: <img className="h-full w-full" src="https://www.shutterstock.com/image-vector/vector-illustration-database-flash-sign-260nw-435595501.jpg" alt="" srcset="" />,
     name: "Power BI",
     desc: "Building stakeholder dashboards and data visualizations that turn business data into decisions.",
   },
   {
-    icon: "🗄️",
+    icon: <img src="https://gimgs.nohat.cc/thumb/f/640/mysql-logo-database-microsoft-sql-server-proprietary-background--5855662718320640.jpg" alt="" srcset="" />,
     name: "SQL",
     desc: "Querying and validating data to support requirements analysis, testing, and business reporting.",
   },
   {
-    icon: "📝",
+    icon: <img src="https://cdn-icons-png.flaticon.com/512/8194/8194264.png" alt="" srcset="" />,
     name: "MS Excel",
     desc: "Advanced data analysis, gap analysis matrices, traceability documents and requirement tracking.",
   },
   {
-    icon: "🤖",
+    icon: <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwp189ShNf3hz93R0lWV6ribtm1ECdvs8YSg&s" alt="" srcset="" />,
     name: "GenAI Tools",
     desc: "Leveraging AI to accelerate documentation, requirements drafting, and stakeholder communication.",
   },
