@@ -8,6 +8,12 @@ export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
+  // Hover States
+  const [homeHover, setHomeHover] = useState(false);
+  const [aboutHover, setAboutHover] = useState(false);
+  const [programHover, setProgramHover] = useState(false);
+  const [ctaHover, setCtaHover] = useState(false);
+
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
@@ -27,9 +33,11 @@ export default function Nav() {
       style={{
         background: CREAM,
         borderBottom: `1px solid ${BORDER}`,
-        position: "sticky",
+        position: "fixed",
         top: 0,
-        zIndex: 1000,
+        left: 0,
+        width: "100%",
+        zIndex: 9999,
       }}
     >
       {/* Container */}
@@ -146,17 +154,44 @@ export default function Nav() {
                 padding: 0,
               }}
             >
-              {/* About Us */}
+              {/* Home */}
               <li>
                 <Link
                   to="/"
+                  onMouseEnter={() => setHomeHover(true)}
+                  onMouseLeave={() => setHomeHover(false)}
                   style={{
                     textDecoration: "none",
-                    color: STONE,
+                    color: homeHover ? NAVY : STONE,
+                    background: homeHover ? "#f3f4f6" : "transparent",
                     fontSize: 14,
                     fontWeight: 500,
                     padding: "8px 14px",
+                    borderRadius: 6,
                     display: "block",
+                    transition: "all 0.15s ease",
+                  }}
+                >
+                  Home
+                </Link>
+              </li>
+
+              {/* About Us */}
+              <li>
+                <Link
+                  to="/about-us"
+                  onMouseEnter={() => setAboutHover(true)}
+                  onMouseLeave={() => setAboutHover(false)}
+                  style={{
+                    textDecoration: "none",
+                    color: aboutHover ? NAVY : STONE,
+                    background: aboutHover ? "#f3f4f6" : "transparent",
+                    fontSize: 14,
+                    fontWeight: 500,
+                    padding: "8px 14px",
+                    borderRadius: 6,
+                    display: "block",
+                    transition: "all 0.15s ease",
                   }}
                 >
                   About Us
@@ -166,16 +201,27 @@ export default function Nav() {
               {/* Programs Dropdown */}
               <li
                 style={{ position: "relative" }}
-                onMouseEnter={() => setMenuOpen(true)}
-                onMouseLeave={() => setMenuOpen(false)}
+                onMouseEnter={() => {
+                  setMenuOpen(true);
+                  setProgramHover(true);
+                }}
+                onMouseLeave={() => {
+                  setMenuOpen(false);
+                  setProgramHover(false);
+                }}
               >
                 <div
                   style={{
-                    color: STONE,
+                    color: programHover ? NAVY : STONE,
+                    background: programHover
+                      ? "#f3f4f6"
+                      : "transparent",
                     fontSize: 14,
                     fontWeight: 500,
                     padding: "8px 14px",
+                    borderRadius: 6,
                     cursor: "pointer",
+                    transition: "all 0.15s ease",
                   }}
                 >
                   Programs
@@ -196,33 +242,25 @@ export default function Nav() {
                       zIndex: 999,
                     }}
                   >
-                    <Link
+                    <HoverDropdownItem
                       to="/business-analyst"
-                      style={dropdownItem}
-                    >
-                      Business Analyst Program
-                    </Link>
+                      text="Business Analyst Program"
+                    />
 
-                    <Link
+                    <HoverDropdownItem
                       to="/cyber-security"
-                      style={dropdownItem}
-                    >
-                      Cybersecurity Program
-                    </Link>
+                      text="Cybersecurity Program"
+                    />
 
-                    <Link
+                    <HoverDropdownItem
                       to="/project-management"
-                      style={dropdownItem}
-                    >
-                      Project Management Program
-                    </Link>
+                      text="Project Management Program"
+                    />
 
-                    <Link
+                    <HoverDropdownItem
                       to="/data-science"
-                      style={dropdownItem}
-                    >
-                      Data Science, AI, and ML Program
-                    </Link>
+                      text="Data Science, AI, and ML Program"
+                    />
                   </div>
                 )}
               </li>
@@ -231,8 +269,10 @@ export default function Nav() {
               <li>
                 <Link
                   to="/"
+                  onMouseEnter={() => setCtaHover(true)}
+                  onMouseLeave={() => setCtaHover(false)}
                   style={{
-                    background: NAVY,
+                    background: ctaHover ? "#1e293b" : NAVY,
                     color: "white",
                     fontSize: 14,
                     fontWeight: 600,
@@ -241,6 +281,10 @@ export default function Nav() {
                     textDecoration: "none",
                     marginLeft: 10,
                     display: "block",
+                    transition: "all 0.15s ease",
+                    transform: ctaHover
+                      ? "translateY(-2px)"
+                      : "translateY(0)",
                   }}
                 >
                   Speak to an Advisor
@@ -264,6 +308,12 @@ export default function Nav() {
           >
             <li>
               <Link to="/" style={mobileLink}>
+                Home
+              </Link>
+            </li>
+
+            <li>
+              <Link to="/about-us" style={mobileLink}>
                 About Us
               </Link>
             </li>
@@ -329,16 +379,30 @@ export default function Nav() {
   );
 }
 
-const dropdownItem = {
-  display: "block",
-  padding: "14px 18px",
-  textDecoration: "none",
-  color: NAVY,
-  fontSize: 14,
-  fontWeight: 500,
-  borderBottom: `1px solid ${BORDER}`,
-  transition: "0.2s",
-};
+function HoverDropdownItem({ to, text }) {
+  const [hover, setHover] = useState(false);
+
+  return (
+    <Link
+      to={to}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      style={{
+        display: "block",
+        padding: "14px 18px",
+        textDecoration: "none",
+        color: hover ? "white" : NAVY,
+        background: hover ? NAVY : "white",
+        fontSize: 14,
+        fontWeight: 500,
+        borderBottom: `1px solid ${BORDER}`,
+        transition: "all 0.15s ease",
+      }}
+    >
+      {text}
+    </Link>
+  );
+}
 
 const mobileLink = {
   textDecoration: "none",
