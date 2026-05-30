@@ -114,8 +114,6 @@ function FooterColumn({ col }) {
       case "Data Science":
         return "/data-science";
 
-      case "About Us":
-        return "/about-us";
 
       case "Our Faculty":
         return "/faculty";

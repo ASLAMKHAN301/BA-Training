@@ -176,28 +176,6 @@ export default function Nav() {
                 </Link>
               </li>
 
-              {/* About Us */}
-              <li>
-                <Link
-                  to="/about-us"
-                  onMouseEnter={() => setAboutHover(true)}
-                  onMouseLeave={() => setAboutHover(false)}
-                  style={{
-                    textDecoration: "none",
-                    color: aboutHover ? NAVY : STONE,
-                    background: aboutHover ? "#f3f4f6" : "transparent",
-                    fontSize: 14,
-                    fontWeight: 500,
-                    padding: "8px 14px",
-                    borderRadius: 6,
-                    display: "block",
-                    transition: "all 0.15s ease",
-                  }}
-                >
-                  About Us
-                </Link>
-              </li>
-
               {/* Programs Dropdown */}
               <li
                 style={{ position: "relative" }}
@@ -312,11 +290,6 @@ export default function Nav() {
               </Link>
             </li>
 
-            <li>
-              <Link to="/about-us" style={mobileLink}>
-                About Us
-              </Link>
-            </li>
 
             <li>
               <Link
