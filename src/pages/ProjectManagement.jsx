@@ -274,7 +274,7 @@ const Hero = () => {
             <span className="text-[13px] font-semibold line-through" style={{ color: "rgba(0,0,0,0.35)" }}>₹95,000</span>
           </div>
           <div className="font-bold tracking-[-1px] leading-none mb-1"
-            style={{ fontFamily: "'Playfair Display',Georgia,serif", fontSize: "clamp(28px,8vw,36px)", color: C.navy }}>₹69,999</div>
+            style={{ fontFamily: "'Playfair Display',Georgia,serif", fontSize: "clamp(28px,8vw,36px)", color: C.navy }}>₹32,000</div>
           <div className="text-[13px] mb-4" style={{ color: "rgba(0,0,0,0.6)" }}>Zero-cost EMI from <strong>₹5,833/month</strong></div>
           <a href="#enrol" className="block text-center text-[14px] font-bold py-3 rounded-sm no-underline"
             style={{ background: C.navy, color: "#fff" }}>Book Free Counselling Call →</a>

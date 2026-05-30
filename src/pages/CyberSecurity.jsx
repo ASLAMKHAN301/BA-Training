@@ -281,7 +281,7 @@ const Hero = () => {
             <span className="text-[13px] font-semibold line-through" style={{ color: "rgba(0,0,0,0.35)" }}>₹1,20,000</span>
           </div>
           <div className="font-bold tracking-[-1px] leading-none mb-1"
-            style={{ fontFamily: "'Playfair Display',Georgia,serif", fontSize: "clamp(28px,8vw,36px)", color: C.navy }}>₹89,999</div>
+            style={{ fontFamily: "'Playfair Display',Georgia,serif", fontSize: "clamp(28px,8vw,36px)", color: C.navy }}>₹32,000</div>
           <div className="text-[13px] mb-4" style={{ color: "rgba(0,0,0,0.6)" }}>
             Zero-cost EMI from <strong>₹7,500/month</strong>
           </div>
