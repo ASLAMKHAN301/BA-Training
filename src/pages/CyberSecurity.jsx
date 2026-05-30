@@ -86,6 +86,8 @@ const Wrap = ({ children, className = "" }) => (
   <div className={`max-w-[1160px] mx-auto px-5 sm:px-8 lg:px-[60px] ${className}`}>{children}</div>
 );
 
+
+
 /* ══════════════════════════════════════════════════════════════════════════════
    ANNOUNCE BANNER
 ══════════════════════════════════════════════════════════════════════════════ */
@@ -1165,40 +1167,98 @@ const CareerServices = () => {
 ══════════════════════════════════════════════════════════════════════════════ */
 const Testimonials = () => {
   const cards = [
-    { initials: "RS", name: "Rohan Sharma", role: "SOC Analyst L2, Infosys", sector: "IT Services", quote: "I came in as a network admin with zero offensive security experience. Six months later I was in a SOC analyst role at a major IT services firm. The lab work was what made it real — I had actually done these things, not just read about them." },
-    { initials: "PM", name: "Preethi Menon", role: "Junior Pen Tester, Deloitte Cyber", sector: "Consulting", quote: "The pen testing module was the most intense and most valuable thing I have ever done professionally. My trainer was conducting live engagements while teaching us. I walked into my Deloitte interview completely prepared." },
-    { initials: "AT", name: "Anika Tiwari", role: "IS GRC Lead, HDFC Life", sector: "Insurance", quote: "I was a risk analyst with no technical background. The GRC module gave me a language for what I already understood, and the technical modules gave me the credibility I was missing. Salary difference was 68%." },
+    {
+      title: "Video Learning Support",
+      description:
+        "Live sessions are reinforced with video tutorials you can revisit on your own schedule to sharpen understanding and improve retention.",
+    },
+    {
+      title: "Free Resits, Anytime",
+      description:
+        "Need to revisit a topic or missed a session? Come back at no extra cost. Learning on a fixed timeline doesn't work for everyone, and we don't pretend it does.",
+    },
+    {
+      title: "Direct Faculty Support",
+      description:
+        "Phone and email access to faculty before, during, and after the program — guidance available when it's actually needed, not just during class hours.",
+    },
   ];
+
   return (
-    <section id="testimonials" className="py-14 md:py-[88px] border-b" style={{ background: C.cream, borderColor: C.border }}>
+    <section
+      id="testimonials"
+      className="py-14 md:py-[88px] border-b"
+      style={{
+        background: C.cream,
+        borderColor: C.border,
+      }}
+    >
       <Wrap>
         <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-5 mb-10 sm:mb-14">
           <div>
-            <Eyebrow label="Why Choose CodersBloom" />
-            <Display>What Happens<br /><Em>After the Programme.</Em></Display>
+            <Eyebrow label="Learning Support" />
+            <Display>
+              Designed For
+              <br />
+              <Em>Long-Term Success.</Em>
+            </Display>
           </div>
-          <SectionLead className="md:max-w-[280px]">Outcomes in their own words — from professionals who started exactly where you are now.</SectionLead>
+
+          <SectionLead className="md:max-w-[320px]">
+            Comprehensive support systems that help you learn effectively,
+            revisit concepts when needed, and stay connected with expert
+            guidance throughout your journey.
+          </SectionLead>
         </div>
-        {/* 1-col → 3-col */}
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
-          {cards.map((c, i) => (
-            <div key={i} className="flex flex-col gap-4 sm:gap-5 p-6 sm:p-8 rounded border" style={{ background: C.white, borderColor: C.border }}>
-              <Stars />
-              <div className="font-serif italic text-[14px] sm:text-[15px] leading-[1.75] flex-1"
-                style={{ fontFamily: "'Playfair Display',Georgia,serif", color: C.ink }}>
-                <span className="text-[36px] sm:text-[40px] leading-none align-[-14px] sm:align-[-16px] mr-1" style={{ color: C.gold }}>"</span>
-                {c.quote}
+          {cards.map((card, i) => (
+            <div
+              key={i}
+              className="p-6 sm:p-8 rounded border flex flex-col h-full transition-all duration-300 hover:-translate-y-1"
+              style={{
+                background: C.white,
+                borderColor: C.border,
+              }}
+            >
+              {/* Number Badge */}
+              <div
+                className="w-12 h-12 rounded-full flex items-center justify-center mb-6"
+                style={{
+                  background: C.mist,
+                  color: C.gold,
+                }}
+              >
+                <span
+                  className="text-xl font-bold"
+                  style={{
+                    fontFamily: "'Playfair Display', Georgia, serif",
+                  }}
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </span>
               </div>
-              <div className="flex items-center gap-3 pt-4 border-t" style={{ borderColor: C.border }}>
-                <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-[13px]"
-                  style={{ background: C.navy, color: C.gold, fontFamily: "'Playfair Display',Georgia,serif" }}>{c.initials}</div>
-                <div className="flex-1 min-w-0">
-                  <strong className="block text-[13px] font-semibold leading-[1.3] truncate" style={{ color: C.navy }}>{c.name}</strong>
-                  <span className="text-[11px] sm:text-[12px] block truncate" style={{ color: C.stone }}>{c.role}</span>
-                </div>
-                <span className="text-[10px] font-semibold tracking-[0.5px] uppercase px-2 py-0.5 rounded-sm whitespace-nowrap flex-shrink-0"
-                  style={{ color: C.stone, background: C.mist }}>{c.sector}</span>
-              </div>
+
+              {/* Title */}
+              <h3
+                className="text-[22px] sm:text-[24px] leading-tight mb-4"
+                style={{
+                  color: C.navy,
+                  fontFamily: "'Playfair Display', Georgia, serif",
+                }}
+              >
+                {card.title}
+              </h3>
+
+              {/* Description */}
+              <p
+                className="text-[15px] leading-[1.8] flex-1"
+                style={{
+                  color: C.stone,
+                }}
+              >
+                {card.description}
+              </p>
             </div>
           ))}
         </div>

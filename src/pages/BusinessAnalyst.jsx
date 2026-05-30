@@ -138,7 +138,16 @@ const GridBg = ({ opacity = 0.05, size = 60 }) => (
     }}
   />
 );
-
+const SectionLead = ({ children, className = "" }) => {
+  return (
+    <p
+      className={`text-[15px] sm:text-[16px] leading-[1.8] ${className}`}
+      style={{ color: C.stone }}
+    >
+      {children}
+    </p>
+  );
+};
 const secPy = "py-16 md:py-[88px]";
 
 /* shared input style helper */
@@ -2399,114 +2408,97 @@ const WhyUs = () => {
 const Testimonials = () => {
   const cards = [
     {
-      initials: "AM",
-      name: "Ananya Mehta",
-      role: "Business Analyst, ICICI Bank",
-      sector: "Banking",
-      quote:
-        "I came in with zero BA experience and left with two full project implementations on my portfolio. Within six weeks of completing the program I had three offers. CodersBloom doesn't just train you — they build you.",
+      title: "Video Learning Support",
+      description:
+        "Live sessions are reinforced with video tutorials you can revisit on your own schedule to sharpen understanding and improve retention.",
     },
     {
-      initials: "RS",
-      name: "Rohan Shetty",
-      role: "Senior BA, Bajaj Allianz",
-      sector: "Insurance",
-      quote:
-        "After 7 years in operations I thought switching to BA would take years of effort. The batch of 5 model meant I got personal attention every class. The mentor feedback on my documents was what actually made the difference.",
+      title: "Free Resits, Anytime",
+      description:
+        "Need to revisit a topic or missed a session? Come back at no extra cost. Learning on a fixed timeline doesn't work for everyone, and we don't pretend it does.",
     },
     {
-      initials: "KR",
-      name: "Kavya Reddy",
-      role: "Product BA, Razorpay",
-      sector: "Fintech",
-      quote:
-        "The GenAI integration in the curriculum was something no other program offered. I walked into interviews talking about how I use AI tools to accelerate documentation — and the interviewers were genuinely impressed. Got a 68% hike.",
+      title: "Direct Faculty Support",
+      description:
+        "Phone and email access to faculty before, during, and after the program — guidance available when it's actually needed, not just during class hours.",
     },
   ];
+
   return (
     <section
       id="testimonials"
-      className={`${secPy} border-b`}
-      style={{ background: C.cream, borderColor: C.border }}
+      className="py-14 md:py-[88px] border-b"
+      style={{
+        background: C.cream,
+        borderColor: C.border,
+      }}
     >
       <Wrap>
-        <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-5 mb-10 sm:mb-[52px]">
+        <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-5 mb-10 sm:mb-14">
           <div>
-            <Eyebrow label="What Our Graduates Say" />
+            <Eyebrow label="Learning Support" />
             <Display>
-              Real Careers.
+              Designed For
               <br />
-              <Em>Real Results.</Em>
+              <Em>Long-Term Success.</Em>
             </Display>
           </div>
-          <a
-            href="#enrol"
-            className="text-[13px] font-semibold no-underline self-start transition-colors duration-150"
-            style={{ color: C.gold }}
-            onMouseEnter={(e) => (e.target.style.color = C.navy)}
-            onMouseLeave={(e) => (e.target.style.color = C.gold)}
-          >
-            Read all success stories →
-          </a>
+
+          <SectionLead className="md:max-w-[320px]">
+            Comprehensive support systems that help you learn effectively,
+            revisit concepts when needed, and stay connected with expert
+            guidance throughout your journey.
+          </SectionLead>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
-          {cards.map((c, i) => (
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
+          {cards.map((card, i) => (
             <div
               key={i}
-              className="flex flex-col gap-4 sm:gap-5 p-6 sm:p-8 rounded border"
-              style={{ background: C.white, borderColor: C.border }}
+              className="p-6 sm:p-8 rounded border flex flex-col h-full transition-all duration-300 hover:-translate-y-1"
+              style={{
+                background: C.white,
+                borderColor: C.border,
+              }}
             >
-              <Stars />
+              {/* Number Badge */}
               <div
-                className="font-serif italic text-[14px] sm:text-[15px] leading-[1.75] flex-1"
+                className="w-12 h-12 rounded-full flex items-center justify-center mb-6"
                 style={{
-                  fontFamily: "'Playfair Display',Georgia,serif",
-                  color: C.ink,
+                  background: C.mist,
+                  color: C.gold,
                 }}
               >
                 <span
-                  className="text-[36px] sm:text-[40px] leading-none align-[-14px] sm:align-[-16px] mr-1"
-                  style={{ color: C.gold }}
-                >
-                  "
-                </span>
-                {c.quote}
-              </div>
-              <div
-                className="flex items-center gap-3 pt-4 border-t"
-                style={{ borderColor: C.border }}
-              >
-                <div
-                  className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-[13px]"
+                  className="text-xl font-bold"
                   style={{
-                    background: C.navy,
-                    color: C.gold,
-                    fontFamily: "'Playfair Display',Georgia,serif",
+                    fontFamily: "'Playfair Display', Georgia, serif",
                   }}
                 >
-                  {c.initials}
-                </div>
-                <div className="flex-1 min-w-0">
-                  <strong
-                    className="block text-[13px] font-semibold truncate"
-                    style={{ color: C.navy }}
-                  >
-                    {c.name}
-                  </strong>
-                  <span
-                    className="text-[11px] sm:text-[12px] block truncate"
-                    style={{ color: C.stone }}
-                  >
-                    {c.role}
-                  </span>
-                </div>
-                <span
-                  className="text-[10px] font-semibold uppercase px-2 py-0.5 rounded-sm whitespace-nowrap flex-shrink-0"
-                  style={{ color: C.stone, background: C.mist }}
-                >
-                  {c.sector}
+                  {String(i + 1).padStart(2, "0")}
                 </span>
               </div>
+
+              {/* Title */}
+              <h3
+                className="text-[22px] sm:text-[24px] leading-tight mb-4"
+                style={{
+                  color: C.navy,
+                  fontFamily: "'Playfair Display', Georgia, serif",
+                }}
+              >
+                {card.title}
+              </h3>
+
+              {/* Description */}
+              <p
+                className="text-[15px] leading-[1.8] flex-1"
+                style={{
+                  color: C.stone,
+                }}
+              >
+                {card.description}
+              </p>
             </div>
           ))}
         </div>
