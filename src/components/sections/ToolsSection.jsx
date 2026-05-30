@@ -33,12 +33,12 @@ function LogoSlider({ logos, reverse = false }) {
         {[...logos, ...logos].map((logo, index) => (
           <div
             key={index}
-            className="flex h-36 min-w-[80px] md:min-w-[150px] items-center justify-center"
+            className="flex h-36 min-w-[120px] md:min-w-[150px] items-center justify-center"
           >
             <img
               src={logo}
               alt="company-logo"
-              className="h-6 md:h-14 w-full object-contain transition duration-300"
+              className=" w-full object-contain transition duration-300"
             />
           </div>
         ))}

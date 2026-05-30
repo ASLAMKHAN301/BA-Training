@@ -791,8 +791,8 @@ const Methodology = () => {
             rel="noopener noreferrer"
             className="px-8 py-4 rounded text-[14px] font-semibold text-center border transition-all duration-300"
             style={{
-              borderColor: C.navy,
-              color: C.navy,
+              backgroundColor: "#25D366",
+              color: "#ffffff",
             }}
           >
             WhatsApp Us

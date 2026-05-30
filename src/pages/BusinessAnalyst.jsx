@@ -1586,463 +1586,53 @@ const Methodology = () => {
       style={{ background: C.white, borderColor: C.border }}
     >
       <Wrap>
+        {/* Heading */}
         <div className="text-center mb-10 sm:mb-14">
-          <Eyebrow label="Our Learning Methodology" center />
-          <Display>
-            How Real <Em>Professionals</Em>
-            <br />
-            Are Made.
-          </Display>
-        </div>
-
-        {/* Kolb cycle SVG — hidden on very small screens, shown from sm */}
-        <div className="hidden sm:block mb-10 sm:mb-14 overflow-x-auto">
-          <div
-            className="rounded-lg p-6 sm:p-8 relative overflow-hidden"
-            style={{ background: C.navy }}
-          >
-            <GridBg opacity={0.05} />
-            <svg
-              className="w-full relative z-10"
-              viewBox="0 0 780 340"
-              xmlns="http://www.w3.org/2000/svg"
-              role="img"
-              aria-label="Kolb learning cycle diagram"
-            >
-              <defs>
-                <marker
-                  id="lc-arrow"
-                  viewBox="0 0 10 10"
-                  refX="8"
-                  refY="5"
-                  markerWidth="7"
-                  markerHeight="7"
-                  orient="auto-start-reverse"
-                >
-                  <path
-                    d="M2 1L8 5L2 9"
-                    fill="none"
-                    stroke="#C9A84C"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </marker>
-              </defs>
-              {/* Connector arcs */}
-              <path
-                d="M 178 128 Q 260 60 322 128"
-                fill="none"
-                stroke="#C9A84C"
-                strokeWidth="1.5"
-                strokeDasharray="5 4"
-                markerEnd="url(#lc-arrow)"
-                opacity="0.7"
-              />
-              <path
-                d="M 422 170 Q 490 230 422 258"
-                fill="none"
-                stroke="#C9A84C"
-                strokeWidth="1.5"
-                strokeDasharray="5 4"
-                markerEnd="url(#lc-arrow)"
-                opacity="0.7"
-              />
-              <path
-                d="M 322 258 Q 260 320 178 258"
-                fill="none"
-                stroke="#C9A84C"
-                strokeWidth="1.5"
-                strokeDasharray="5 4"
-                markerEnd="url(#lc-arrow)"
-                opacity="0.7"
-              />
-              <path
-                d="M 78 170 Q 10 95 78 95"
-                fill="none"
-                stroke="#C9A84C"
-                strokeWidth="1.8"
-                strokeDasharray="5 4"
-                markerEnd="url(#lc-arrow)"
-                opacity="0.9"
-              />
-              <text
-                x="250"
-                y="192"
-                textAnchor="middle"
-                fontFamily="'Playfair Display',Georgia,serif"
-                fontSize="13"
-                fontStyle="italic"
-                fill="#C9A84C"
-                opacity="0.6"
-              >
-                continuous
-              </text>
-              <text
-                x="250"
-                y="208"
-                textAnchor="middle"
-                fontFamily="'Playfair Display',Georgia,serif"
-                fontSize="13"
-                fontStyle="italic"
-                fill="#C9A84C"
-                opacity="0.6"
-              >
-                cycle
-              </text>
-              {/* Node 1: Experiment */}
-              <rect
-                x="18"
-                y="110"
-                width="120"
-                height="80"
-                rx="4"
-                fill="#000000"
-              />
-              <rect
-                x="18"
-                y="110"
-                width="120"
-                height="3"
-                rx="2"
-                fill="#C9A84C"
-              />
-              <text
-                x="78"
-                y="147"
-                textAnchor="middle"
-                fontFamily="'Playfair Display',Georgia,serif"
-                fontSize="16"
-                fontWeight="700"
-                fill="#C9A84C"
-              >
-                Experiment
-              </text>
-              <text
-                x="78"
-                y="164"
-                textAnchor="middle"
-                fontFamily="'Outfit',sans-serif"
-                fontSize="11"
-                fill="rgba(255,255,255,0.5)"
-              >
-                Try it in practice
-              </text>
-              <circle cx="30" cy="122" r="8" fill="#C9A84C" />
-              <text
-                x="30"
-                y="126"
-                textAnchor="middle"
-                fontFamily="'Outfit',sans-serif"
-                fontSize="10"
-                fontWeight="700"
-                fill="#000"
-              >
-                1
-              </text>
-              {/* Node 2: Experience */}
-              <rect
-                x="322"
-                y="95"
-                width="124"
-                height="80"
-                rx="4"
-                fill="#1A1A1A"
-                stroke="#C9A84C"
-                strokeWidth="0.5"
-                strokeOpacity="0.3"
-              />
-              <rect
-                x="322"
-                y="95"
-                width="124"
-                height="3"
-                rx="2"
-                fill="rgba(201,168,76,0.4)"
-              />
-              <text
-                x="384"
-                y="132"
-                textAnchor="middle"
-                fontFamily="'Playfair Display',Georgia,serif"
-                fontSize="16"
-                fontWeight="700"
-                fill="rgba(255,255,255,0.9)"
-              >
-                Experience
-              </text>
-              <text
-                x="384"
-                y="149"
-                textAnchor="middle"
-                fontFamily="'Outfit',sans-serif"
-                fontSize="11"
-                fill="rgba(255,255,255,0.45)"
-              >
-                Concrete encounter
-              </text>
-              <circle cx="334" cy="107" r="8" fill="rgba(201,168,76,0.3)" />
-              <text
-                x="334"
-                y="111"
-                textAnchor="middle"
-                fontFamily="'Outfit',sans-serif"
-                fontSize="10"
-                fontWeight="700"
-                fill="#C9A84C"
-              >
-                2
-              </text>
-              {/* Node 3: Reflect */}
-              <rect
-                x="322"
-                y="225"
-                width="124"
-                height="80"
-                rx="4"
-                fill="#1A1A1A"
-                stroke="#C9A84C"
-                strokeWidth="0.5"
-                strokeOpacity="0.3"
-              />
-              <rect
-                x="322"
-                y="225"
-                width="124"
-                height="3"
-                rx="2"
-                fill="rgba(201,168,76,0.4)"
-              />
-              <text
-                x="384"
-                y="262"
-                textAnchor="middle"
-                fontFamily="'Playfair Display',Georgia,serif"
-                fontSize="16"
-                fontWeight="700"
-                fill="rgba(255,255,255,0.9)"
-              >
-                Reflect
-              </text>
-              <text
-                x="384"
-                y="279"
-                textAnchor="middle"
-                fontFamily="'Outfit',sans-serif"
-                fontSize="11"
-                fill="rgba(255,255,255,0.45)"
-              >
-                Observe &amp; review
-              </text>
-              <circle cx="334" cy="237" r="8" fill="rgba(201,168,76,0.3)" />
-              <text
-                x="334"
-                y="241"
-                textAnchor="middle"
-                fontFamily="'Outfit',sans-serif"
-                fontSize="10"
-                fontWeight="700"
-                fill="#C9A84C"
-              >
-                3
-              </text>
-              {/* Node 4: Conceptualize */}
-              <rect
-                x="18"
-                y="225"
-                width="120"
-                height="80"
-                rx="4"
-                fill="#1A1A1A"
-                stroke="#C9A84C"
-                strokeWidth="0.5"
-                strokeOpacity="0.3"
-              />
-              <rect
-                x="18"
-                y="225"
-                width="120"
-                height="3"
-                rx="2"
-                fill="rgba(201,168,76,0.4)"
-              />
-              <text
-                x="78"
-                y="259"
-                textAnchor="middle"
-                fontFamily="'Playfair Display',Georgia,serif"
-                fontSize="14"
-                fontWeight="700"
-                fill="rgba(255,255,255,0.9)"
-              >
-                Conceptualize
-              </text>
-              <text
-                x="78"
-                y="276"
-                textAnchor="middle"
-                fontFamily="'Outfit',sans-serif"
-                fontSize="11"
-                fill="rgba(255,255,255,0.45)"
-              >
-                Form new ideas
-              </text>
-              <circle cx="30" cy="237" r="8" fill="rgba(201,168,76,0.3)" />
-              <text
-                x="30"
-                y="241"
-                textAnchor="middle"
-                fontFamily="'Outfit',sans-serif"
-                fontSize="10"
-                fontWeight="700"
-                fill="#C9A84C"
-              >
-                4
-              </text>
-              {/* Legend */}
-              <line
-                x1="530"
-                y1="55"
-                x2="576"
-                y2="55"
-                stroke="#C9A84C"
-                strokeWidth="1"
-                opacity="0.5"
-              />
-              <circle cx="576" cy="55" r="3" fill="#C9A84C" opacity="0.8" />
-              <text
-                x="590"
-                y="59"
-                fontFamily="'Outfit',sans-serif"
-                fontSize="12"
-                fill="rgba(255,255,255,0.6)"
-              >
-                Active testing in real scenarios
-              </text>
-              <line
-                x1="530"
-                y1="95"
-                x2="576"
-                y2="95"
-                stroke="rgba(201,168,76,0.35)"
-                strokeWidth="1"
-              />
-              <circle cx="576" cy="95" r="3" fill="rgba(201,168,76,0.5)" />
-              <text
-                x="590"
-                y="99"
-                fontFamily="'Outfit',sans-serif"
-                fontSize="12"
-                fill="rgba(255,255,255,0.45)"
-              >
-                Hands-on project execution
-              </text>
-              <line
-                x1="530"
-                y1="135"
-                x2="576"
-                y2="135"
-                stroke="rgba(201,168,76,0.35)"
-                strokeWidth="1"
-              />
-              <circle cx="576" cy="135" r="3" fill="rgba(201,168,76,0.5)" />
-              <text
-                x="590"
-                y="139"
-                fontFamily="'Outfit',sans-serif"
-                fontSize="12"
-                fill="rgba(255,255,255,0.45)"
-              >
-                Mentor feedback &amp; review
-              </text>
-              <line
-                x1="530"
-                y1="175"
-                x2="576"
-                y2="175"
-                stroke="rgba(201,168,76,0.35)"
-                strokeWidth="1"
-              />
-              <circle cx="576" cy="175" r="3" fill="rgba(201,168,76,0.5)" />
-              <text
-                x="590"
-                y="179"
-                fontFamily="'Outfit',sans-serif"
-                fontSize="12"
-                fill="rgba(255,255,255,0.45)"
-              >
-                Abstract frameworks &amp; theory
-              </text>
-              <text
-                x="390"
-                y="310"
-                textAnchor="middle"
-                fontFamily="'Playfair Display',Georgia,serif"
-                fontSize="12"
-                fontStyle="italic"
-                fill="rgba(201,168,76,0.45)"
-              >
-                Based on Kolb's Experiential Learning Cycle
-              </text>
-            </svg>
+          <div className="flex justify-center">
+            <Eyebrow label="Our Methodology" />
           </div>
+
+          <Display>
+            How We Build
+            <br />
+            <Em>Security Professionals.</Em>
+          </Display>
+
+          <SectionLead className="mt-4 mx-auto text-center">
+            Security competence is not a knowledge problem —
+            it is a practice problem. Our methodology is built
+            around this truth.
+          </SectionLead>
         </div>
 
-        {/* Mobile Kolb fallback — 4-step list */}
-        <div className="sm:hidden mb-10 flex flex-col gap-4">
-          {[
-            {
-              num: "1",
-              title: "Experiment",
-              sub: "Try it in practice — active testing in real scenarios",
-            },
-            {
-              num: "2",
-              title: "Experience",
-              sub: "Hands-on project execution — concrete encounter",
-            },
-            {
-              num: "3",
-              title: "Reflect",
-              sub: "Mentor feedback & review — observe and review",
-            },
-            {
-              num: "4",
-              title: "Conceptualize",
-              sub: "Abstract frameworks & theory — form new ideas",
-            },
-          ].map((s) => (
-            <div
-              key={s.num}
-              className="flex items-start gap-4 p-4 rounded-lg border"
-              style={{
-                background: C.navy,
-                borderColor: "rgba(201,168,76,0.2)",
-              }}
-            >
-              <span
-                className="w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center font-bold text-[13px]"
-                style={{ background: C.gold, color: C.navy }}
-              >
-                {s.num}
-              </span>
-              <div>
-                <div
-                  className="text-[15px] font-bold text-white mb-0.5"
-                  style={{ fontFamily: "'Playfair Display',Georgia,serif" }}
-                >
-                  {s.title}
-                </div>
-                <div
-                  className="text-[12px]"
-                  style={{ color: "rgba(255,255,255,0.45)" }}
-                >
-                  {s.sub}
-                </div>
-              </div>
-            </div>
-          ))}
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12 sm:mb-16">
+          <a
+            href="/brochure.pdf"
+            download
+            className="px-8 py-4 rounded text-[14px] font-semibold text-center transition-all duration-300"
+            style={{
+              background: C.gold,
+              color: C.navy,
+            }}
+          >
+            Download Brochure
+          </a>
+
+          <a
+            href="https://wa.me/919999999999"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-8 py-4 rounded text-[14px] font-semibold text-center border transition-all duration-300"
+            style={{
+              backgroundColor: "#25D366",
+              color: "#ffffff",
+            }}
+          >
+            WhatsApp Us
+          </a>
         </div>
+
 
         {/* Percentage bars */}
         <div
