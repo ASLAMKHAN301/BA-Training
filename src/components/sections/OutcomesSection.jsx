@@ -121,26 +121,7 @@ function OutcomesRight({ isMobile }) {
         ))}
       </div>
 
-      {/* Image Below Card */}
-      <div
-        style={{
-          marginTop: -24,
-          borderRadius: 16,
-          // overflow: "hidden",
-          // height: isMobile ? 220 : 300,
-        }}
-      >
-        <img
-          src="/gallery/fotos.png"
-          alt="students"
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            borderRadius: 16,
-          }}
-        />
-      </div>
+      
     </div>
   );
 }

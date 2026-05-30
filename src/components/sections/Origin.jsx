@@ -138,16 +138,20 @@ const secPy = "py-16 md:py-[88px]";
 export default function Origin () {
   const reality = [
     {
-      before: "They could explain what Agile meant.",
+      before: "They could define Agile.",
       after: "They couldn't survive a sprint planning meeting.",
     },
     {
-      before: "They had learned SQL syntax.",
+      before: "They had learned SQL.",
       after: "They had never solved a real business problem with data.",
     },
     {
-      before: "They knew what APIs were.",
-      after: "They had never worked on one in production.",
+      before: "They understood security frameworks.",
+      after: "They had never triaged a live vulnerability.",
+    },
+    {
+      before: "They knew project methodology.",
+      after: "They had never recovered a plan that was already behind.",
     },
   ];
   return (
@@ -236,12 +240,10 @@ export default function Origin () {
             >
               <p>
                 CodersBloom began as an <Hl>internal upskilling initiative</Hl>.
-                Our consulting teams were delivering projects across software
-                development, data engineering, cloud, AI, and enterprise
-                technology — and we kept facing the same challenge:{" "}
+                inside a working consulting practice. Our teams were delivering projects across business analysis, cybersecurity, project management, data science, and AI — and we kept running into the same problem:{" "}
                 <Hl>
-                  candidates coming from training institutes understood
-                  concepts, but struggled inside real project environments.
+                  candidates who understood concepts but struggled the moment they entered a real project environment.
+.
                 </Hl>
               </p>
 
@@ -304,24 +306,20 @@ export default function Origin () {
                   borderLeft: `3px solid ${C.gold}`,
                 }}
               >
-                "We built our own training to close that gap."
+                "So we built our own training to close that gap."
               </blockquote>
 
               <p>
-                Initially, it was <Hl>for our own teams</Hl>. Then, as
-                professionals around us saw the difference, we opened it to
-                external candidates. That remains our model today.
+                First for our own consultants, then opened it to outside professionals once people around us saw the difference.
               </p>
               <p>
                 Every CodersBloom trainer is{" "}
                 <Hl>
                   an active practitioner from our own consulting ecosystem
                 </Hl>{" "}
-                — not a full-time trainer teaching from slides. The projects
-                participants work on are{" "}
-                <Hl>real business problems, not classroom simulations.</Hl> And
-                we keep every batch intentionally small, because{" "}
-                <Hl>transformation doesn't happen in crowded classrooms.</Hl>
+                — not a full-time instructor teaching from slides. Every project participants work through is drawn from{" "}
+                <Hl>real business problems, not classroom simulations.</Hl>  And every batch stays intentionally small — because the kind of{" "}
+                <Hl>transformation we're talking about doesn't happen in a crowded room.</Hl>
               </p>
             </div>
           </div>

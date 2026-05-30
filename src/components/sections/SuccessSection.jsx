@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { GOLD, NAVY, gridBg } from "../../constants/theme";
 import {
   SUCCESS_TABS,
@@ -14,9 +14,42 @@ import {
 
 /* Background Image */
 import bgImage from "../../assets/redmind.jpg";
+const infiniteStories = [
+  ...SUCCESS_STORIES,
+  ...SUCCESS_STORIES,
+  ...SUCCESS_STORIES,
+];
 
 export default function SuccessSection() {
-  const [activeTab, setActiveTab] = useState("All Programs");
+  const [activeTab] = useState("All Programs");
+  const scrollRef = useRef(null);
+
+useEffect(() => {
+  const container = scrollRef.current;
+  if (!container) return;
+
+  let animationId;
+
+  // Start from middle copy
+  const singleSetWidth = container.scrollWidth / 3;
+  container.scrollLeft = singleSetWidth;
+
+  const autoScroll = () => {
+    container.scrollLeft += 1.5; // speed
+
+    // Jab third copy ke paas pahunch jaaye,
+    // middle copy me wapas le aao
+    if (container.scrollLeft >= singleSetWidth * 2) {
+      container.scrollLeft = singleSetWidth;
+    }
+
+    animationId = requestAnimationFrame(autoScroll);
+  };
+
+  animationId = requestAnimationFrame(autoScroll);
+
+  return () => cancelAnimationFrame(animationId);
+}, []);
 
   return (
     <section
@@ -25,22 +58,18 @@ export default function SuccessSection() {
         overflow: "hidden",
         padding: "clamp(48px, 8vw, 88px) 0",
         borderBottom: "1px solid rgba(255,255,255,0.08)",
-
-        /* Background Image */
         backgroundImage: `
           linear-gradient(
-    rgba(0, 0, 0, 0.78),
-    rgba(0, 0, 0, 0.82)
-  ),
+            rgba(0, 0, 0, 0.78),
+            rgba(0, 0, 0, 0.82)
+          ),
           url(${bgImage})
         `,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        backdropFilter: "blur(8px)",
       }}
     >
-      {/* Grid Overlay */}
       <div
         style={{
           position: "absolute",
@@ -73,80 +102,29 @@ export default function SuccessSection() {
           </em>
         </DisplayH2>
 
-        {/* Tabs */}
+        {/* Auto Scroll Cards */}
         <div
-          style={{
-            display: "flex",
-            gap: 8,
-            marginTop: 36,
-            marginBottom: 32,
-            flexWrap: "wrap",
-          }}
-        >
-          {SUCCESS_TABS.map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              style={{
-                padding: "8px 18px",
-                borderRadius: 100,
-                fontSize: 13,
-                fontWeight: 600,
-                cursor: "pointer",
-                border: `1.5px solid ${
-                  activeTab === tab
-                    ? "white"
-                    : "rgba(255,255,255,0.15)"
-                }`,
-                color:
-                  activeTab === tab
-                    ? NAVY
-                    : "rgba(255,255,255,0.55)",
-                background:
-                  activeTab === tab
-                    ? "white"
-                    : "transparent",
-                fontFamily: "'Outfit', sans-serif",
-                transition: "all 0.15s",
-              }}
-            >
-              {tab}
-            </button>
-          ))}
-        </div>
-
-        {/* Story Cards */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns:
-              "repeat(auto-fit, minmax(min(100%, 320px), 1fr))",
-            gap: 20,
-            marginBottom: 28,
-          }}
-        >
-          {SUCCESS_STORIES.map((s) => (
-            <StoryCard key={s.name} story={s} />
-          ))}
-        </div>
-
-        <a
-          href="#enrol"
-          style={{
-            display: "block",
-            textAlign: "center",
-            border: "1.5px solid rgba(255,255,255,0.15)",
-            borderRadius: 6,
-            padding: "14px 20px",
-            fontSize: 14,
-            fontWeight: 600,
-            color: "rgba(255,255,255,0.7)",
-            textDecoration: "none",
-            marginBottom: 60,
-          }}
-        >
-          Read all success stories
-        </a>
+  ref={scrollRef}
+  style={{
+    display: "flex",
+    gap: 20,
+    overflow: "hidden",
+    marginBottom: 28,
+  }}
+>
+  {infiniteStories.map((s, index) => (
+    <div
+      key={index}
+      style={{
+        minWidth: "350px",
+        maxWidth: "350px",
+        flexShrink: 0,
+      }}
+    >
+      <StoryCard story={s} />
+    </div>
+  ))}
+</div>
 
         <CohortStats />
       </SectionContainer>
@@ -166,6 +144,7 @@ function StoryCard({ story: s }) {
         flexDirection: "column",
         gap: 16,
         backdropFilter: "blur(6px)",
+        minHeight: 380,
       }}
     >
       <div
@@ -185,8 +164,6 @@ function StoryCard({ story: s }) {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            fontFamily:
-              "'Playfair Display', Georgia, serif",
             fontSize: 14,
             fontWeight: 700,
             color: GOLD,
@@ -207,7 +184,6 @@ function StoryCard({ story: s }) {
         </div>
       </div>
 
-      {/* Transition */}
       <div
         style={{
           display: "flex",
@@ -240,13 +216,7 @@ function StoryCard({ story: s }) {
           </div>
         </div>
 
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 16 16"
-          fill="none"
-          style={{ flexShrink: 0 }}
-        >
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
           <path
             d="M3 8h10M10 5l3 3-3 3"
             stroke={GOLD}
@@ -280,24 +250,12 @@ function StoryCard({ story: s }) {
         style={{
           fontSize: 13,
           color: "rgba(255,255,255,0.6)",
-          lineHeight: 1.65,
+          lineHeight: 1.7,
           flex: 1,
         }}
       >
         {s.quote}
       </p>
-
-      <a
-        href="#enrol"
-        style={{
-          fontSize: 12,
-          fontWeight: 600,
-          color: GOLD,
-          textDecoration: "none",
-        }}
-      >
-        Read full story →
-      </a>
     </div>
   );
 }

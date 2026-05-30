@@ -118,7 +118,7 @@ const Hero = () => {
     "Merit-based scholarships available",
   ];
   const overviewPoints = [
-    { bold: "20 weeks", text: " of intensive, practitioner-led training" },
+    { bold: "4 weeks", text: " of intensive, practitioner-led training" },
     { bold: "Batch size of 5", text: " — mentorship, not a lecture hall" },
     { bold: "Evenings & weekends", text: " — for working professionals" },
     { bold: "CEH, Security+, SOC Analyst", text: " certification alignment" },
@@ -220,7 +220,7 @@ const Hero = () => {
               <div className="text-lg font-semibold mb-1 line-through" style={{ color: "rgba(0,0,0,0.35)" }}>₹1,20,000</div>
               <div className="flex items-end gap-2 mb-1">
                 <span className="font-bold leading-none tracking-[-1.5px]"
-                  style={{ fontFamily: "'Playfair Display',Georgia,serif", fontSize: 44, color: C.navy }}>₹89,999</span>
+                  style={{ fontFamily: "'Playfair Display',Georgia,serif", fontSize: 44, color: C.navy }}>₹32,000</span>
                 <span className="text-[13px] font-medium mb-1.5" style={{ color: "rgba(0,0,0,0.5)" }}>/ full programme</span>
               </div>
               <div className="text-[13px] font-medium mb-4" style={{ color: "rgba(0,0,0,0.6)" }}>
@@ -525,7 +525,7 @@ const About = () => {
 ══════════════════════════════════════════════════════════════════════════════ */
 const Path = () => {
   const cards = [
-    { label: "Duration", value: "20 Weeks", sub: "Intensive programme designed around real security operations timelines — not exam calendars.", dark: false },
+    { label: "Duration", value: "4 Weeks", sub: "Intensive programme designed around real security operations timelines — not exam calendars.", dark: false },
     { label: "Timings", value: "Evenings & Weekends", sub: "Built for working professionals. No need to leave your current job while you upskill.", dark: false },
     { label: "Mode", value: "Live Online + Lab Access", sub: "Real-time sessions with 24×7 cloud lab access and full LMS recording library.", dark: false },
     { label: "Batch Size", value: "5 Students Per Batch", sub: "Small cohorts mean every participant gets genuine mentorship, not just lecture access.", dark: false },
@@ -612,24 +612,79 @@ const Objectives = () => {
 const Curriculum = () => {
   const [openIdx, setOpenIdx] = useState(0);
   const modules = [
-    { title: "Networking & Security Fundamentals", body: "OSI and TCP/IP models, routing and switching, DNS, HTTP/S, firewalls, VPNs, and common network protocols — with an emphasis on how each layer can be exploited and protected.", tags: ["Foundation", "Networking", "Protocols"] },
-    { title: "Linux & Windows Security Administration", body: "Command-line mastery, user and privilege management, log collection, hardening benchmarks (CIS), and service configuration — across both Linux and Windows Server environments.", tags: ["Linux", "Windows", "Hardening"] },
-    { title: "Ethical Hacking & Penetration Testing", body: "Reconnaissance, scanning with Nmap, enumeration, vulnerability identification using OpenVAS and Nessus, exploitation with Metasploit, post-exploitation, and professional report writing aligned to CEH and OSCP standards.", tags: ["CEH Aligned", "Metasploit", "Kali Linux"] },
-    { title: "Web Application Security & OWASP Top 10", body: "SQL injection, XSS, CSRF, broken authentication, and more. Lab exercises using Burp Suite, DVWA, and deliberately vulnerable applications to build both offensive and defensive fluency.", tags: ["OWASP", "Burp Suite", "API Security"] },
-    { title: "SOC Operations, SIEM & Threat Detection", body: "Alert triage, log analysis, correlation rule development, and incident escalation workflows. Hands-on with Splunk and IBM QRadar. MITRE ATT&CK framework application.", tags: ["Splunk", "QRadar", "MITRE ATT&CK"] },
-    { title: "Incident Response & Digital Forensics", body: "Full IR lifecycle — preparation, identification, containment, eradication, recovery, and lessons learned. Memory analysis, disk imaging, and chain of custody using Autopsy and Volatility.", tags: ["IR Playbooks", "Volatility", "Forensics"] },
-    { title: "Cloud Security (AWS & Azure)", body: "IAM in cloud environments, shared responsibility models, misconfiguration risks, cloud-native monitoring, and security group / policy design across AWS and Azure.", tags: ["AWS Security", "Azure AD", "IAM"] },
-    { title: "GRC — Governance, Risk & Compliance", body: "ISO 27001, NIST CSF, GDPR, RBI cybersecurity guidelines, and SOC 2 — communicating risk in business terms, conducting audits, and participating in compliance programmes.", tags: ["ISO 27001", "NIST", "GDPR"] },
-  ];
+  {
+    title: "Introduction to SOC",
+    body: `Establish a clear understanding of what a Security Operations Centre is, how it functions, and where the analyst role sits within it.
+
+• Roles, responsibilities, and daily functions of a SOC Analyst
+• Core threat frameworks including MITRE ATT&CK, the Cyber Kill Chain, and the Unified Cyber Kill Chain
+• David Bianco's Pyramid of Pain and how it shapes detection strategy
+• Cybersecurity frameworks and information security policy fundamentals`,
+    tags: ["SOC", "MITRE ATT&CK", "Security Operations"],
+  },
+
+  {
+    title: "Networking & Windows Fundamentals",
+    body: `Build the technical foundation every SOC analyst needs before touching a single alert.
+
+• OSI model and TCP/IP stack — how networks actually communicate
+• Deep dive into key network protocols and their security implications
+• Windows fundamentals as seen through a security lens
+• Internal Windows events, logging behaviour, and what to look for`,
+    tags: ["Networking", "Windows", "TCP/IP"],
+  },
+
+  {
+    title: "SIEM Technology",
+    body: `Learn to work with Security Information and Event Management platforms — the operational core of most SOC environments.
+
+• Core SIEM concepts and how they support detection and response
+• Splunk setup, architecture, and day-to-day usage
+• Incident detection, investigation, and response workflows inside Splunk
+• End-to-end SOC workflow from alert to resolution`,
+    tags: ["SIEM", "Splunk", "Detection"],
+  },
+
+  {
+    title: "Phishing Analysis",
+    body: `Phishing remains one of the most common attack vectors. This module builds the skills to identify, dissect, and respond to it.
+
+• Phishing fundamentals and how modern campaigns are structured
+• Analysis of real-world phishing campaigns and tactics
+• Breaking down phishing emails and headers at a technical level`,
+    tags: ["Phishing", "Email Security", "Threat Analysis"],
+  },
+
+  {
+    title: "Endpoint Security & Malware",
+    body: `Understand how threats behave at the endpoint level and how to detect and respond to them.
+
+• Endpoint security principles and how they apply in a SOC context
+• Antivirus tools and ePolicy Orchestrator (ePO)
+• Windows log analysis and the Sysinternals toolkit
+• EDR vs XDR — understanding the difference and when each applies
+• Malware categories, behaviour patterns, and analysis techniques`,
+    tags: ["EDR", "XDR", "Malware"],
+  },
+
+  {
+    title: "Threat Hunting & Incident Response",
+    body: `Bring everything together in the most operationally demanding part of the program.
+
+• Incident response principles, handling procedures, and escalation workflows
+• Proactive threat hunting using industry-standard tools and methodologies`,
+    tags: ["Threat Hunting", "Incident Response", "SOC"],
+  },
+];
   return (
     <section id="curriculum" className="py-14 md:py-[88px] border-b" style={{ background: C.cream, borderColor: C.border }}>
       <Wrap>
         {/* Sticky sidebar only on lg, stacked on mobile */}
         <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-8 lg:gap-[80px] items-start">
           <div className="lg:sticky lg:top-[80px]">
-            <Eyebrow label="Course Syllabus" />
-            <Display>The Most Complete<br />Security Curriculum.<br /><Em>Full Stop.</Em></Display>
-            <SectionLead className="mt-4">Covering the technical depth employers demand and the practical fluency that separates candidates who can do the job.</SectionLead>
+            <Eyebrow label="Course Curriculum" />
+            <Display>What You'll<br /><Em>Learn.</Em></Display>
+            <SectionLead className="mt-4">This curriculum is structured to take you from foundational security concepts through to hands-on threat detection, investigation, and response.</SectionLead>
             <div className="mt-6 p-4 sm:p-5 flex items-center gap-4" style={{ background: C.goldLt, borderLeft: `3px solid ${C.gold}` }}>
               <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-[15px]"
                 style={{ background: C.navy, color: C.gold, fontFamily: "'Playfair Display',Georgia,serif" }}>AK</div>
@@ -764,40 +819,130 @@ const Tools = () => {
 ══════════════════════════════════════════════════════════════════════════════ */
 const Methodology = () => {
   const bars = [
-    { pct: "40%", title: "Concept & Framework", desc: "Building the mental models — threat landscapes, attack taxonomies, security architecture, and compliance frameworks — that make everything else coherent.", dark: false },
-    { pct: "45%", title: "Hands-On Lab Work", desc: "Live attack simulations, CTF-style exercises, SOC alert triage sessions, and penetration test engagements in cloud lab environments.", dark: true },
-    { pct: "15%", title: "Reporting & Communication", desc: "Producing security deliverables that non-technical stakeholders can act on. Because findings that aren't communicated clearly don't get fixed.", dark: false },
+    {
+      pct: "40%",
+      title: "Concept & Framework",
+      desc: "Building the mental models — threat landscapes, attack taxonomies, security architecture, and compliance frameworks — that make everything else coherent.",
+      dark: false,
+    },
+    {
+      pct: "45%",
+      title: "Hands-On Lab Work",
+      desc: "Live attack simulations, CTF-style exercises, SOC alert triage sessions, and penetration test engagements in cloud lab environments.",
+      dark: true,
+    },
+    {
+      pct: "15%",
+      title: "Reporting & Communication",
+      desc: "Producing security deliverables that non-technical stakeholders can act on. Because findings that aren't communicated clearly don't get fixed.",
+      dark: false,
+    },
   ];
+
   return (
-    <section id="methodology" className="py-14 md:py-[88px] border-b" style={{ background: C.white, borderColor: C.border }}>
+    <section
+      id="methodology"
+      className="py-14 md:py-[88px] border-b"
+      style={{
+        background: C.white,
+        borderColor: C.border,
+      }}
+    >
       <Wrap>
+        {/* Heading */}
         <div className="text-center mb-10 sm:mb-14">
-          <div className="flex justify-center"><Eyebrow label="Our Methodology" /></div>
-          <Display>How We Build<br /><Em>Security Professionals.</Em></Display>
-          <SectionLead className="mt-4 mx-auto text-center">Security competence is not a knowledge problem — it is a practice problem. Our methodology is built around this truth.</SectionLead>
+          <div className="flex justify-center">
+            <Eyebrow label="Our Methodology" />
+          </div>
+
+          <Display>
+            How We Build
+            <br />
+            <Em>Security Professionals.</Em>
+          </Display>
+
+          <SectionLead className="mt-4 mx-auto text-center">
+            Security competence is not a knowledge problem —
+            it is a practice problem. Our methodology is built
+            around this truth.
+          </SectionLead>
         </div>
 
-        <blockquote className="text-center text-[16px] sm:text-[20px] font-serif italic leading-[1.6] max-w-[640px] mx-auto mb-10 sm:mb-14 px-4 sm:px-8 relative"
-          style={{ fontFamily: "'Playfair Display',Georgia,serif", color: C.navy }}>
-          <span className="text-[50px] sm:text-[80px] leading-none align-[-20px] sm:align-[-32px] mr-1" style={{ color: C.gold }}>"</span>
-          The best security professionals do not think like defenders who study attacks. They think like attackers who choose to defend.
-          <cite className="block not-italic text-[11px] sm:text-[12px] font-semibold tracking-[1.5px] uppercase mt-4"
-            style={{ fontFamily: "'Outfit',sans-serif", color: C.stone }}>
-            — Programme Philosophy, CodersBloom Security
-          </cite>
-        </blockquote>
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12 sm:mb-16">
+          <a
+            href="/brochure.pdf"
+            download
+            className="px-8 py-4 rounded text-[14px] font-semibold text-center transition-all duration-300"
+            style={{
+              background: C.gold,
+              color: C.navy,
+            }}
+          >
+            Download Brochure
+          </a>
 
-        {/* 1-col → 3-col */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-px"
-          style={{ background: C.border, border: `1px solid ${C.border}` }}>
+          <a
+            href="https://wa.me/919999999999"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-8 py-4 rounded text-[14px] font-semibold text-center border transition-all duration-300"
+            style={{
+              borderColor: C.navy,
+              color: C.navy,
+            }}
+          >
+            WhatsApp Us
+          </a>
+        </div>
+
+        {/* Methodology Cards */}
+        <div
+          className="grid grid-cols-1 sm:grid-cols-3 gap-px"
+          style={{
+            background: C.border,
+            border: `1px solid ${C.border}`,
+          }}
+        >
           {bars.map((b, i) => (
-            <div key={i} className="p-7 sm:p-9 flex flex-col gap-3" style={{ background: b.dark ? C.navy : C.cream }}>
-              <div className="font-bold leading-none tracking-[-2px]"
-                style={{ fontFamily: "'Playfair Display',Georgia,serif", fontSize: "clamp(36px,4vw,52px)", color: b.dark ? C.gold : C.navy }}>
+            <div
+              key={i}
+              className="p-7 sm:p-9 flex flex-col gap-3"
+              style={{
+                background: b.dark ? C.navy : C.cream,
+              }}
+            >
+              <div
+                className="font-bold leading-none tracking-[-2px]"
+                style={{
+                  fontFamily:
+                    "'Playfair Display', Georgia, serif",
+                  fontSize: "clamp(36px,4vw,52px)",
+                  color: b.dark ? C.gold : C.navy,
+                }}
+              >
                 {b.pct}
               </div>
-              <div className="text-[14px] sm:text-[15px] font-bold" style={{ color: b.dark ? "#fff" : C.navy }}>{b.title}</div>
-              <div className="text-[13px] leading-[1.65] font-light" style={{ color: b.dark ? "rgba(255,255,255,0.45)" : C.stone }}>{b.desc}</div>
+
+              <div
+                className="text-[14px] sm:text-[15px] font-bold"
+                style={{
+                  color: b.dark ? "#fff" : C.navy,
+                }}
+              >
+                {b.title}
+              </div>
+
+              <div
+                className="text-[13px] leading-[1.65] font-light"
+                style={{
+                  color: b.dark
+                    ? "rgba(255,255,255,0.45)"
+                    : C.stone,
+                }}
+              >
+                {b.desc}
+              </div>
             </div>
           ))}
         </div>
@@ -991,7 +1136,7 @@ const CareerServices = () => {
         <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-5 mb-10 sm:mb-14">
           <div>
             <Eyebrow label="Career Services" />
-            <Display>Placement Is<br /><Em>The Promise.</Em></Display>
+            <Display>Assistance Until Placed Is<br /><Em>The Promise.</Em></Display>
           </div>
           <SectionLead className="md:max-w-[280px]">Training is only half the equation. We stand alongside every graduate until they have an offer in hand.</SectionLead>
         </div>
@@ -1029,7 +1174,7 @@ const Testimonials = () => {
       <Wrap>
         <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-5 mb-10 sm:mb-14">
           <div>
-            <Eyebrow label="Graduate Outcomes" />
+            <Eyebrow label="Why Choose CodersBloom" />
             <Display>What Happens<br /><Em>After the Programme.</Em></Display>
           </div>
           <SectionLead className="md:max-w-[280px]">Outcomes in their own words — from professionals who started exactly where you are now.</SectionLead>
@@ -1062,65 +1207,6 @@ const Testimonials = () => {
   );
 };
 
-/* ══════════════════════════════════════════════════════════════════════════════
-   FAQ
-══════════════════════════════════════════════════════════════════════════════ */
-const FAQ = () => {
-  const [openIdx, setOpenIdx] = useState(0);
-  const faqs = [
-    { q: "Do I need a technical background to enrol?", a: "A basic understanding of how networks work is helpful — but the programme is not restricted to Computer Science graduates. We welcome IT professionals transitioning into security, graduates from technology-adjacent fields, and career changers with strong analytical ability. Our intake process includes a brief technical readiness assessment." },
-    { q: "Can I study while working full-time?", a: "Yes — the programme is designed for working professionals. All live sessions run on weekday evenings and weekends. Every session is recorded and accessible on LMS. The lab environment is available 24×7. Most participants maintain their current roles throughout all 20 weeks." },
-    { q: "What certifications does this programme prepare me for?", a: "The curriculum aligns to CEH (Certified Ethical Hacker), CompTIA Security+, and EC-Council's Certified SOC Analyst (CSA). Exam prep sessions and mock exams for all three are built into the course. Vouchers can be bundled at enrolment at a discounted rate." },
-    { q: "What makes this different from online cybersecurity courses?", a: "Three things. First, our trainers are active practitioners — their knowledge is lived, not revisited. Second, the batch size of 5 means you receive mentorship, not content delivery. Third, you produce real deliverables — a penetration test report and an IR exercise document — that employers can evaluate." },
-    { q: "What is the placement process and how long does it take?", a: "Placement support begins in the final 4 weeks — covering resume preparation, LinkedIn optimisation, and mock interviews. After graduation, a dedicated placement manager supports you actively until you receive an offer. Average time to first offer is 6–8 weeks. We do not close a placement case until an offer is accepted." },
-    { q: "What are the payment and financing options?", a: "The programme fee is ₹89,999. Zero-cost EMI is available across major credit cards starting at ₹7,500 per month. Direct bank transfer and UPI payment are also available. Merit-based scholarships of up to 20% are available. There are no hidden fees." },
-  ];
-  return (
-    <section id="faq" className="py-14 md:py-[88px] border-b" style={{ background: C.white, borderColor: C.border }}>
-      <Wrap>
-        {/* 1-col → 2-col on lg */}
-        <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-8 lg:gap-[80px] items-start">
-          <div className="lg:sticky lg:top-[80px]">
-            <Eyebrow label="Common Questions" />
-            <Display>Everything You<br />Need to <Em>Know.</Em></Display>
-            <SectionLead className="mt-4">Honest answers to the questions every prospective student asks before committing.</SectionLead>
-            <div className="mt-6 p-5 sm:p-6" style={{ background: C.goldLt, borderLeft: `3px solid ${C.gold}` }}>
-              <p className="text-[13px] sm:text-[14px] leading-[1.6] font-light" style={{ color: C.navy }}>
-                Still uncertain? Our advisors are available for a free 30-minute call — no obligation, no pitch, just honest guidance.
-              </p>
-              <a href="#enrol" className="inline-block mt-3 text-[13px] font-bold no-underline transition-colors duration-150"
-                style={{ color: C.navy }}
-                onMouseEnter={(e) => (e.target.style.color = C.gold)}
-                onMouseLeave={(e) => (e.target.style.color = C.navy)}>Schedule a free call →</a>
-            </div>
-          </div>
-
-          <div className="flex flex-col">
-            {faqs.map((f, i) => (
-              <div key={i} className="cursor-pointer border-b"
-                style={{ borderTop: i === 0 ? `1px solid ${C.border}` : "none", borderColor: C.border }}
-                onClick={() => setOpenIdx(openIdx === i ? -1 : i)}>
-                <div className="flex items-start justify-between gap-4 py-4 sm:py-5 text-[13px] sm:text-[15px] font-semibold leading-[1.4]"
-                  style={{ color: C.navy }}>
-                  {f.q}
-                  <span className="flex-shrink-0 w-6 h-6 border rounded-full flex items-center justify-center text-[18px] font-light leading-none transition-all duration-150 mt-[1px]"
-                    style={{ borderColor: openIdx === i ? C.navy : C.border, background: openIdx === i ? C.navy : "transparent", color: openIdx === i ? "#fff" : C.stone }}>
-                    {openIdx === i ? "−" : "+"}
-                  </span>
-                </div>
-                {openIdx === i && (
-                  <div className="pb-5 text-[13px] sm:text-[14px] leading-[1.75] font-light max-w-[600px]" style={{ color: C.stone }}>
-                    {f.a}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </Wrap>
-    </section>
-  );
-};
 
 /* ══════════════════════════════════════════════════════════════════════════════
    BOTTOM CTA / ENROL FORM
@@ -1427,7 +1513,7 @@ export default function CyberSecurity() {
         <Projects />
         <CareerServices />
         <Testimonials />
-        <FAQ />
+       
         <BottomCTA />
         <Footer />
         <StickyMob />

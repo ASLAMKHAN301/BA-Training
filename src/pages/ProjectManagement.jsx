@@ -86,6 +86,10 @@ const GridBg = ({ opacity = 0.05 }) => (
   }} />
 );
 
+const SectionLead = ({ children, light = false, className = "" }) => (
+  <p className={`text-base leading-[1.75] font-light max-w-[520px] ${className}`}
+    style={{ color: light ? "rgba(255,255,255,0.5)" : C.stone }}>{children}</p>
+);
 const sectionBase = "py-16 md:py-[88px]";
 
 /* ══════════════════════════════════════════════════════════════════════════════
@@ -122,7 +126,7 @@ const Hero = () => {
     "Merit-based scholarships available",
   ];
   const overviewPoints = [
-    { bold: "20 weeks", text: " of intensive, practitioner-led training" },
+    { bold: "4 weeks", text: " of intensive, practitioner-led training" },
     { bold: "Batch size of 5", text: " — mentorship, not a lecture hall" },
     { bold: "Evenings & weekends", text: " — for working professionals" },
     { bold: "CEH, Security+, SOC Analyst", text: " certification alignment" },
@@ -211,7 +215,7 @@ const Hero = () => {
               <div className="text-lg font-semibold mb-1 line-through" style={{ color: "rgba(0,0,0,0.35)" }}>₹1,20,000</div>
               <div className="flex items-end gap-2 mb-1">
                 <span className="font-bold leading-none tracking-[-1.5px]"
-                  style={{ fontFamily: "'Playfair Display',Georgia,serif", fontSize: 44, color: C.navy }}>₹89,999</span>
+                  style={{ fontFamily: "'Playfair Display',Georgia,serif", fontSize: 44, color: C.navy }}>₹32,000</span>
                 <span className="text-[13px] font-medium mb-1.5" style={{ color: "rgba(0,0,0,0.5)" }}>/ full programme</span>
               </div>
               <div className="text-[13px] font-medium mb-4" style={{ color: "rgba(0,0,0,0.6)" }}>
@@ -430,12 +434,12 @@ const About = () => {
 ══════════════════════════════════════════════════════════════════════════════ */
 const Path = () => {
   const cards = [
-    { label: "Duration", value: "16 Weeks", sub: "Intensive but manageable — designed around the pace of real project delivery cycles.", dark: false },
+    { label: "Duration", value: "4 Weeks", sub: "Intensive but manageable — designed around the pace of real project delivery cycles.", dark: false },
     { label: "Timings", value: "Evenings & Weekends", sub: "Scheduled so working professionals can upskill without stepping away from their current role.", dark: false },
     { label: "Mode", value: "Live Online + LMS", sub: "Real-time instructor-led sessions with full recording access and downloadable resources.", dark: false },
     { label: "Batch Size", value: "5 Students Per Batch", sub: "Intentionally small. Every participant receives direct mentorship and individual feedback.", dark: false },
     { label: "Who Can Join?", value: "IT Professionals & Leads", sub: "Developers, testers, BAs, and team leads moving into delivery leadership.", dark: false },
-    { label: "Programme Fee", value: "₹69,999", sub: "Zero-cost EMI from ₹5,833/month. No hidden fees. Merit-based scholarships available.", dark: true },
+    { label: "Programme Fee", value: "₹32,000", sub: "Zero-cost EMI from ₹5,833/month. No hidden fees. Merit-based scholarships available.", dark: true },
   ];
   return (
     <section id="path" className={`${sectionBase} border-b`} style={{ background: C.white, borderColor: C.border }}>
@@ -715,19 +719,50 @@ const Methodology = () => {
     <section id="methodology" className={`${sectionBase} border-b`} style={{ background: C.white, borderColor: C.border }}>
       <Wrap>
         <div className="text-center mb-10 sm:mb-14">
-          <div className="flex justify-center"><Eyebrow label="Our Methodology" /></div>
-          <Display>How We Build<br /><Em>Delivery Leaders.</Em></Display>
-          <Lead className="mt-4 mx-auto text-center">Project management competence is not about knowing the frameworks. It is about internalising how to use them under pressure.</Lead>
+          <div className="flex justify-center">
+            <Eyebrow label="Our Methodology" />
+          </div>
+
+          <Display>
+            How We Build
+            <br />
+            <Em>Security Professionals.</Em>
+          </Display>
+
+          <SectionLead className="mt-4 mx-auto text-center">
+            Security competence is not a knowledge problem —
+            it is a practice problem. Our methodology is built
+            around this truth.
+          </SectionLead>
         </div>
-        <blockquote className="text-center text-[16px] sm:text-[20px] font-serif italic leading-[1.6] max-w-[640px] mx-auto mb-10 sm:mb-14 px-4 sm:px-8"
-          style={{ fontFamily: "'Playfair Display',Georgia,serif", color: C.navy }}>
-          <span className="text-[50px] sm:text-[80px] leading-none align-[-20px] sm:align-[-32px] mr-1" style={{ color: C.gold }}>"</span>
-          A project manager earns the team's respect not by knowing all the answers, but by creating the conditions in which the right decisions get made.
-          <cite className="block not-italic text-[11px] sm:text-[12px] font-semibold tracking-[1.5px] uppercase mt-4"
-            style={{ fontFamily: "'Outfit',sans-serif", color: C.stone }}>
-            — Programme Philosophy, CodersBloom PM
-          </cite>
-        </blockquote>
+
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12 sm:mb-16">
+          <a
+            href="/brochure.pdf"
+            download
+            className="px-8 py-4 rounded text-[14px] font-semibold text-center transition-all duration-300"
+            style={{
+              background: C.gold,
+              color: C.navy,
+            }}
+          >
+            Download Brochure
+          </a>
+
+          <a
+            href="https://wa.me/919999999999"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-8 py-4 rounded text-[14px] font-semibold text-center border transition-all duration-300"
+            style={{
+              borderColor: C.navy,
+              color: C.navy,
+            }}
+          >
+            WhatsApp Us
+          </a>
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-px"
           style={{ background: C.border, border: `1px solid ${C.border}` }}>
           {bars.map((b, i) => (
@@ -874,7 +909,7 @@ const Career = () => {
         <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-5 mb-10 sm:mb-14">
           <div>
             <Eyebrow label="Career Services" />
-            <Display>Placement Is<br /><Em>The Promise.</Em></Display>
+            <Display>Assistance To Placement Is<br /><Em>The Promise.</Em></Display>
           </div>
           <Lead className="md:max-w-[280px]">We do not hand you a certificate and wish you luck. We work alongside you, actively, until you have an offer worth accepting.</Lead>
         </div>
@@ -943,61 +978,6 @@ const Testimonials = () => {
   );
 };
 
-/* ══════════════════════════════════════════════════════════════════════════════
-   FAQ
-══════════════════════════════════════════════════════════════════════════════ */
-const FAQ = () => {
-  const [openIdx, setOpenIdx] = useState(0);
-  const faqs = [
-    { q: "Do I need prior project management experience to enrol?", a: "Not in a formal PM capacity — but you need professional experience working within or alongside software delivery teams. The programme is designed for experienced IT professionals transitioning into PM roles, not for people entering the industry for the first time." },
-    { q: "Can I study while working full-time?", a: "Yes. The programme is explicitly built for working professionals — all sessions are scheduled on weekday evenings and weekends. Every live session is recorded and available on LMS within 24 hours. Most participants complete the programme without any career interruption." },
-    { q: "Does this prepare me for PMP certification?", a: "Yes — the curriculum is structured in alignment with the PMI framework and the PMBOK guide. Dedicated PMP mock test sessions and exam strategy coaching are included. The exam fee is not included by default, but can be bundled at a discounted rate during enrolment." },
-    { q: "What is the difference between this and a Scrum Master certification course?", a: "A Scrum Master certification prepares you for a specific facilitation role within Agile teams. This programme prepares you for end-to-end delivery ownership — which includes Agile and Scrum, but also traditional project planning, stakeholder governance, budget management, risk control, and change management." },
-    { q: "What salary should I expect after completing the programme?", a: "Our graduates transitioning from senior developer or BA roles typically see salary increases of 40–65%. Entry-level PM roles in Tier-1 IT services firms typically start at ₹8–12 LPA. Mid-level roles at banks and product companies range from ₹14–22 LPA." },
-    { q: "What payment and financing options are available?", a: "The programme fee is ₹69,999. Zero-cost EMI is available across all major credit cards from ₹5,833 per month. Direct bank transfer and UPI payment options are also supported. Merit-based scholarships of up to 20% are available. No hidden fees, no pressure decisions." },
-  ];
-  return (
-    <section id="faq" className={`${sectionBase} border-b`} style={{ background: C.white, borderColor: C.border }}>
-      <Wrap>
-        <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-8 lg:gap-[80px] items-start">
-          <div className="lg:sticky lg:top-[80px]">
-            <Eyebrow label="Common Questions" />
-            <Display>Everything You<br />Need to <Em>Know.</Em></Display>
-            <Lead className="mt-4">Honest answers to the questions every prospective participant asks before committing.</Lead>
-            <div className="mt-6 p-5 sm:p-6" style={{ background: C.goldLt, borderLeft: `3px solid ${C.gold}` }}>
-              <p className="text-[13px] sm:text-[14px] leading-[1.6] font-light" style={{ color: C.navy }}>
-                Still uncertain? Our advisors are working PMs who have made transitions similar to yours. A free 30-minute call — no script, no obligation, just honest guidance.
-              </p>
-              <a href="#enrol" className="inline-block mt-3 text-[13px] font-bold no-underline transition-colors duration-150"
-                style={{ color: C.navy }}
-                onMouseEnter={e => e.target.style.color = C.gold}
-                onMouseLeave={e => e.target.style.color = C.navy}>Schedule a free call →</a>
-            </div>
-          </div>
-          <div className="flex flex-col">
-            {faqs.map((f, i) => (
-              <div key={i} className="cursor-pointer border-b"
-                style={{ borderTop: i === 0 ? `1px solid ${C.border}` : "none", borderColor: C.border }}
-                onClick={() => setOpenIdx(openIdx === i ? -1 : i)}>
-                <div className="flex items-start justify-between gap-4 py-4 sm:py-5 text-[13px] sm:text-[15px] font-semibold leading-[1.4]"
-                  style={{ color: C.navy }}>
-                  {f.q}
-                  <span className="flex-shrink-0 w-6 h-6 border rounded-full flex items-center justify-center text-[18px] font-light leading-none transition-all duration-150 mt-[1px]"
-                    style={{ borderColor: openIdx === i ? C.navy : C.border, background: openIdx === i ? C.navy : "transparent", color: openIdx === i ? "#fff" : C.stone }}>
-                    {openIdx === i ? "−" : "+"}
-                  </span>
-                </div>
-                {openIdx === i && (
-                  <div className="pb-5 text-[13px] sm:text-[14px] leading-[1.75] font-light" style={{ color: C.stone }}>{f.a}</div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </Wrap>
-    </section>
-  );
-};
 
 /* ══════════════════════════════════════════════════════════════════════════════
    BOTTOM CTA / ENROL FORM
@@ -1255,7 +1235,6 @@ export default function ProjectManagement() {
         <Projects />
         <Career />
         <Testimonials />
-        <FAQ />
         <BottomCTA />
         <Footer />
         <StickyMob />

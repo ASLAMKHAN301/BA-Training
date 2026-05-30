@@ -44,7 +44,7 @@ export default function Home() {
       <TestimonialsSection />
       <MentorsSection />
       <GallerySection />       {/* Life at Edtech — photo bento grid */}
-      <PartnersSection />
+      {/* <PartnersSection /> */}
       <PlacementSection />
       <SuccessSection />
       <FAQSection />

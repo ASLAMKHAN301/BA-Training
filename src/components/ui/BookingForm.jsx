@@ -1,15 +1,65 @@
-// BookingForm.jsx
-
 import { useState } from "react";
+
 import { NAVY, STONE } from "../../constants/theme";
+
 import { FormField, FormSelect } from "./index";
+
 import {
   PROGRAM_OPTIONS,
   STATUS_OPTIONS,
 } from "../../data/content";
 
 export default function BookingForm({ light = false }) {
+
   const [submitted, setSubmitted] = useState(false);
+
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    phone: "",
+    email: "",
+    program: "",
+    status: "",
+  });
+
+  // Handle Input Change
+  const handleChange = (field, value) => {
+    setFormData((prev) => ({
+      ...prev,
+      [field]: value,
+    }));
+  };
+
+  // Handle Submit
+  const handleSubmit = () => {
+
+    // Existing Data
+    const existingData =
+      JSON.parse(localStorage.getItem("bookingForms")) || [];
+
+    // Add New Form
+    const updatedData = [...existingData, formData];
+
+    // Save
+    localStorage.setItem(
+      "bookingForms",
+      JSON.stringify(updatedData)
+    );
+
+    console.log("Saved Data:", updatedData);
+
+    setSubmitted(true);
+
+    // Clear Form
+    setFormData({
+      firstName: "",
+      lastName: "",
+      phone: "",
+      email: "",
+      program: "",
+      status: "",
+    });
+  };
 
   return (
     <div
@@ -24,6 +74,8 @@ export default function BookingForm({ light = false }) {
           : "0 24px 64px rgba(0,0,0,0.25)",
       }}
     >
+
+      {/* Heading */}
       <div
         style={{
           fontFamily:
@@ -53,7 +105,7 @@ export default function BookingForm({ light = false }) {
           : "Speak with a career advisor in 24 hours. No pressure, no scripts."}
       </div>
 
-      {/* Responsive Name Fields */}
+      {/* Name Fields */}
       <div
         style={{
           display: "grid",
@@ -62,51 +114,80 @@ export default function BookingForm({ light = false }) {
           gap: 12,
         }}
       >
+
         <FormField
           label="First Name"
           placeholder="Rahul"
+          value={formData.firstName}
+          onChange={(e) =>
+            handleChange("firstName", e.target.value)
+          }
         />
 
         <FormField
           label="Last Name"
           placeholder="Sharma"
+          value={formData.lastName}
+          onChange={(e) =>
+            handleChange("lastName", e.target.value)
+          }
         />
+
       </div>
 
       <FormField
         label="Phone / WhatsApp"
         type="tel"
         placeholder="+91 98765 43210"
+        value={formData.phone}
+        onChange={(e) =>
+          handleChange("phone", e.target.value)
+        }
       />
 
       <FormField
         label="Email Address"
         type="email"
         placeholder="rahul@example.com"
+        value={formData.email}
+        onChange={(e) =>
+          handleChange("email", e.target.value)
+        }
       />
 
       <FormSelect
         label="Program of Interest"
         options={PROGRAM_OPTIONS}
+        value={formData.program}
+        onChange={(e) =>
+          handleChange("program", e.target.value)
+        }
       />
 
       <FormSelect
         label="Current Status"
         options={STATUS_OPTIONS}
+        value={formData.status}
+        onChange={(e) =>
+          handleChange("status", e.target.value)
+        }
       />
 
+      {/* Submit Button */}
       <button
-        onClick={() => setSubmitted(true)}
+        onClick={handleSubmit}
         style={{
           width: "100%",
-          background: submitted ? "#16A34A" : NAVY,
+          background: submitted
+            ? "#16A34A"
+            : NAVY,
           color: "white",
           border: "none",
           borderRadius: 4,
           padding: "14px 20px",
           fontSize: 14,
           fontWeight: 600,
-          cursor: submitted ? "default" : "pointer",
+          cursor: "pointer",
           marginTop: 8,
           transition: "0.3s",
         }}

@@ -40,3 +40,17 @@
 .read-the-docs {
   color: #888;
 }
+.success-scroll {
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: thin;
+}
+
+.success-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.success-scroll::-webkit-scrollbar-thumb {
+  background: #c9a84c;
+  border-radius: 10px;
+}

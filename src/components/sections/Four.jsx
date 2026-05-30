@@ -142,99 +142,84 @@ export default function Four() {
   const cards = [
     {
       num: "01",
-      title: "Maximum 10 Per Batch",
+      title: "No More Than 10 Per Batch",
       dark: false,
       body: [
         <>
-          Most training providers <Hl>optimise for volume</Hl>. We optimise for
-          outcomes.
+          Most programs are <Hl>built to scale.</Hl> Ours is built to work.
         </>,
         <>
-          We cap every batch at ten participants. This isn't a marketing line —{" "}
-          <Hl>it's a structural decision</Hl>. Smaller batches allow trainers to
-          track progress deeply, correct mistakes early, and mentor every
-          participant individually.
+          Every batch is capped at ten participants — <Hl>not as a selling point</Hl>, but as a deliberate design choice. When the group is this small, trainers can track where each person is struggling, step in before bad habits form, and give everyone the kind of attention that actually moves the needle.
         </>,
         <>
           <Hl>
-            A trainer with ten learners can shape careers. A trainer with fifty
-            cannot.
+            Ten learners and a great mentor can change the trajectory of ten careers. Fifty cannot.
           </Hl>
         </>,
       ],
     },
     {
       num: "02",
-      title: "Trainers Who Do the Job",
+      title: "Practitioners, Not Presenters",
       dark: false,
       body: [
         <>
-          Every CodersBloom trainer is <Hl>actively working in the industry</Hl>{" "}
+          Every person who teaches at CodersBloom is <Hl>actively employed in the field </Hl>{" "}
           — as a Project Manager, Data Scientist, Business Analyst, or
           Cybersecurity Professional.
         </>,
         <>
-          They teach <Hl>what they solved last week</Hl>, not what they
-          memorised years ago.
+          They're not drawing on what they studied. They're <Hl>drawing on what they dealt with last week.</Hl>
+        
         </>,
         <>
-          When you ask about stakeholder conflicts, production failures, sprint
-          bottlenecks, or deployment issues, they have{" "}
-          <Hl>real stories, not theoretical answers</Hl>. That changes
-          everything.
+          Ask about a difficult stakeholder, a system that broke in production, a sprint that went sideways, or a deployment that nearly failed, they won't give you a textbook answer. They'll give you the story. That {" "}
+          <Hl>difference is felt immediately, and it compounds over the entire program.</Hl>
         </>,
       ],
     },
     {
       num: "03",
-      title: "Real Project Work",
+      title: "Work That's Actually Real",
       dark: false,
       body: [
         <>
-          Participants work on{" "}
-          <Hl>actual projects from our consulting and client ecosystem</Hl>.
+          Participants don't work on simulations, they work on {" "}
+          <Hl>live projects pulled from our consulting and client engagements.
+</Hl>.
         </>,
         <>
-          You build real deliverables — dashboards, APIs, BRDs, automation
-          workflows, cloud deployments, SQL solutions, UAT scenarios, product
-          documentation, and more.{" "}
-          <Hl>Not dummy assignments. Not recycled classroom exercises.</Hl>
+          The deliverables are genuine — dashboards, APIs, business requirement documents, automation workflows, cloud deployments, data solutions, UAT scenarios, product documentation, and more. {" "}
+          <Hl>Nothing recycled. Nothing invented for the classroom.</Hl>
         </>,
         <>
-          Work you can confidently discuss in interviews{" "}
-          <Hl>because you actually built it</Hl>. This is one of the biggest
-          reasons our placement outcomes are what they are.
+          By the end, you're not describing what you learned, {" "}
+          <Hl>you're describing what you built.</Hl> That's why our participants walk into interviews with a confidence most candidates can't fake.
         </>,
       ],
     },
     {
       num: "04",
-      title: "Placement Until Placed",
+      title: "We Stay Until You Land",
       dark: true,
       body: [
         <>
-          Getting you placed matters as much as training you. We've built a
-          placement system that goes far beyond issuing a certificate.{" "}
+          Placing you isn't an afterthought, it's treated with the same seriousness as the training itself. We don't hand you a certificate and wish you luck. {" "}
           <span style={{ color: C.gold, fontWeight: 700 }}>
-            We guarantee interviews — the offer letter is yours to earn.
+            We guarantee interviews, and we work alongside you until one of them converts.
           </span>
         </>,
         <>
-          Before every interview, we work with you closely — understanding the
-          company, the role, the expectations, and preparing you specifically
-          for that opportunity. After every interview, we debrief, identify what
-          worked and what didn't, and{" "}
+          Before each interview, we go deep — researching the company, understanding the role, and preparing you specifically for that conversation. After each interview, we debrief honestly, identify what held you back, and {" "}
           <span style={{ color: C.gold, fontWeight: 700 }}>
-            strengthen your approach before the next one.
+            sharpen your approach before the next one.
           </span>
         </>,
         <>
           <span style={{ color: C.gold, fontWeight: 700 }}>
-            Most institutes stop at mock interviews. We stay with you through
-            real interviews until you break through.
+            Most programs stop at rehearsal. We're in it through the real thing. 
           </span>{" "}
-          We refine your resume, position your profile strategically, and
-          directly market you to our recruiter and hiring network.
+          Refining how you present yourself, positioning your profile with intent, and putting you directly in front of the recruiters and hiring managers in our network.
         </>,
       ],
     },

@@ -85,6 +85,11 @@ const GridBg = ({ opacity = 0.05, size = 60 }) => (
   }} />
 );
 
+const SectionLead = ({ children, light = false, className = "" }) => (
+  <p className={`text-base leading-[1.75] font-light max-w-[520px] ${className}`}
+    style={{ color: light ? "rgba(255,255,255,0.5)" : C.stone }}>{children}</p>
+);
+
 const secPy = "py-16 md:py-[88px]";
 
 /* ══════════════════════════════════════════════════════════════════════════════
@@ -205,7 +210,7 @@ const Hero = () => {
               <div className="text-lg font-semibold mb-1 line-through" style={{ color: "rgba(0,0,0,0.35)" }}>₹1,10,000</div>
               <div className="flex items-end gap-2 mb-1">
                 <span className="font-bold leading-none tracking-[-1.5px]"
-                  style={{ fontFamily: "'Playfair Display',Georgia,serif", fontSize: 44, color: C.navy }}>₹79,999</span>
+                  style={{ fontFamily: "'Playfair Display',Georgia,serif", fontSize: 44, color: C.navy }}>₹35,000</span>
                 <span className="text-[13px] font-medium mb-1.5" style={{ color: "rgba(0,0,0,0.5)" }}>/ full programme</span>
               </div>
               <div className="text-[13px] font-medium mb-4" style={{ color: "rgba(0,0,0,0.6)" }}>
@@ -426,12 +431,12 @@ const About = () => {
 ══════════════════════════════════════════════════════════════════════════════ */
 const Path = () => {
   const cards = [
-    { label: "Duration", value: "20–24 Weeks", sub: "A structured, intensive programme paced to build real depth — not just surface familiarity with tools.", dark: false },
+    { label: "Duration", value: "6 Weeks", sub: "A structured, intensive programme paced to build real depth — not just surface familiarity with tools.", dark: false },
     { label: "Timings", value: "Evenings & Weekends", sub: "Designed for working professionals. Upskill without stepping away from your current role.", dark: false },
     { label: "Mode", value: "Live Online + LMS", sub: "Real-time instructor-led sessions with 24×7 LMS access, recordings, articles, and case study resources.", dark: false },
     { label: "Batch Size", value: "5 Students Per Class", sub: "Deliberately small. Every participant's work receives individual review and direct mentor feedback.", dark: false },
     { label: "Who Can Join?", value: "Graduates & Professionals", sub: "Open to IT professionals, engineers, analysts, and career changers with basic quantitative comfort.", dark: false },
-    { label: "Programme Fee", value: "₹79,999", sub: "Zero-cost EMI from ₹6,667/month. No hidden fees. Scholarship options available.", dark: true },
+    { label: "Programme Fee", value: "₹35,000", sub: "Zero-cost EMI from ₹6,667/month. No hidden fees. Scholarship options available.", dark: true },
   ];
   return (
     <section id="path" className={`${secPy} border-b`} style={{ background: C.white, borderColor: C.border }}>
@@ -461,9 +466,9 @@ const Path = () => {
 ══════════════════════════════════════════════════════════════════════════════ */
 const Objectives = () => {
   const steps = [
-    { num: "01", title: "Learn", desc: "Build strong hands-on exposure to Data Science fundamentals — from statistics and Python to SQL, data wrangling, and machine learning concepts — and develop a solid professional foundation grounded in practical application." },
-    { num: "02", title: "Practice", desc: "Every concept you learn is reinforced through real business case studies, live workshops, and simulations that mirror the messy, constraint-driven environments of actual data projects. Mastery is built through iteration — not observation." },
-    { num: "03", title: "Work", desc: "Execute two complete end-to-end project implementations across analytics, machine learning, and AI-driven decision making — gaining the kind of hands-on experience that no certificate alone can replicate." },
+    { num: "01", title: "Hands-On Exposure", desc: "Build strong hands-on exposure to Data Science fundamentals — from statistics and Python to SQL, data wrangling, and machine learning concepts — and develop a solid professional foundation grounded in practical application." },
+    { num: "02", title: "Real Business Outcomes", desc: "Every concept you learn is reinforced through real business case studies, live workshops, and simulations that mirror the messy, constraint-driven environments of actual data projects. Mastery is built through iteration — not observation." },
+    { num: "03", title: "End-to-End Execution", desc: "Execute two complete end-to-end project implementations across analytics, machine learning, and AI-driven decision making — gaining the kind of hands-on experience that no certificate alone can replicate." },
   ];
   return (
     <section id="objectives" className={`relative overflow-hidden ${secPy}`} style={{ background: C.navy,
@@ -748,18 +753,51 @@ const Methodology = () => {
   return (
     <section id="methodology" className={`${secPy} border-b`} style={{ background: C.white, borderColor: C.border }}>
       <Wrap>
-        <div className="text-center mb-10 sm:mb-16">
-          <div className="flex justify-center"><Eyebrow label="Our Learning Methodology" center /></div>
-          <Display>How We Build<br /><Em>Data Professionals.</Em></Display>
-          <Lead className="mt-4 mx-auto text-center">Practical understanding creates real professionals. Not passive learning. Not memorisation. Not theory overload.</Lead>
+        <div className="text-center mb-10 sm:mb-14">
+          <div className="flex justify-center">
+            <Eyebrow label="Our Methodology" />
+          </div>
+
+          <Display>
+            How We Build
+            <br />
+            <Em>Security Professionals.</Em>
+          </Display>
+
+          <SectionLead className="mt-4 mx-auto text-center">
+            Security competence is not a knowledge problem —
+            it is a practice problem. Our methodology is built
+            around this truth.
+          </SectionLead>
         </div>
-        <blockquote className="text-center text-[16px] sm:text-[20px] font-serif italic leading-[1.6] max-w-[640px] mx-auto mb-10 sm:mb-16 px-4 sm:px-8"
-          style={{ fontFamily: "'Playfair Display',Georgia,serif", color: C.navy }}>
-          <span className="text-[50px] sm:text-[80px] leading-none align-[-20px] sm:align-[-32px] mr-1" style={{ color: C.gold }}>"</span>
-          Tell me and I forget, teach me and I may remember, involve me and I learn.
-          <cite className="block not-italic text-[11px] sm:text-[12px] font-semibold tracking-[1.5px] uppercase mt-4"
-            style={{ fontFamily: "'Outfit',sans-serif", color: C.stone }}>— Benjamin Franklin</cite>
-        </blockquote>
+
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12 sm:mb-16">
+          <a
+            href="/brochure.pdf"
+            download
+            className="px-8 py-4 rounded text-[14px] font-semibold text-center transition-all duration-300"
+            style={{
+              background: C.gold,
+              color: C.navy,
+            }}
+          >
+            Download Brochure
+          </a>
+
+          <a
+            href="https://wa.me/919999999999"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-8 py-4 rounded text-[14px] font-semibold text-center border transition-all duration-300"
+            style={{
+              borderColor: C.navy,
+              color: C.navy,
+            }}
+          >
+            WhatsApp Us
+          </a>
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-px"
           style={{ background: C.border, border: `1px solid ${C.border}` }}>
           {bars.map((b, i) => (
@@ -910,62 +948,6 @@ const Testimonials = () => {
               </div>
             </div>
           ))}
-        </div>
-      </Wrap>
-    </section>
-  );
-};
-
-/* ══════════════════════════════════════════════════════════════════════════════
-   FAQ
-══════════════════════════════════════════════════════════════════════════════ */
-const FAQ = () => {
-  const [openIdx, setOpenIdx] = useState(0);
-  const faqs = [
-    { q: "Do I need prior coding or data science experience?", a: "No prior data science experience is required. A basic comfort with numbers and logical thinking is helpful — but the programme is designed to build Python and statistical foundations from the ground up. Many of our most successful graduates had no coding background when they enrolled. Our intake process includes a brief readiness conversation so we can advise you honestly about where to start." },
-    { q: "Can I study while working full-time?", a: "Yes — the programme is deliberately built for working professionals. All live sessions run on weekday evenings and weekends. Every session is recorded and available on LMS within 24 hours. The 24×7 lab access means you can practise at any time. The workload is intensive but structured to be manageable alongside a full-time role." },
-    { q: "What roles does this programme prepare me for?", a: "Graduates move into roles including Data Analyst, Business Intelligence Analyst, Machine Learning Engineer, Data Scientist, AI Analyst, Analytics Consultant, and NLP / GenAI Engineer — depending on their prior background, the specialisation they develop through capstone, and their target sector. Your advisor will map specific roles to your background during the counselling call." },
-    { q: "What makes this different from self-paced online platforms?", a: "Three things. First, every concept is taught by a working data professional — with current project context, not archived curriculum. Second, the batch size of 5 means your work gets reviewed in detail, your questions get complete answers, and you receive real mentorship rather than forum replies. Third, you produce assessed capstone projects that employers can evaluate — not just course certificates. The completion rate on self-paced platforms is under 10%. We track employment outcomes." },
-    { q: "What does 100% placement assistance actually mean?", a: "It means we do not close your case until you have accepted an offer. A dedicated placement manager actively works on your behalf — managing your profile marketing, coordinating recruiter introductions, preparing you for specific interviews, and debriefing after each one. Our support continues post-placement for the first few months on the job. We measure success by employment outcomes, not session attendance." },
-    { q: "What are the payment and financing options?", a: "The programme fee is ₹79,999. Zero-cost EMI is available across all major credit cards from ₹6,667 per month. Direct bank transfer and UPI payment are also supported. Merit-based scholarships of up to 20% are available for eligible candidates. All options are discussed openly during your counselling call — no hidden fees, no pressure decisions." },
-  ];
-  return (
-    <section id="faq" className={`${secPy} border-b`} style={{ background: C.white, borderColor: C.border }}>
-      <Wrap>
-        <div className="grid grid-cols-1 lg:grid-cols-[360px_1fr] gap-8 lg:gap-[80px] items-start">
-          <div className="lg:sticky lg:top-[80px]">
-            <Eyebrow label="Common Questions" />
-            <Display>Everything<br />You Need to <Em>Know.</Em></Display>
-            <Lead className="mt-4">Honest answers to the questions every prospective participant asks before enrolling.</Lead>
-            <div className="mt-6 p-5 sm:p-6" style={{ background: C.goldLt, borderLeft: `3px solid ${C.gold}` }}>
-              <p className="text-[13px] sm:text-[14px] leading-[1.6] font-light" style={{ color: C.navy }}>
-                Still uncertain? Our advisors are working data professionals. A free 30-minute call — honest guidance, no pressure, no obligation.
-              </p>
-              <a href="#enrol" className="inline-block mt-3 text-[13px] font-bold no-underline transition-colors duration-150"
-                style={{ color: C.navy }}
-                onMouseEnter={e => e.target.style.color = C.gold}
-                onMouseLeave={e => e.target.style.color = C.navy}>Schedule a free call →</a>
-            </div>
-          </div>
-          <div className="flex flex-col">
-            {faqs.map((f, i) => (
-              <div key={i} className="cursor-pointer border-b"
-                style={{ borderTop: i === 0 ? `1px solid ${C.border}` : "none", borderColor: C.border }}
-                onClick={() => setOpenIdx(openIdx === i ? -1 : i)}>
-                <div className="flex items-start justify-between gap-4 py-4 sm:py-5 text-[13px] sm:text-[15px] font-semibold leading-[1.4]"
-                  style={{ color: C.navy }}>
-                  {f.q}
-                  <span className="flex-shrink-0 w-6 h-6 sm:w-7 sm:h-7 border rounded-full flex items-center justify-center text-[16px] sm:text-[18px] font-light leading-none transition-all duration-150 mt-[1px]"
-                    style={{ borderColor: openIdx === i ? C.navy : C.border, background: openIdx === i ? C.navy : "transparent", color: openIdx === i ? "#fff" : C.stone }}>
-                    {openIdx === i ? "−" : "+"}
-                  </span>
-                </div>
-                {openIdx === i && (
-                  <div className="pb-5 text-[13px] sm:text-[14px] leading-[1.8] font-light max-w-[600px]" style={{ color: C.stone }}>{f.a}</div>
-                )}
-              </div>
-            ))}
-          </div>
         </div>
       </Wrap>
     </section>
@@ -1249,7 +1231,6 @@ export default function DataScience() {
         <WhyUs />
         <Career />
         <Testimonials />
-        <FAQ />
         <BottomCTA />
         <Footer />
         <StickyMob />

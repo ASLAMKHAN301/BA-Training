@@ -555,7 +555,7 @@ const Hero = () => {
                     color: C.navy,
                   }}
                 >
-                  ₹89,999
+                  ₹32,000
                 </span>
                 <span
                   className="text-[13px] font-medium mb-1.5"
@@ -868,7 +868,7 @@ const About = () => {
   const stats = [
     {
       n: "34.5L",
-      l: "Highest salary offered to a BACentric graduate",
+      l: "Highest salary offered to a CodersBloom graduate",
       dark: false,
     },
     {
@@ -883,7 +883,7 @@ const About = () => {
     },
     {
       n: "185+",
-      l: "Companies that have hired BACentric graduates",
+      l: "Companies that have hired CodersBloom graduates",
       dark: false,
     },
   ];
@@ -898,18 +898,18 @@ const About = () => {
           <div>
             <Eyebrow label="What We Do" />
             <Display>
-              We Train You for the
+              We Built It For The
               <br />
-              <Em>Job. Not the Exam.</Em>
+              <Em>Role. Not a Certificate.</Em>
             </Display>
             <p
               className="text-[15px] leading-[1.8] font-light mt-5 mb-5"
               style={{ color: C.stone }}
             >
-              Our Business Analyst Training with GenAI is built to deliver what
-              the industry actually expects from a modern Business Analyst —
-              clarity of thinking, structured problem-solving, stakeholder
-              management, and the ability to drive projects with confidence.
+              This Business Analyst program is designed around what the industry actually demands from a capable, modern BA —
+              <strong style={{ color: C.navy, fontWeight: 600 }}>
+                sharp analytical thinking, structured problem-solving, the ability to manage stakeholders, and the confidence to drive a project from brief to delivery.
+              </strong>
             </p>
             <blockquote
               className="text-[18px] sm:text-[22px] font-serif italic leading-[1.5] pl-5 sm:pl-6 my-6"
@@ -919,33 +919,27 @@ const About = () => {
                 borderLeft: `3px solid ${C.gold}`,
               }}
             >
-              True Business Analysis cannot be learned from slides alone. It is
-              built through experience.
+              Real business analysis isn't something you absorb from a slide deck. It's something you develop by doing.
             </blockquote>
             <p
               className="text-[15px] leading-[1.8] font-light mb-4"
               style={{ color: C.stone }}
             >
-              From requirements elicitation and documentation to stakeholder
-              communication, project delivery, and post-implementation support —
-              every part of the program is designed around{" "}
+              Every part of this program is {" "}
               <strong style={{ color: C.navy, fontWeight: 600 }}>
-                practical application
+                built around practical application,
               </strong>
-              .
+               from requirements gathering and documentation through to stakeholder communication, project delivery, and post-implementation support. 
             </p>
             <p
               className="text-[15px] leading-[1.8] font-light"
               style={{ color: C.stone }}
             >
-              Unlike conventional institutes that rely on textbook-heavy
-              teaching and part-time trainers, our programs are led by{" "}
+              What sets this apart from conventional training is who's in the room with you. These programs are led by expert working professionals from our own delivery teams —{" "}
               <strong style={{ color: C.navy, fontWeight: 600 }}>
-                full-time working professionals
-              </strong>{" "}
-              from our in-house delivery teams — experts who have successfully
-              delivered projects across insurance, fintech, banking, mobile
-              applications, and US healthcare.
+                practitioners who have successfully owned and delivered projects {" "}
+              </strong>
+              across industries including insurance, fintech, banking, and healthcare.
             </p>
           </div>
           <div
@@ -990,7 +984,7 @@ const Path = () => {
   const cards = [
     {
       label: "Duration",
-      value: "12–16 Weeks",
+      value: "4 Weeks",
       sub: "Intensive program designed to match real project timelines, not classroom calendars.",
       dark: false,
     },
@@ -1083,18 +1077,18 @@ const Objectives = () => {
   const steps = [
     {
       num: "01",
-      title: "Learn",
-      desc: "Build strong hands-on exposure to Business Analysis essentials and develop a solid professional foundation — from requirements elicitation to stakeholder management and SDLC frameworks.",
+      title: "Learn Hands-On",
+      desc: "Develop a strong working foundation in Business Analysis — covering the core skills, frameworks, and professional practices that the role demands from day one. Requirements elicitation, stakeholder management, SDLC — built from the ground up, hands-on.",
     },
     {
       num: "02",
-      title: "Practice",
-      desc: "Every concept you learn is reinforced through workshops, simulations, and practical exercises that mirror real project scenarios. Because mastery is built through repetition — not observation.",
+      title: "Emulate Real Time",
+      desc: "Every concept is pressure-tested through workshops, live simulations, and scenario-based exercises that reflect the complexity of real project environments. Understanding something once isn't mastery. Doing it repeatedly under realistic conditions is.",
     },
     {
       num: "03",
-      title: "Work",
-      desc: "Execute 2 complete end-to-end project implementations as a Business Analyst and gain the kind of experience employers value most — regardless of what's on your resume today.",
+      title: "Deliver Actual Projects",
+      desc: "Execute two complete, end-to-end project implementations in the Business Analyst role. Real work, real deliverables, real decisions — the kind of experience that holds up in any interview room, regardless of what your resume looked like when you started.",
     },
   ];
   return (
@@ -1120,13 +1114,12 @@ const Objectives = () => {
       <Wrap className="relative z-10">
         <Eyebrow label="Program Objectives" dark />
         <Display light className="mt-1">
-          Three Areas to Work
+          Three Pillars. 
           <br />
-          Towards <Em>Success.</Em>
+          One <Em>Outcome.</Em>
         </Display>
         <Lead light className="mt-4">
-          This is not a random list of topics. It is a carefully structured
-          experience designed to build competence, confidence, and credibility.
+          Everything in this program is sequenced with intention. Each stage builds on the last — moving you from understanding to ability to evidence.
         </Lead>
         <div
           className="obj-grid grid grid-cols-1 md:grid-cols-3 mt-10 sm:mt-[60px]"
@@ -1177,52 +1170,109 @@ const Objectives = () => {
 const Curriculum = () => {
   const [openIdx, setOpenIdx] = useState(0);
   const modules = [
-    {
-      title: "Introduction to Business Analysis",
-      body: "Understand what a Business Analyst actually does inside a real organization. We go beyond job descriptions — you will learn how BA fits within project structures, how to navigate cross-functional teams, and what it means to be the bridge between business and technology.",
-      tags: ["Foundation", "Role Clarity"],
-    },
-    {
-      title: "Requirements Elicitation & Elicitation Techniques",
-      body: "Master the art of drawing out accurate, complete requirements from stakeholders who don't always know what they want. Covers interviews, workshops, prototyping, observation, and document analysis — applied through live simulation exercises.",
-      tags: ["Core Skill", "Stakeholder Management"],
-    },
-    {
-      title: "SDLC — Waterfall & Agile Frameworks",
-      body: "Learn how software delivery actually works — from traditional Waterfall to modern Agile delivery. Understand where the BA role shifts in each model, and how to adapt your approach for the environment you're placed in.",
-      tags: ["Waterfall", "Agile", "Scrum"],
-    },
-    {
-      title: "Scrum Framework in Practice",
-      body: "Go beyond reading the Scrum guide. Participate in sprint ceremonies, write user stories that developers can actually build from, manage backlogs under time pressure, and understand the Product Owner–BA dynamic from the inside.",
-      tags: ["Scrum", "User Stories", "Backlog"],
-    },
-    {
-      title: "Requirement Documentation",
-      body: "Write BRDs, FRDs, SRS documents, and use-case specifications the way senior BAs produce them — with precision, traceability, and zero ambiguity. Every document you produce is reviewed and refined until it meets professional standards.",
-      tags: ["BRD", "FRD", "Use Cases"],
-    },
-    {
-      title: "Software Testing for Business Analysts",
-      body: "Understand how testing connects to BA responsibilities. Learn to write test cases, participate in UAT, raise and track defects, and communicate with QA teams — skills that make you far more valuable in any project environment.",
-      tags: ["UAT", "Test Cases", "Defect Tracking"],
-    },
-    {
-      title: "Operational Challenges & Post-Implementation Support",
-      body: "Most courses end at go-live. We train you for what happens after — handling change requests, managing stakeholder expectations post-delivery, and navigating the operational realities that define a BA's long-term credibility.",
-      tags: ["Change Management", "Post-Go-Live"],
-    },
-    {
-      title: "Elective — SQL for Business Analysts",
-      body: "A practical introduction to SQL designed for BAs — not developers. Learn to query databases, understand data structures, and validate business logic through data, so you can have intelligent conversations with technical teams and make better decisions.",
-      tags: ["Elective", "SQL", "Data Analysis"],
-    },
-    {
-      title: "Elective — Power BI for Business Analysts",
-      body: "Learn to build dashboards and reports that communicate business insights to stakeholders. In an environment where data-driven decision making is standard, Power BI fluency is rapidly becoming an expected BA skill across industries.",
-      tags: ["Elective", "Power BI", "Data Visualization"],
-    },
-  ];
+  {
+    title: "Foundation: The Business Analyst Role",
+    body: `
+Start with a clear picture of where Business Analysis sits within the industry — its origins, its purpose, and what the role actually looks like in practice.
+
+• The origin and evolution of Business Analysis as a discipline
+• What Business Analysis is and who a Business Analyst actually is
+• Types of IT companies and how they're structured
+• The IT hierarchy and where the BA sits within it
+• Core roles, responsibilities, and professional standards of the BA
+• The real-world dos and don'ts that practitioners learn the hard way
+    `,
+    tags: [
+      "Business Analysis",
+      "IT Industry",
+      "BA Role",
+      "Professional Standards",
+    ],
+  },
+
+  {
+    title: "Waterfall Methodology & Requirements Management",
+    body: `
+A deep dive into the structured side of project delivery and the documentation that holds it together.
+
+• Identifying stakeholders and managing them throughout a project
+• Building and working with a RACI matrix
+• Understanding and categorizing different types of requirements
+• Elicitation techniques and how to apply them effectively
+• Writing and managing formal project documentation including:
+
+  - Business Requirements Document (BRD)
+  - Functional Requirements Document (FRD)
+  - Software Requirements Specification (SRS)
+  - Requirements Traceability Matrix (RTM)
+  - Use Case Documents
+    `,
+    tags: [
+      "Waterfall",
+      "Requirements",
+      "Stakeholders",
+      "BRD",
+      "FRD",
+      "SRS",
+      "RTM",
+    ],
+  },
+
+  {
+    title: "Agile & Scrum",
+    body: `
+How Business Analysis works inside agile environments, from principles through to daily practice.
+
+• Core Agile principles and frameworks
+• How Scrum is structured and how it compares to Waterfall
+• Scrum events, epics, and the BA's role within them
+• Writing and refining user stories
+• Backlog prioritization and sprint velocity
+• Story estimation techniques including planning poker and t-shirt sizing
+    `,
+    tags: [
+      "Agile",
+      "Scrum",
+      "User Stories",
+      "Backlog",
+      "Planning Poker",
+    ],
+  },
+
+  {
+    title: "Core Skills You'll Walk Away With",
+    body: `
+Developed across the program as an integrated set, not isolated modules.
+
+• Planning and leading requirements activities end to end
+• Eliciting information from stakeholders with precision and confidence
+• Analyzing requirements and applying modelling techniques
+• Writing, validating, and maintaining documentation to a professional standard
+• Managing requirements communication across the full project lifecycle
+    `,
+    tags: [
+      "Communication",
+      "Analysis",
+      "Documentation",
+      "Stakeholder Management",
+    ],
+  },
+
+  {
+    title: "Tools & Case Studies",
+    body: `
+Every module is supported by industry-standard tools and real-world case studies drawn from live project environments.
+
+You won't be learning on hypothetical scenarios — you'll be applying your skills to the kind of problems practicing BAs encounter every day.
+    `,
+    tags: [
+      "Case Studies",
+      "Industry Tools",
+      "Real Projects",
+      "Hands-On Learning",
+    ],
+  },
+];
   return (
     <section
       id="curriculum"
@@ -1232,18 +1282,15 @@ const Curriculum = () => {
       <Wrap>
         <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-8 lg:gap-[80px] items-start">
           <div className="lg:sticky lg:top-[80px]">
-            <Eyebrow label="Course Syllabus" />
+            <Eyebrow label="Course Curriculum" />
             <Display>
-              The Most
+              What You'll
+              
               <br />
-              Comprehensive
-              <br />
-              Curriculum. <Em>Period.</Em>
+              <Em>Learn.</Em>
             </Display>
             <Lead className="mt-4">
-              We bridge every gap that conventional programs leave open —
-              combining traditional BA foundations with modern project realities
-              and future-ready thinking.
+              This curriculum is structured to take you from foundational understanding through to hands-on delivery, covering every dimension of the Business Analyst role across both traditional and agile project environments.
             </Lead>
             <div
               className="mt-6 p-4 sm:p-5 flex items-center gap-4"
@@ -1270,7 +1317,7 @@ const Curriculum = () => {
                   Reeti Ahuja
                 </strong>
                 <span className="text-[12px]" style={{ color: C.stone }}>
-                  Program Lead, BACentric
+                  Program Lead, CodersBloom
                 </span>
               </div>
             </div>
@@ -2143,130 +2190,106 @@ const Domains = () => {
 /* ══════════════════════════════════════════════════════════════════════════════
    CASE STUDIES
 ══════════════════════════════════════════════════════════════════════════════ */
-const CaseStudies = () => {
-  const steps = [
+const CaseStudies = () =>  {
+  const services = [
     {
-      num: "01",
-      title: "Assignment",
-      body: "Real project case studies are explained in detail and assigned to participants for practical execution — across banking, insurance, healthcare, and technology domains.",
+      title: "Personalized Mentoring",
+      body: "No two career paths look the same. Your mentoring is personalized to where you're coming from, where you're headed, and what it's going to take to get there.",
     },
     {
-      num: "02",
-      title: "Review",
-      body: "Once participants submit their work, our mentors review every detail and provide structured feedback during live sessions — not automated suggestions.",
+      title: "Career Strategy",
+      body: "A dedicated coach works with you to build a focused, realistic strategy for your next move — not a generic checklist, but a plan built around your specific background and target role.",
     },
     {
-      num: "03",
-      title: "Revise / Rework",
-      body: "Based on mentor feedback, participants improve their documentation, correct mistakes, and strengthen their approach. This is where real learning happens.",
+      title: "Resume Building",
+      body: "Walk away with a professional profile that genuinely reflects your capability — one that shows what you've built, not just what you've studied.",
     },
     {
-      num: "04",
-      title: "Adapt",
-      body: "This process continues until participants naturally adopt the working style, thinking process, and professional discipline of a Business Analyst.",
+      title: "Active Profile Marketing",
+      body: "We don't just prepare you and wish you luck. We actively put your profile in front of the right people — through our alumni network, corporate hiring contacts, and recruitment partners.",
+    },
+    {
+      title: "Mock Interview Practice",
+      body: "Practice with mentors and working professionals until real interviews feel routine. Familiarity under pressure is a skill, and we build it deliberately.",
+    },
+    {
+      title: "Interview Preparation & Debrief",
+      body: "Every interview is prepared for specifically — based on the actual job description, the company, and the role. Every interview is debriefed honestly so the next one goes better.",
+    },
+    {
+      title: "Capstone Project Work",
+      body: "Domain-specific projects across banking, insurance, healthcare, fintech, operations, HR, and technology — real work you can speak to with confidence in any hiring conversation.",
+    },
+    {
+      title: "Post-Placement Support",
+      body: "Getting hired is the milestone. Succeeding in the role is the goal. Our support continues into your first months on the job, because that transition period matters more than most people realize.",
     },
   ];
-  const outcomes = [
-    "2 complete end-to-end project implementations as a Business Analyst",
-    "BRD, FRD, and SRS documents reviewed to professional standard",
-    "Stakeholder workshop simulations with live role-playing",
-    "Sprint ceremonies and backlog grooming exercises in real Scrum format",
-    "UAT planning and test case writing against real business scenarios",
-    "Domain-specific capstone projects — banking, insurance, healthcare, and tech",
-    "Post-implementation review and change request handling",
-  ];
+
   return (
     <section
-      id="projects"
+      id="placement-support"
       className={`${secPy} border-b`}
-      style={{ background: C.white, borderColor: C.border }}
+      style={{
+        background: C.cream,
+        borderColor: C.border,
+      }}
     >
       <Wrap>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-[80px] items-start">
-          <div>
-            <Eyebrow label="Case Studies & Assignments" />
-            <Display>
-              Built Through
-              <br />
-              <Em>Doing,</Em> Not Watching.
-            </Display>
-            <Lead className="mt-4">
-              Mastery is built through repetition — not observation. Every
-              assignment cycle takes you closer to operating like a
-              professional.
-            </Lead>
-            <div className="flex flex-col mt-6">
-              {steps.map((s, i) => (
+        <div className="max-w-[1200px] mx-auto">
+          <Eyebrow label="Placement Support Services" />
+
+          <Display>
+            From First Application
+            <br />
+            to Long-Term <Em>Success.</Em>
+          </Display>
+
+          <Lead className="mt-4 mb-12 max-w-[760px]">
+            We don't stop at training. Every participant receives
+            dedicated career support designed to get them hired and
+            help them stay ahead once they are.
+          </Lead>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="p-6 sm:p-8 rounded-sm border transition-all duration-300"
+                style={{
+                  borderColor: C.border,
+                  background: C.white,
+                }}
+              >
                 <div
-                  key={i}
-                  className="grid gap-4 py-5 sm:py-6 border-b items-start"
+                  className="w-11 h-11 flex items-center justify-center rounded-sm mb-5"
                   style={{
-                    gridTemplateColumns: "36px 1fr",
-                    borderTop: i === 0 ? `1px solid ${C.border}` : "none",
-                    borderColor: C.border,
+                    background: C.navy,
+                    color: C.gold,
+                    fontFamily:
+                      "'Playfair Display', Georgia, serif",
+                    fontWeight: 700,
+                    fontSize: "15px",
                   }}
                 >
-                  <div
-                    className="w-9 h-9 rounded-sm flex items-center justify-center font-bold text-[13px] flex-shrink-0 mt-0.5"
-                    style={{
-                      background: C.navy,
-                      color: C.gold,
-                      fontFamily: "'Playfair Display',Georgia,serif",
-                    }}
-                  >
-                    {s.num}
-                  </div>
-                  <div>
-                    <h4
-                      className="text-[14px] sm:text-[15px] font-bold mb-1.5"
-                      style={{ color: C.navy }}
-                    >
-                      {s.title}
-                    </h4>
-                    <p
-                      className="text-[13px] sm:text-[14px] leading-[1.65] font-light"
-                      style={{ color: C.stone }}
-                    >
-                      {s.body}
-                    </p>
-                  </div>
+                  {String(index + 1).padStart(2, "0")}
                 </div>
-              ))}
-            </div>
-          </div>
-          <div
-            className="relative overflow-hidden rounded p-7 sm:p-10"
-            style={{ background: C.navy }}
-          >
-            <GridBg opacity={0.06} size={40} />
-            <div className="relative z-10">
-              <div
-                className="text-[11px] font-semibold tracking-[2.5px] uppercase mb-3"
-                style={{ color: C.gold }}
-              >
-                What You'll Work On
+
+                <h3
+                  className="text-[16px] sm:text-[18px] font-bold mb-3"
+                  style={{ color: C.navy }}
+                >
+                  {service.title}
+                </h3>
+
+                <p
+                  className="text-[14px] leading-[1.8] font-light"
+                  style={{ color: C.stone }}
+                >
+                  {service.body}
+                </p>
               </div>
-              <div
-                className="font-bold text-[22px] sm:text-[26px] text-white leading-[1.2] tracking-[-0.5px] mb-6"
-                style={{ fontFamily: "'Playfair Display',Georgia,serif" }}
-              >
-                Beyond
-                <br />
-                <em style={{ color: C.gold }}>Theoretical Classes.</em>
-              </div>
-              <div className="flex flex-col gap-3.5">
-                {outcomes.map((o, i) => (
-                  <div
-                    key={i}
-                    className="flex items-start gap-3 text-[13px] sm:text-[14px] leading-[1.5]"
-                    style={{ color: "rgba(255,255,255,0.7)" }}
-                  >
-                    <GoldCheck />
-                    {o}
-                  </div>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </Wrap>
@@ -2278,51 +2301,21 @@ const CaseStudies = () => {
    WHY US
 ══════════════════════════════════════════════════════════════════════════════ */
 const WhyUs = () => {
-  const cards = [
-    {
-      icon: "🏋️",
-      title: "Professional Workshop",
-      desc: "Completely practical. Real-time. A strong BA foundation built through actual project work across every major responsibility of the role.",
-    },
-    {
-      icon: "🎯",
-      title: "Hands-On Experience",
-      desc: "Our facilitators are experienced professionals with deep project delivery experience as practicing Business Analysts — not part-time educators.",
-    },
-    {
-      icon: "👁️",
-      title: "Personal Attention",
-      desc: "We limit every batch to 5 students to ensure every participant receives focused mentorship based on their individual learning needs.",
-    },
-    {
-      icon: "🕐",
-      title: "24×7 LMS Access",
-      desc: "Access premium learning resources including articles, white papers, case studies, frameworks, and practical reference material throughout the year.",
-    },
+  const cards = [  
     {
       icon: "📹",
-      title: "Video Tutorials Included",
-      desc: "Beyond live sessions, visual learning support helps reinforce concepts and improve retention on your own schedule.",
+      title: "Video Learning Support",
+      desc: "Live sessions are reinforced with video tutorials you can revisit on your own schedule to sharpen understanding and improve retention.",
     },
     {
       icon: "🔄",
-      title: "Resit Anytime for Free",
-      desc: "Missed sessions or need deeper clarity? You can revisit the course anytime at no additional cost — because learning doesn't stop on a fixed date.",
-    },
-    {
-      icon: "📱",
-      title: "Phone & Email Support",
-      desc: "Ongoing support from faculty whenever guidance is needed — before, during, and after the program.",
-    },
-    {
-      icon: "📚",
-      title: "100+ Lessons Included",
-      desc: "Extensive learning modules and practical resources built to strengthen your long-term career growth, not just your first 90 days.",
+      title: "Free Resits, Anytime",
+      desc: "Need to revisit a topic or missed a session? Come back at no extra cost. Learning on a fixed timeline doesn't work for everyone, and we don't pretend it does.",
     },
     {
       icon: "✅",
-      title: "100% Placement Assistance",
-      desc: "Training is only the beginning. We actively support placement outcomes by strengthening both your capability and your employability.",
+      title: "Direct Faculty Support",
+      desc: "Phone and email access to faculty before, during, and after the program — guidance available when it's actually needed, not just during class hours.",
     },
   ];
   return (
@@ -2346,15 +2339,14 @@ const WhyUs = () => {
     >
       <GridBg opacity={0.05} />
       <Wrap className="relative z-10">
-        <Eyebrow label="Why BACentric" dark />
+        <Eyebrow label="Why CodersBloom" dark />
         <Display light className="mt-1">
           What Makes
           <br />
           Us <Em>Different.</Em>
         </Display>
         <Lead light className="mt-4">
-          We train you to become the kind of Business Analyst we would trust on
-          our own projects. That standard shows in everything we do.
+          We train you to the standard we'd hold someone to on our own projects. That shows in every decision we've made about how this program is built.
         </Lead>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 mt-10 sm:mt-[52px]">
           {cards.map((c, i) => (
@@ -2400,116 +2392,6 @@ const WhyUs = () => {
   );
 };
 
-/* ══════════════════════════════════════════════════════════════════════════════
-   CAREER SERVICES
-══════════════════════════════════════════════════════════════════════════════ */
-const Career = () => {
-  const [hov, setHov] = useState(null);
-  const cards = [
-    {
-      icon: "🤝",
-      title: "One-to-One Mentoring",
-      desc: "Every career journey is different. We provide personalized mentoring based on your background, goals, and transition path.",
-    },
-    {
-      icon: "🧭",
-      title: "Career Coaching",
-      desc: "Our dedicated career coaches help define a clear strategy for your next professional move — not a generic job search plan.",
-    },
-    {
-      icon: "📄",
-      title: "Portfolio & Resume",
-      desc: "Build a strong professional profile that reflects your capability, credibility, and project readiness.",
-    },
-    {
-      icon: "🔗",
-      title: "Recruitment & Profile Marketing",
-      desc: "We actively market participant profiles through alumni networks, corporate HRs, and recruitment firms across India.",
-    },
-    {
-      icon: "🎤",
-      title: "Mock Interview Events",
-      desc: "Practice with mentors and industry professionals so real interviews feel familiar — not intimidating.",
-    },
-    {
-      icon: "🔍",
-      title: "Interview Analysis",
-      desc: "We prepare you based on real job descriptions and analyze your interview performance so every attempt becomes stronger.",
-    },
-    {
-      icon: "🏗️",
-      title: "Capstone Projects",
-      desc: "Domain-specific projects across banking, insurance, healthcare, fintech, operations, HR, and technology for your portfolio.",
-    },
-    {
-      icon: "🛡️",
-      title: "Job Support",
-      desc: "Our support continues after placement. Because the first few months on the job matter just as much as getting hired.",
-    },
-  ];
-  return (
-    <section
-      id="career"
-      className={`${secPy} border-b`}
-      style={{ background: C.cream, borderColor: C.border }}
-    >
-      <Wrap>
-        <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-5 mb-10 sm:mb-[52px]">
-          <div>
-            <Eyebrow label="Career Services" />
-            <Display>
-              From Job Search
-              <br />
-              to <Em>Job Success.</Em>
-            </Display>
-          </div>
-          <Lead className="md:max-w-[320px]">
-            BACentric connects top talent with recruiters across India. Our
-            participants have been hired by leading global enterprises and
-            consulting firms.
-          </Lead>
-        </div>
-        <div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px"
-          style={{ background: C.border, border: `1px solid ${C.border}` }}
-        >
-          {cards.map((c, i) => (
-            <div
-              key={i}
-              className="relative overflow-hidden flex flex-col gap-3 p-6 sm:p-7 transition-colors duration-200 cursor-default"
-              style={{ background: hov === i ? C.mist : C.white }}
-              onMouseEnter={() => setHov(i)}
-              onMouseLeave={() => setHov(null)}
-            >
-              <div
-                className="absolute top-0 left-0 right-0 h-[2px] transition-transform duration-300 origin-left"
-                style={{
-                  background: C.gold,
-                  transform: hov === i ? "scaleX(1)" : "scaleX(0)",
-                }}
-              />
-              <div className="text-[20px] sm:text-[22px] leading-none">
-                {c.icon}
-              </div>
-              <div
-                className="text-[13px] sm:text-[14px] font-bold leading-[1.3]"
-                style={{ color: C.navy }}
-              >
-                {c.title}
-              </div>
-              <div
-                className="text-[12px] sm:text-[13px] leading-[1.65] font-light"
-                style={{ color: C.stone }}
-              >
-                {c.desc}
-              </div>
-            </div>
-          ))}
-        </div>
-      </Wrap>
-    </section>
-  );
-};
 
 /* ══════════════════════════════════════════════════════════════════════════════
    TESTIMONIALS
@@ -2522,7 +2404,7 @@ const Testimonials = () => {
       role: "Business Analyst, ICICI Bank",
       sector: "Banking",
       quote:
-        "I came in with zero BA experience and left with two full project implementations on my portfolio. Within six weeks of completing the program I had three offers. BACentric doesn't just train you — they build you.",
+        "I came in with zero BA experience and left with two full project implementations on my portfolio. Within six weeks of completing the program I had three offers. CodersBloom doesn't just train you — they build you.",
     },
     {
       initials: "RS",
@@ -2633,124 +2515,6 @@ const Testimonials = () => {
   );
 };
 
-/* ══════════════════════════════════════════════════════════════════════════════
-   FAQ
-══════════════════════════════════════════════════════════════════════════════ */
-const FAQ = () => {
-  const [openIdx, setOpenIdx] = useState(0);
-  const faqs = [
-    {
-      q: "Do I need a technical background to enroll?",
-      a: "No. The Business Analyst program is open to all graduates regardless of background. We train engineers, MBAs, commerce graduates, science graduates, and working professionals from non-IT roles. Our curriculum is designed to build your technical fluency from the ground up — alongside your BA skills.",
-    },
-    {
-      q: "Can I study while working full-time?",
-      a: "Yes — this is how the majority of our students enroll. All sessions run on weekday evenings and weekends. Every live session is recorded and accessible via LMS, so if you miss a class you can catch up on your own schedule. The workload is designed around employed professionals.",
-    },
-    {
-      q: "What is the batch size and why does it matter?",
-      a: "We limit every batch to 5 students. This is not a marketing claim — it is central to our training model. With 5 participants, every person's assignment gets reviewed in detail, every question gets answered fully, and your mentor can adapt the session to your specific challenges. No one gets left behind.",
-    },
-    {
-      q: "What makes this different from other BA training programs?",
-      a: "Three things: our trainers are full-time working BA professionals from active delivery teams (not part-time educators), our batch size is capped at 5 for genuine mentorship, and participants execute 2 complete end-to-end project implementations — not just case study exercises. We prepare you for the interview, the onboarding, and the first year on the job.",
-    },
-    {
-      q: "Is placement assistance included? What does it cover?",
-      a: "Yes. 100% placement assistance is included — meaning dedicated, active support from your assigned placement manager until you receive an offer. This covers resume building, profile marketing through our recruiter network, mock interview preparation, job description analysis, and post-placement support for your first few months.",
-    },
-    {
-      q: "What payment and financing options are available?",
-      a: "We offer zero-cost EMI across all major credit cards, direct bank transfer, and merit-based scholarships for eligible candidates. There are no hidden fees. Your advisor will walk you through all options during your counselling call so you can make a fully informed decision without any pressure.",
-    },
-  ];
-  return (
-    <section
-      id="faq"
-      className={`${secPy} border-b`}
-      style={{ background: C.white, borderColor: C.border }}
-    >
-      <Wrap>
-        <div className="grid grid-cols-1 lg:grid-cols-[360px_1fr] gap-8 lg:gap-[80px] items-start">
-          <div className="lg:sticky lg:top-[80px]">
-            <Eyebrow label="Common Questions" />
-            <Display>
-              Everything
-              <br />
-              You Need to <Em>Know.</Em>
-            </Display>
-            <Lead className="mt-4">
-              Honest answers to the questions every prospective student asks
-              before enrolling.
-            </Lead>
-            <div
-              className="mt-6 p-5 sm:p-6"
-              style={{
-                background: C.goldLt,
-                borderLeft: `3px solid ${C.gold}`,
-              }}
-            >
-              <p
-                className="text-[13px] sm:text-[14px] leading-[1.6] font-light"
-                style={{ color: C.navy }}
-              >
-                Still have questions? Our advisors are available for a free
-                30-minute call — no obligation, no sales pitch.
-              </p>
-              <a
-                href="#enrol"
-                className="inline-block mt-3 text-[13px] font-bold no-underline transition-colors duration-150"
-                style={{ color: C.navy }}
-                onMouseEnter={(e) => (e.target.style.color = C.gold)}
-                onMouseLeave={(e) => (e.target.style.color = C.navy)}
-              >
-                Schedule a free call →
-              </a>
-            </div>
-          </div>
-          <div className="flex flex-col">
-            {faqs.map((f, i) => (
-              <div
-                key={i}
-                className="cursor-pointer border-b"
-                style={{
-                  borderTop: i === 0 ? `1px solid ${C.border}` : "none",
-                  borderColor: C.border,
-                }}
-                onClick={() => setOpenIdx(openIdx === i ? -1 : i)}
-              >
-                <div
-                  className="flex items-start justify-between gap-4 py-4 sm:py-5 text-[13px] sm:text-[15px] font-semibold leading-[1.4]"
-                  style={{ color: C.navy }}
-                >
-                  {f.q}
-                  <span
-                    className="flex-shrink-0 w-6 h-6 sm:w-7 sm:h-7 border rounded-full flex items-center justify-center text-[16px] sm:text-[18px] font-light leading-none transition-all duration-150 mt-[1px]"
-                    style={{
-                      borderColor: openIdx === i ? C.navy : C.border,
-                      background: openIdx === i ? C.navy : "transparent",
-                      color: openIdx === i ? "#fff" : C.stone,
-                    }}
-                  >
-                    {openIdx === i ? "−" : "+"}
-                  </span>
-                </div>
-                {openIdx === i && (
-                  <div
-                    className="pb-5 text-[13px] sm:text-[14px] leading-[1.8] font-light max-w-[600px]"
-                    style={{ color: C.stone }}
-                  >
-                    {f.a}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </Wrap>
-    </section>
-  );
-};
 
 /* ══════════════════════════════════════════════════════════════════════════════
    BOTTOM CTA
@@ -3071,9 +2835,7 @@ export default function BusinessAnalyst() {
         <Domains />
         <CaseStudies />
         <WhyUs />
-        <Career />
         <Testimonials />
-        <FAQ />
         <BottomCTA />
         <Footer />
         <StickyMob />

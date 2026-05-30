@@ -193,6 +193,48 @@ export const SUCCESS_STORIES = [
     quote:
       "The transition felt impossible until I met the faculty. Real practitioners, not academics. The mock interviews alone were worth the entire programme fee.",
   },
+  {
+  initials: "PM",
+  name: "Priya Menon",
+  from: {
+    company: "BPO Call Centre",
+    role: "Associate",
+  },
+  to: {
+    company: "Deloitte",
+    role: "Business Analyst",
+  },
+  quote:
+    "The Business Analyst program at CodersBloom completely changed the trajectory of my career. I went from a non-technical support role to a BA position at a top-five IT consultancy within six weeks of graduation.",
+},
+{
+  initials: "AK",
+  name: "Arjun Kapoor",
+  from: {
+    company: "Startup",
+    role: "Account Manager",
+  },
+  to: {
+    company: "Wipro Digital",
+    role: "Project Manager",
+  },
+  quote:
+    "What separates CodersBloom from every other course I've taken is the placement team. They don't just introduce you to companies — they stay with you through every round of interviews.",
+},
+{
+  initials: "SR",
+  name: "Sneha Rao",
+  from: {
+    company: "Accounting Firm",
+    role: "Accountant",
+  },
+  to: {
+    company: "PhonePe",
+    role: "Data Analyst",
+  },
+  quote:
+    "I was nervous about switching from finance to data science at 31. The program structure was thoughtful — they knew exactly where non-technical people struggled and built support around it.",
+},
 ];
 
 export const COHORT_STATS = [
