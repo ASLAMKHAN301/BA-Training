@@ -116,7 +116,7 @@ export const TESTIMONIALS = [
   },
   {
     quote:
-      "What separates Edtech Academy from every other course I've taken is the placement team. They don't just introduce you to companies — they stay with you through every round of interviews.",
+      "What separates  CodersBloom from every other course I've taken is the placement team. They don't just introduce you to companies — they stay with you through every round of interviews.",
     name: "Arjun Kapoor",
     role: "Project Manager, Wipro Digital",
     initials: "AK",
@@ -183,7 +183,7 @@ export const SUCCESS_STORIES = [
     from: { company: "Freelance",         role: "Graphic Designer" },
     to:   { company: "Swiggy",            role: "Product Analyst" },
     quote:
-      "I already understood user experience — Edtech Academy gave me the data side. SQL, Amplitude, and stakeholder communication. That combination is rare and highly valued.",
+      "I already understood user experience — CodersBloom Academy gave me the data side. SQL, Amplitude, and stakeholder communication. That combination is rare and highly valued.",
   },
   {
     initials: "KP",
@@ -262,7 +262,7 @@ export const FAQS = [
   },
   {
     q: "What certifications do I receive upon completion?",
-    a: "All graduates receive the Edtech Academy program completion certificate, along with intensive preparation materials and mock exams for globally recognised credentials: IIBA-CCBA for Business Analysts, CAPM/PMP for Project Managers, CompTIA Security+ for Cyber Security, and Google/IBM Professional Certificates for Data Science.",
+    a: "All graduates receive the CodersBloom program completion certificate, along with intensive preparation materials and mock exams for globally recognised credentials: IIBA-CCBA for Business Analysts, CAPM/PMP for Project Managers, CompTIA Security+ for Cyber Security, and Google/IBM Professional Certificates for Data Science.",
   },
   {
     q: "How soon after graduating can I expect a job offer?",
@@ -289,7 +289,7 @@ export const FOOTER_COLUMNS = [
   },
   {
     title: "Contact",
-    links: ["1800-000-0000 (Free)", "admissions@edtechacademy.in", "WhatsApp", "Student Portal"],
+    links: ["1800-000-0000 (Free)", "admissions@CodersBloom.in", "WhatsApp", "Student Portal"],
   },
 ];
 

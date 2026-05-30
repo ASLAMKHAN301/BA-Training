@@ -381,10 +381,10 @@ const TrustStrip = () => {
 ══════════════════════════════════════════════════════════════════════════════ */
 const About = () => {
   const stats = [
-    { n: "32 LPA", l: "Highest salary offered to a BACentric Data Science graduate", dark: false },
+    { n: "32 LPA", l: "Highest salary offered to a CodersBloom Data Science graduate", dark: false },
     { n: "2,800+", l: "Careers successfully transitioned since inception", dark: true },
     { n: "60%", l: "Average salary hike for working professionals", dark: false },
-    { n: "170+", l: "Companies that have hired BACentric graduates", dark: false },
+    { n: "170+", l: "Companies that have hired CodersBloom graduates", dark: false },
   ];
   return (
     <section id="about" className={`${secPy} border-b`} style={{ background: C.white, borderColor: C.border }}>
@@ -701,7 +701,7 @@ const Domains = () => {
     { icon: "🛡", title: "Insurance", desc: "Actuarial and claims data transformed into predictive intelligence — segmenting customers, flagging fraud, and pricing risk accurately.", tags: ["Claims Analytics", "Customer Segmentation", "Risk Prediction"] },
     { icon: "🏥", title: "Healthcare", desc: "Operational analytics, patient outcome modelling, and revenue cycle management — sectors where data quality directly affects human decisions.", tags: ["Predictive Analytics", "RCM", "Health Intelligence"] },
     { icon: "⚙️", title: "Operations", desc: "BPO, KPO, and enterprise operations — where data science drives process optimisation, risk management, and fraud investigation at scale.", tags: ["Process Optimisation", "Risk Management", "Fraud Investigation"] },
-    { icon: "💻", title: "Technology", desc: "AI products, SaaS analytics, CRM/ERP intelligence, edtech, fintech, and automation — the largest employer of data science talent in India.", tags: ["AI Products", "SaaS Analytics", "Automation", "Fintech"] },
+    { icon: "💻", title: "Technology", desc: "AI products, SaaS analytics, CRM/ERP intelligence, CodersBloom, fintech, and automation — the largest employer of data science talent in India.", tags: ["AI Products", "SaaS Analytics", "Automation", "Fintech"] },
     { icon: "📈", title: "Finance", desc: "Capital markets, trade finance, forex, mutual funds, and revenue forecasting — where quantitative models drive billions in decisions daily.", tags: ["Capital Markets", "Revenue Forecasting", "Trade Finance"] },
   ];
   return (

@@ -2635,7 +2635,7 @@ const Footer = () => {
     {
       title: "Institution",
       links: [
-        { label: "About BACentric", href: "#" },
+        { label: "About CodersBloom", href: "#" },
         { label: "Our Trainers", href: "#" },
         { label: "Hiring Partners", href: "#" },
         { label: "Blog & Insights", href: "#" },
@@ -2646,8 +2646,8 @@ const Footer = () => {
       links: [
         { label: "1800-000-0000 (Free)", href: "tel:+911800000000" },
         {
-          label: "admissions@bacentric.in",
-          href: "mailto:admissions@bacentric.in",
+          label: "admissions@CodersBloom.in",
+          href: "mailto:admissions@CodersBloom.in",
         },
         { label: "WhatsApp Us", href: "#" },
         { label: "Student Portal", href: "#" },
@@ -2673,7 +2673,7 @@ const Footer = () => {
                 className="font-bold text-[15px] text-white"
                 style={{ fontFamily: "'Playfair Display',Georgia,serif" }}
               >
-                BACentric
+                CodersBloom
               </strong>
             </a>
             <p
@@ -2732,7 +2732,7 @@ const Footer = () => {
           style={{ color: "rgba(255,255,255,0.25)" }}
         >
           <p>
-            © 2025 BACentric. All rights reserved. Enabling Enterprises Change™
+            © 2025 CodersBloom. All rights reserved. Enabling Enterprises Change™
           </p>
           <div className="flex gap-4 sm:gap-6 flex-wrap">
             {["Privacy Policy", "Terms of Service", "Refund Policy"].map(

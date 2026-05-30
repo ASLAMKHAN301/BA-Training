@@ -4,7 +4,6 @@ import { useLocation } from "react-router-dom";
 
 /* Pages */
 import Home from "./pages/Home";
-import AboutUs from "./pages/AboutUs";
 import BusinessAnalyst from "./pages/BusinessAnalyst";
 import CyberSecurity from "./pages/CyberSecurity";
 import ProjectManagement from "./pages/ProjectManagement";
@@ -40,11 +39,7 @@ export default function App() {
           element={<Home />}
         />
 
-        {/* About */}
-        <Route
-          path="/about-us"
-          element={<AboutUs />}
-        />
+      
 
         {/* Programs */}
         <Route
