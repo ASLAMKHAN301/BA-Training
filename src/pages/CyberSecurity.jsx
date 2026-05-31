@@ -85,7 +85,7 @@ const GridOverlay = ({ opacity = 0.05 }) => (
 const Wrap = ({ children, className = "" }) => (
   <div className={`max-w-[1160px] mx-auto px-5 sm:px-8 lg:px-[60px] ${className}`}>{children}</div>
 );
-
+const secPy = "py-16 sm:py-24";
 
 
 /* ══════════════════════════════════════════════════════════════════════════════
@@ -820,35 +820,68 @@ const Tools = () => {
    METHODOLOGY
 ══════════════════════════════════════════════════════════════════════════════ */
 const Methodology = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+  });
+
   const bars = [
     {
       pct: "40%",
-      title: "Concept & Framework",
-      desc: "Building the mental models — threat landscapes, attack taxonomies, security architecture, and compliance frameworks — that make everything else coherent.",
+      title: "Case Studies & Discussion",
+      desc: "We use real project cases to create meaningful exercises and practical understanding. Every case is drawn from actual engagements our trainers have delivered.",
       dark: false,
     },
     {
-      pct: "45%",
-      title: "Hands-On Lab Work",
-      desc: "Live attack simulations, CTF-style exercises, SOC alert triage sessions, and penetration test engagements in cloud lab environments.",
+      pct: "30%",
+      title: "Simulation & Games",
+      desc: "People learn best when they engage deeply. Our simulations create decision-making under realistic project conditions — ambiguity, pressure, conflicting stakeholders.",
       dark: true,
     },
     {
-      pct: "15%",
-      title: "Reporting & Communication",
-      desc: "Producing security deliverables that non-technical stakeholders can act on. Because findings that aren't communicated clearly don't get fixed.",
+      pct: "30%",
+      title: "Theory & Application",
+      desc: "We use theory only where it adds value — and immediately connect it to application. No isolated concepts. No passive memorization. Only what matters.",
       dark: false,
     },
   ];
 
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    console.log("Form Data:", formData);
+
+    // API call yahan lagegi
+    // await fetch("/api/brochure", {...})
+
+    alert(
+      "Thank you! Your details have been submitted successfully."
+    );
+
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+    });
+
+    setShowModal(false);
+  };
+
   return (
     <section
       id="methodology"
-      className="py-14 md:py-[88px] border-b"
-      style={{
-        background: C.white,
-        borderColor: C.border,
-      }}
+      className={`${secPy} border-b`}
+      style={{ background: C.white, borderColor: C.border }}
     >
       <Wrap>
         {/* Heading */}
@@ -864,17 +897,16 @@ const Methodology = () => {
           </Display>
 
           <SectionLead className="mt-4 mx-auto text-center">
-            Security competence is not a knowledge problem —
-            it is a practice problem. Our methodology is built
-            around this truth.
+            Security competence is not a knowledge problem — it is a
+            practice problem. Our methodology is built around this
+            truth.
           </SectionLead>
         </div>
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12 sm:mb-16">
-          <a
-            href="/brochure.pdf"
-            download
+          <button
+            onClick={() => setShowModal(true)}
             className="px-8 py-4 rounded text-[14px] font-semibold text-center transition-all duration-300"
             style={{
               background: C.gold,
@@ -882,13 +914,13 @@ const Methodology = () => {
             }}
           >
             Download Brochure
-          </a>
+          </button>
 
           <a
             href="https://wa.me/919999999999"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-8 py-4 rounded text-[14px] font-semibold text-center border transition-all duration-300"
+            className="px-8 py-4 rounded text-[14px] font-semibold text-center transition-all duration-300"
             style={{
               backgroundColor: "#25D366",
               color: "#ffffff",
@@ -898,7 +930,7 @@ const Methodology = () => {
           </a>
         </div>
 
-        {/* Methodology Cards */}
+        {/* Percentage bars */}
         <div
           className="grid grid-cols-1 sm:grid-cols-3 gap-px"
           style={{
@@ -948,6 +980,81 @@ const Methodology = () => {
             </div>
           ))}
         </div>
+
+        {/* Modal */}
+        {showModal && (
+          <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4">
+            <div className="bg-white rounded-2xl w-full max-w-md p-6 shadow-2xl">
+              <h2
+                className="text-2xl font-bold mb-2"
+                style={{ color: C.navy }}
+              >
+                Download Brochure
+              </h2>
+
+              <p className="text-sm text-gray-600 mb-6">
+                Please enter your details to receive the
+                brochure.
+              </p>
+
+              <form
+                onSubmit={handleSubmit}
+                className="space-y-4"
+              >
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Full Name"
+                  required
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="w-full border rounded-lg p-3 outline-none"
+                />
+
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email Address"
+                  required
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full border rounded-lg p-3 outline-none"
+                />
+
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Phone Number"
+                  required
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className="w-full border rounded-lg p-3 outline-none"
+                />
+
+                <div className="flex gap-3 pt-2">
+                  <button
+                    type="submit"
+                    className="flex-1 py-3 rounded-lg font-semibold"
+                    style={{
+                      background: C.gold,
+                      color: C.navy,
+                    }}
+                  >
+                    Submit
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setShowModal(false)}
+                    className="flex-1 py-3 rounded-lg border font-semibold"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        )}
       </Wrap>
     </section>
   );

@@ -91,7 +91,7 @@ const SectionLead = ({ children, light = false, className = "" }) => (
     style={{ color: light ? "rgba(255,255,255,0.5)" : C.stone }}>{children}</p>
 );
 const sectionBase = "py-16 md:py-[88px]";
-
+const secPy = "py-16 sm:py-24";
 /* ══════════════════════════════════════════════════════════════════════════════
    ANNOUNCE
 ══════════════════════════════════════════════════════════════════════════════ */
@@ -710,14 +710,71 @@ const Tools = () => {
    METHODOLOGY
 ══════════════════════════════════════════════════════════════════════════════ */
 const Methodology = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+  });
+
   const bars = [
-    { pct: "30%", title: "Frameworks & Theory", desc: "PMI, Agile, PRINCE2-aligned thinking and lifecycle models — taught not as doctrine, but as structured tools for navigating delivery complexity.", dark: false },
-    { pct: "50%", title: "Simulation & Live Practice", desc: "Sprint simulations, stakeholder role-plays, conflict scenarios, change request exercises, and full project lifecycle walkthroughs on realistic case studies.", dark: true },
-    { pct: "20%", title: "Reporting & Stakeholder Communication", desc: "Writing status reports, chairing steering committees, delivering difficult news upward, and translating delivery complexity into language stakeholders can act on.", dark: false },
+    {
+      pct: "40%",
+      title: "Case Studies & Discussion",
+      desc: "We use real project cases to create meaningful exercises and practical understanding. Every case is drawn from actual engagements our trainers have delivered.",
+      dark: false,
+    },
+    {
+      pct: "30%",
+      title: "Simulation & Games",
+      desc: "People learn best when they engage deeply. Our simulations create decision-making under realistic project conditions — ambiguity, pressure, conflicting stakeholders.",
+      dark: true,
+    },
+    {
+      pct: "30%",
+      title: "Theory & Application",
+      desc: "We use theory only where it adds value — and immediately connect it to application. No isolated concepts. No passive memorization. Only what matters.",
+      dark: false,
+    },
   ];
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    console.log("Form Data:", formData);
+
+    // API call yahan lagegi
+    // await fetch("/api/brochure", {...})
+
+    alert(
+      "Thank you! Your details have been submitted successfully."
+    );
+
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+    });
+
+    setShowModal(false);
+  };
+
   return (
-    <section id="methodology" className={`${sectionBase} border-b`} style={{ background: C.white, borderColor: C.border }}>
+    <section
+      id="methodology"
+      className={`${secPy} border-b`}
+      style={{ background: C.white, borderColor: C.border }}
+    >
       <Wrap>
+        {/* Heading */}
         <div className="text-center mb-10 sm:mb-14">
           <div className="flex justify-center">
             <Eyebrow label="Our Methodology" />
@@ -730,17 +787,16 @@ const Methodology = () => {
           </Display>
 
           <SectionLead className="mt-4 mx-auto text-center">
-            Security competence is not a knowledge problem —
-            it is a practice problem. Our methodology is built
-            around this truth.
+            Security competence is not a knowledge problem — it is a
+            practice problem. Our methodology is built around this
+            truth.
           </SectionLead>
         </div>
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12 sm:mb-16">
-          <a
-            href="/brochure.pdf"
-            download
+          <button
+            onClick={() => setShowModal(true)}
             className="px-8 py-4 rounded text-[14px] font-semibold text-center transition-all duration-300"
             style={{
               background: C.gold,
@@ -748,13 +804,13 @@ const Methodology = () => {
             }}
           >
             Download Brochure
-          </a>
+          </button>
 
           <a
             href="https://wa.me/919999999999"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-8 py-4 rounded text-[14px] font-semibold text-center border transition-all duration-300"
+            className="px-8 py-4 rounded text-[14px] font-semibold text-center transition-all duration-300"
             style={{
               backgroundColor: "#25D366",
               color: "#ffffff",
@@ -763,17 +819,132 @@ const Methodology = () => {
             WhatsApp Us
           </a>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-px"
-          style={{ background: C.border, border: `1px solid ${C.border}` }}>
+
+        {/* Percentage bars */}
+        <div
+          className="grid grid-cols-1 sm:grid-cols-3 gap-px"
+          style={{
+            background: C.border,
+            border: `1px solid ${C.border}`,
+          }}
+        >
           {bars.map((b, i) => (
-            <div key={i} className="p-7 sm:p-9 flex flex-col gap-3" style={{ background: b.dark ? C.navy : C.cream }}>
-              <div className="font-bold leading-none tracking-[-2px]"
-                style={{ fontFamily: "'Playfair Display',Georgia,serif", fontSize: "clamp(36px,4vw,52px)", color: b.dark ? C.gold : C.navy }}>{b.pct}</div>
-              <div className="text-[14px] sm:text-[15px] font-bold" style={{ color: b.dark ? "#fff" : C.navy }}>{b.title}</div>
-              <div className="text-[13px] leading-[1.65] font-light" style={{ color: b.dark ? "rgba(255,255,255,0.45)" : C.stone }}>{b.desc}</div>
+            <div
+              key={i}
+              className="p-7 sm:p-9 flex flex-col gap-3"
+              style={{
+                background: b.dark ? C.navy : C.cream,
+              }}
+            >
+              <div
+                className="font-bold leading-none tracking-[-2px]"
+                style={{
+                  fontFamily:
+                    "'Playfair Display', Georgia, serif",
+                  fontSize: "clamp(36px,4vw,52px)",
+                  color: b.dark ? C.gold : C.navy,
+                }}
+              >
+                {b.pct}
+              </div>
+
+              <div
+                className="text-[14px] sm:text-[15px] font-bold"
+                style={{
+                  color: b.dark ? "#fff" : C.navy,
+                }}
+              >
+                {b.title}
+              </div>
+
+              <div
+                className="text-[13px] leading-[1.65] font-light"
+                style={{
+                  color: b.dark
+                    ? "rgba(255,255,255,0.45)"
+                    : C.stone,
+                }}
+              >
+                {b.desc}
+              </div>
             </div>
           ))}
         </div>
+
+        {/* Modal */}
+        {showModal && (
+          <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4">
+            <div className="bg-white rounded-2xl w-full max-w-md p-6 shadow-2xl">
+              <h2
+                className="text-2xl font-bold mb-2"
+                style={{ color: C.navy }}
+              >
+                Download Brochure
+              </h2>
+
+              <p className="text-sm text-gray-600 mb-6">
+                Please enter your details to receive the
+                brochure.
+              </p>
+
+              <form
+                onSubmit={handleSubmit}
+                className="space-y-4"
+              >
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Full Name"
+                  required
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="w-full border rounded-lg p-3 outline-none"
+                />
+
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email Address"
+                  required
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full border rounded-lg p-3 outline-none"
+                />
+
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Phone Number"
+                  required
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className="w-full border rounded-lg p-3 outline-none"
+                />
+
+                <div className="flex gap-3 pt-2">
+                  <button
+                    type="submit"
+                    className="flex-1 py-3 rounded-lg font-semibold"
+                    style={{
+                      background: C.gold,
+                      color: C.navy,
+                    }}
+                  >
+                    Submit
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setShowModal(false)}
+                    className="flex-1 py-3 rounded-lg border font-semibold"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        )}
       </Wrap>
     </section>
   );
