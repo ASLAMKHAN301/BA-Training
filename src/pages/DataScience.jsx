@@ -5,6 +5,7 @@ import toolsBg from "../assets/danial-igdery-FCHlYvR5gJI-unsplash.jpg";
 import whyUsBg from "../assets/microsoft-edge-TcC5qr3dpgA-unsplash.jpg";
 import bottomCtaBg from "../assets/mina-rad-jdS1UfbbIA8-unsplash.jpg";
 import Nav from "../components/layout/Nav";
+import { useNavigate } from "react-router-dom";
 
 /* ─── Design tokens ──────────────────────────────────────────────────────────── */
 const C = {
@@ -698,7 +699,7 @@ const Domains = () => {
   const [hov, setHov] = useState(null);
   const domains = [
     { icon: "🏦", title: "Banking", desc: "Where data science has the highest business stakes — from credit risk and fraud to customer intelligence and revenue forecasting.", tags: ["Risk Analytics", "Fraud Detection", "Credit Modelling", "Forecasting"] },
-    { icon: "🛡", title: "Insurance", desc: "Actuarial and claims data transformed into predictive intelligence — segmenting customers, flagging fraud, and pricing risk accurately.", tags: ["Claims Analytics", "Customer Segmentation", "Risk Prediction"] },
+    { icon: "🛡️", title: "Insurance", desc: "Actuarial and claims data transformed into predictive intelligence — segmenting customers, flagging fraud, and pricing risk accurately.", tags: ["Claims Analytics", "Customer Segmentation", "Risk Prediction"] },
     { icon: "🏥", title: "Healthcare", desc: "Operational analytics, patient outcome modelling, and revenue cycle management — sectors where data quality directly affects human decisions.", tags: ["Predictive Analytics", "RCM", "Health Intelligence"] },
     { icon: "⚙️", title: "Operations", desc: "BPO, KPO, and enterprise operations — where data science drives process optimisation, risk management, and fraud investigation at scale.", tags: ["Process Optimisation", "Risk Management", "Fraud Investigation"] },
     { icon: "💻", title: "Technology", desc: "AI products, SaaS analytics, CRM/ERP intelligence, CodersBloom, fintech, and automation — the largest employer of data science talent in India.", tags: ["AI Products", "SaaS Analytics", "Automation", "Fintech"] },
@@ -716,25 +717,105 @@ const Domains = () => {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px"
           style={{ background: C.border, border: `1px solid ${C.border}` }}>
-          {domains.map((d, i) => (
-            <div key={i} className="relative overflow-hidden flex flex-col gap-4 p-6 sm:p-7 lg:p-8 transition-colors duration-200 cursor-default"
-              style={{ background: hov === i ? C.cream : C.white }}
-              onMouseEnter={() => setHov(i)} onMouseLeave={() => setHov(null)}>
-              <div className="absolute top-0 left-0 right-0 h-[2px] transition-transform duration-300 origin-left"
-                style={{ background: C.gold, transform: hov === i ? "scaleX(1)" : "scaleX(0)" }} />
-              <div className="w-10 h-10 sm:w-11 sm:h-11 border rounded-sm flex items-center justify-center text-[18px] sm:text-[20px]"
-                style={{ borderColor: C.border, background: C.cream }}>{d.icon}</div>
-              <div className="font-bold text-[16px] sm:text-[17px] tracking-[-0.3px]"
-                style={{ fontFamily: "'Playfair Display',Georgia,serif", color: C.navy }}>{d.title}</div>
-              <p className="text-[13px] leading-[1.65] font-light" style={{ color: C.stone }}>{d.desc}</p>
-              <div className="flex gap-1.5 flex-wrap">
-                {d.tags.map(t => (
-                  <span key={t} className="text-[11px] font-medium px-2 py-0.5 rounded-sm"
-                    style={{ color: C.stone, background: C.mist }}>{t}</span>
-                ))}
-              </div>
-            </div>
-          ))}
+          {domains.map((d, i) => {
+  const isDark = i % 2 !== 0;
+
+  return (
+    <div
+      key={i}
+      className="relative overflow-hidden flex flex-col gap-4 p-6 sm:p-7 lg:p-8 transition-colors duration-200 cursor-default"
+      style={{
+        background:
+          hov === i
+            ? C.cream
+            : isDark
+            ? "#111111"
+            : C.white,
+      }}
+      onMouseEnter={() => setHov(i)}
+      onMouseLeave={() => setHov(null)}
+    >
+      <div
+        className="absolute top-0 left-0 right-0 h-[2px] transition-transform duration-300 origin-left"
+        style={{
+          background: C.gold,
+          transform: hov === i ? "scaleX(1)" : "scaleX(0)",
+        }}
+      />
+
+      <div
+        className="w-10 h-10 sm:w-11 sm:h-11 border rounded-sm flex items-center justify-center text-[18px] sm:text-[20px]"
+        style={{
+          borderColor: isDark
+            ? "rgba(255,255,255,0.15)"
+            : C.border,
+          background: isDark
+            ? "#1a1a1a"
+            : C.cream,
+        }}
+      >
+        {d.icon}
+      </div>
+
+      <div
+        className="font-bold text-[16px] sm:text-[17px] tracking-[-0.3px]"
+        style={{
+          fontFamily: "'Playfair Display',Georgia,serif",
+          color:
+            hov === i
+              ? C.navy
+              : isDark
+              ? "#ffffff"
+              : C.navy,
+        }}
+      >
+        {d.title}
+      </div>
+
+      <p
+        className="text-[13px] leading-[1.65] font-light"
+        style={{
+          color:
+            hov === i
+              ? C.stone
+              : isDark
+              ? "rgba(255,255,255,0.75)"
+              : C.stone,
+        }}
+      >
+        {d.desc}
+      </p>
+
+      <div className="flex gap-1.5 flex-wrap">
+        {d.tags.map((t) => (
+          <span
+            key={t}
+            className="text-[11px] font-medium px-2 py-0.5 rounded-sm"
+            style={{
+              color:
+                hov === i
+                  ? C.stone
+                  : isDark
+                  ? "#ffffff"
+                  : C.stone,
+              background:
+                hov === i
+                  ? C.mist
+                  : isDark
+                  ? "rgba(255,255,255,0.08)"
+                  : C.mist,
+              border: isDark
+                ? "1px solid rgba(255,255,255,0.1)"
+                : "none",
+            }}
+          >
+            {t}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+})}
         </div>
       </Wrap>
     </section>
@@ -1129,55 +1210,70 @@ const Testimonials = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
-          {cards.map((card, i) => (
-            <div
-              key={i}
-              className="p-6 sm:p-8 rounded border flex flex-col h-full transition-all duration-300 hover:-translate-y-1"
-              style={{
-                background: C.white,
-                borderColor: C.border,
-              }}
-            >
-              {/* Number Badge */}
+          {cards.map((card, i) => {
+            const isDark = i % 2 !== 0;
+
+            return (
               <div
-                className="w-12 h-12 rounded-full flex items-center justify-center mb-6"
+                key={i}
+                className="p-6 sm:p-8 rounded border flex flex-col h-full transition-all duration-300 hover:-translate-y-1"
                 style={{
-                  background: C.mist,
-                  color: C.gold,
+                  background: isDark ? "#111111" : C.white,
+                  borderColor: isDark
+                    ? "rgba(255,255,255,0.12)"
+                    : C.border,
                 }}
               >
-                <span
-                  className="text-xl font-bold"
+                {/* Number Badge */}
+                <div
+                  className="w-12 h-12 rounded-full flex items-center justify-center mb-6"
                   style={{
-                    fontFamily: "'Playfair Display', Georgia, serif",
+                    background: isDark
+                      ? "#1f1f1f"
+                      : C.mist,
+                    color: C.gold,
+                    border: isDark
+                      ? "1px solid rgba(255,255,255,0.1)"
+                      : "none",
                   }}
                 >
-                  {String(i + 1).padStart(2, "0")}
-                </span>
+                  <span
+                    className="text-xl font-bold"
+                    style={{
+                      fontFamily:
+                        "'Playfair Display', Georgia, serif",
+                    }}
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                </div>
+
+                {/* Title */}
+                <h3
+                  className="text-[22px] sm:text-[24px] leading-tight mb-4"
+                  style={{
+                    color: isDark ? "#ffffff" : C.navy,
+                    fontFamily:
+                      "'Playfair Display', Georgia, serif",
+                  }}
+                >
+                  {card.title}
+                </h3>
+
+                {/* Description */}
+                <p
+                  className="text-[15px] leading-[1.8] flex-1"
+                  style={{
+                    color: isDark
+                      ? "rgba(255,255,255,0.75)"
+                      : C.stone,
+                  }}
+                >
+                  {card.description}
+                </p>
               </div>
-
-              {/* Title */}
-              <h3
-                className="text-[22px] sm:text-[24px] leading-tight mb-4"
-                style={{
-                  color: C.navy,
-                  fontFamily: "'Playfair Display', Georgia, serif",
-                }}
-              >
-                {card.title}
-              </h3>
-
-              {/* Description */}
-              <p
-                className="text-[15px] leading-[1.8] flex-1"
-                style={{
-                  color: C.stone,
-                }}
-              >
-                {card.description}
-              </p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </Wrap>
     </section>
@@ -1332,12 +1428,18 @@ const BottomCTA = () => {
    FOOTER
 ══════════════════════════════════════════════════════════════════════════════ */
 const Footer = () => {
-  const scroll = (id) => {
-    const el = document.getElementById(id);
-    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + scrollY - 68, behavior: "smooth" });
-  };
+  const navigate = useNavigate();
+  
   const cols = [
-    { title: "Programme", links: [{ label: "Curriculum", id: "curriculum" }, { label: "Tools Covered", id: "tools" }, { label: "Industry Domains", id: "domains" }, { label: "Capstone Projects", id: "projects" }] },
+    {
+    title: "Program",
+    links: [
+      { label: "Business Analyst", path: "/business-analyst" },
+      { label: "Project Management", path: "/project-management" },
+      { label: "Cyber Security", path: "/cyber-security" },
+      { label: "Data Science", path: "/data-science" },
+    ],
+  },
     { title: "Institution", links: [{ label: "About BACentric", href: "#" }, { label: "Our Trainers", href: "#" }, { label: "Hiring Partners", href: "#" }, { label: "Blog & Insights", href: "#" }] },
     { title: "Contact", links: [{ label: "1800-000-0000 (Free)", href: "tel:+911800000000" }, { label: "admissions@bacentric.in", href: "mailto:admissions@bacentric.in" }, { label: "WhatsApp Us", href: "#" }, { label: "Student Portal", href: "#" }] },
   ];
@@ -1361,17 +1463,36 @@ const Footer = () => {
               <ul className="flex flex-col gap-2.5 list-none">
                 {col.links.map(l => (
                   <li key={l.label}>
-                    {l.id ? (
-                      <button onClick={() => scroll(l.id)}
+                    {l.path ? (
+                      <button
+                        onClick={() => navigate(l.path)}
                         className="text-[12px] sm:text-[13px] font-light bg-transparent border-none cursor-pointer p-0 text-left transition-colors duration-150"
                         style={{ color: "rgba(255,255,255,0.4)" }}
-                        onMouseEnter={e => e.target.style.color = "#fff"}
-                        onMouseLeave={e => e.target.style.color = "rgba(255,255,255,0.4)"}>{l.label}</button>
+                        onMouseEnter={(e) =>
+                          (e.target.style.color = "#fff")
+                        }
+                        onMouseLeave={(e) =>
+                          (e.target.style.color =
+                            "rgba(255,255,255,0.4)")
+                        }
+                      >
+                        {l.label}
+                      </button>
                     ) : (
-                      <a href={l.href} className="text-[12px] sm:text-[13px] font-light no-underline transition-colors duration-150"
+                      <a
+                        href={l.href}
+                        className="text-[12px] sm:text-[13px] font-light no-underline transition-colors duration-150"
                         style={{ color: "rgba(255,255,255,0.4)" }}
-                        onMouseEnter={e => e.target.style.color = "#fff"}
-                        onMouseLeave={e => e.target.style.color = "rgba(255,255,255,0.4)"}>{l.label}</a>
+                        onMouseEnter={(e) =>
+                          (e.target.style.color = "#fff")
+                        }
+                        onMouseLeave={(e) =>
+                          (e.target.style.color =
+                            "rgba(255,255,255,0.4)")
+                        }
+                      >
+                        {l.label}
+                      </a>
                     )}
                   </li>
                 ))}

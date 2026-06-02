@@ -5,6 +5,7 @@ import toolsBg from "../assets/kyle-loftus-PFC2fY9LE_g-unsplash.jpg";
 import whyUsBg from "../assets/saad-manzoor-c3FaSSL1xj0-unsplash.jpg";
 import bottomCtaBg from "../assets/phyo-min-A9qQ8vE1Bmw-unsplash.jpg";
 import Nav from "../components/layout/Nav";
+import { useNavigate } from "react-router-dom";
 
 /* ─── Design tokens ──────────────────────────────────────────────────────────── */
 const C = {
@@ -558,19 +559,73 @@ const Objectives = () => {
         {/* 1→2→3 col grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px mt-10 sm:mt-12"
           style={{ background: C.border, border: `1px solid ${C.border}` }}>
-          {objs.map((o, i) => (
-            <div key={i}
-              className="relative overflow-hidden flex flex-col gap-3.5 p-6 sm:p-7 lg:p-8 transition-colors duration-200 cursor-default"
-              style={{ background: hov === i ? C.cream : C.white }}
-              onMouseEnter={() => setHov(i)} onMouseLeave={() => setHov(null)}>
-              <div className="absolute top-0 left-0 right-0 h-[2px] transition-transform duration-300 origin-left"
-                style={{ background: C.gold, transform: hov === i ? "scaleX(1)" : "scaleX(0)" }} />
-              <div className="text-[13px] font-bold tracking-[1px]" style={{ fontFamily: "'Playfair Display',Georgia,serif", color: C.gold }}>{o.num}</div>
-              <div className="font-bold text-[16px] sm:text-[17px] tracking-[-0.3px] leading-[1.25]"
-                style={{ fontFamily: "'Playfair Display',Georgia,serif", color: C.navy }}>{o.title}</div>
-              <p className="text-[13px] leading-[1.65] font-light" style={{ color: C.stone }}>{o.desc}</p>
-            </div>
-          ))}
+          {objs.map((o, i) => {
+  const isDark = i % 2 !== 0;
+
+  return (
+    <div
+      key={i}
+      className="relative overflow-hidden flex flex-col gap-3.5 p-6 sm:p-7 lg:p-8 transition-colors duration-200 cursor-default"
+      style={{
+        background:
+          hov === i
+            ? C.cream
+            : isDark
+            ? "#111111"
+            : C.white,
+      }}
+      onMouseEnter={() => setHov(i)}
+      onMouseLeave={() => setHov(null)}
+    >
+      <div
+        className="absolute top-0 left-0 right-0 h-[2px] transition-transform duration-300 origin-left"
+        style={{
+          background: C.gold,
+          transform: hov === i ? "scaleX(1)" : "scaleX(0)",
+        }}
+      />
+
+      <div
+        className="text-[13px] font-bold tracking-[1px]"
+        style={{
+          fontFamily: "'Playfair Display',Georgia,serif",
+          color: C.gold,
+        }}
+      >
+        {o.num}
+      </div>
+
+      <div
+        className="font-bold text-[16px] sm:text-[17px] tracking-[-0.3px] leading-[1.25]"
+        style={{
+          fontFamily: "'Playfair Display',Georgia,serif",
+          color:
+            hov === i
+              ? C.navy
+              : isDark
+              ? "#ffffff"
+              : C.navy,
+        }}
+      >
+        {o.title}
+      </div>
+
+      <p
+        className="text-[13px] leading-[1.65] font-light"
+        style={{
+          color:
+            hov === i
+              ? C.stone
+              : isDark
+              ? "rgba(255,255,255,0.75)"
+              : C.stone,
+        }}
+      >
+        {o.desc}
+      </p>
+    </div>
+  );
+})}
           {/* Full-width 7th card */}
           <div className="sm:col-span-2 lg:col-span-3 flex flex-col gap-3.5 p-6 sm:p-7 lg:p-8"
             style={{ background: C.navy, borderTop: `2px solid ${C.gold}` }}>
@@ -1153,61 +1208,75 @@ const Testimonials = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
-          {cards.map((card, i) => (
-            <div
-              key={i}
-              className="p-6 sm:p-8 rounded border flex flex-col h-full transition-all duration-300 hover:-translate-y-1"
-              style={{
-                background: C.white,
-                borderColor: C.border,
-              }}
-            >
-              {/* Number Badge */}
+          {cards.map((card, i) => {
+            const isDark = i % 2 !== 0;
+
+            return (
               <div
-                className="w-12 h-12 rounded-full flex items-center justify-center mb-6"
+                key={i}
+                className="p-6 sm:p-8 rounded border flex flex-col h-full transition-all duration-300 hover:-translate-y-1"
                 style={{
-                  background: C.mist,
-                  color: C.gold,
+                  background: isDark ? "#111111" : C.white,
+                  borderColor: isDark
+                    ? "rgba(255,255,255,0.12)"
+                    : C.border,
                 }}
               >
-                <span
-                  className="text-xl font-bold"
+                {/* Number Badge */}
+                <div
+                  className="w-12 h-12 rounded-full flex items-center justify-center mb-6"
                   style={{
-                    fontFamily: "'Playfair Display', Georgia, serif",
+                    background: isDark
+                      ? "#1f1f1f"
+                      : C.mist,
+                    color: C.gold,
+                    border: isDark
+                      ? "1px solid rgba(255,255,255,0.1)"
+                      : "none",
                   }}
                 >
-                  {String(i + 1).padStart(2, "0")}
-                </span>
+                  <span
+                    className="text-xl font-bold"
+                    style={{
+                      fontFamily:
+                        "'Playfair Display', Georgia, serif",
+                    }}
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                </div>
+
+                {/* Title */}
+                <h3
+                  className="text-[22px] sm:text-[24px] leading-tight mb-4"
+                  style={{
+                    color: isDark ? "#ffffff" : C.navy,
+                    fontFamily:
+                      "'Playfair Display', Georgia, serif",
+                  }}
+                >
+                  {card.title}
+                </h3>
+
+                {/* Description */}
+                <p
+                  className="text-[15px] leading-[1.8] flex-1"
+                  style={{
+                    color: isDark
+                      ? "rgba(255,255,255,0.75)"
+                      : C.stone,
+                  }}
+                >
+                  {card.description}
+                </p>
               </div>
-
-              {/* Title */}
-              <h3
-                className="text-[22px] sm:text-[24px] leading-tight mb-4"
-                style={{
-                  color: C.navy,
-                  fontFamily: "'Playfair Display', Georgia, serif",
-                }}
-              >
-                {card.title}
-              </h3>
-
-              {/* Description */}
-              <p
-                className="text-[15px] leading-[1.8] flex-1"
-                style={{
-                  color: C.stone,
-                }}
-              >
-                {card.description}
-              </p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </Wrap>
     </section>
   );
 };
-
 
 /* ══════════════════════════════════════════════════════════════════════════════
    BOTTOM CTA / ENROL FORM
@@ -1354,12 +1423,18 @@ const BottomCTA = () => {
    FOOTER
 ══════════════════════════════════════════════════════════════════════════════ */
 const Footer = () => {
-  const scroll = (id) => {
-    const el = document.getElementById(id);
-    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + scrollY - 68, behavior: "smooth" });
-  };
+  const navigate = useNavigate();
+  
   const cols = [
-    { title: "Programme", links: [{ label: "Curriculum", id: "curriculum" }, { label: "Tools Covered", id: "tools" }, { label: "Methodology", id: "methodology" }, { label: "Project Work", id: "projects" }] },
+    {
+    title: "Program",
+    links: [
+      { label: "Business Analyst", path: "/business-analyst" },
+      { label: "Project Management", path: "/project-management" },
+      { label: "Cyber Security", path: "/cyber-security" },
+      { label: "Data Science", path: "/data-science" },
+    ],
+  },
     { title: "Institution", links: [{ label: "About CodersBloom", href: "#" }, { label: "Our Trainers", href: "#" }, { label: "Hiring Partners", href: "#" }, { label: "Blog & Insights", href: "#" }] },
     { title: "Contact", links: [{ label: "1800-000-0000 (Free)", href: "tel:+911800000000" }, { label: "admissions@codersbloom.in", href: "mailto:admissions@codersbloom.in" }, { label: "WhatsApp Us", href: "#" }, { label: "Student Portal", href: "#" }] },
   ];
@@ -1383,17 +1458,36 @@ const Footer = () => {
               <ul className="flex flex-col gap-2.5 list-none">
                 {col.links.map(l => (
                   <li key={l.label}>
-                    {l.id ? (
-                      <button onClick={() => scroll(l.id)}
+                    {l.path ? (
+                      <button
+                        onClick={() => navigate(l.path)}
                         className="text-[12px] sm:text-[13px] font-light bg-transparent border-none cursor-pointer p-0 text-left transition-colors duration-150"
                         style={{ color: "rgba(255,255,255,0.4)" }}
-                        onMouseEnter={e => e.target.style.color = "#fff"}
-                        onMouseLeave={e => e.target.style.color = "rgba(255,255,255,0.4)"}>{l.label}</button>
+                        onMouseEnter={(e) =>
+                          (e.target.style.color = "#fff")
+                        }
+                        onMouseLeave={(e) =>
+                          (e.target.style.color =
+                            "rgba(255,255,255,0.4)")
+                        }
+                      >
+                        {l.label}
+                      </button>
                     ) : (
-                      <a href={l.href} className="text-[12px] sm:text-[13px] font-light no-underline transition-colors duration-150"
+                      <a
+                        href={l.href}
+                        className="text-[12px] sm:text-[13px] font-light no-underline transition-colors duration-150"
                         style={{ color: "rgba(255,255,255,0.4)" }}
-                        onMouseEnter={e => e.target.style.color = "#fff"}
-                        onMouseLeave={e => e.target.style.color = "rgba(255,255,255,0.4)"}>{l.label}</a>
+                        onMouseEnter={(e) =>
+                          (e.target.style.color = "#fff")
+                        }
+                        onMouseLeave={(e) =>
+                          (e.target.style.color =
+                            "rgba(255,255,255,0.4)")
+                        }
+                      >
+                        {l.label}
+                      </a>
                     )}
                   </li>
                 ))}

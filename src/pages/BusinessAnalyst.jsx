@@ -6,6 +6,8 @@ import whyUsBg from "../assets/bruce-mars-xj8qrWvuOEs-unsplash.jpg";
 import bottomCtaBg from "../assets/olena-bohovyk-dIMJWLx1YbE-unsplash.jpg";
 import Nav from "../components/layout/Nav";
 import { Link } from "react-router-dom";
+import emailjs from "@emailjs/browser";
+import { useNavigate } from "react-router-dom";
 
 /* ─── Design tokens ──────────────────────────────────────────────────────────── */
 const C = {
@@ -1594,15 +1596,22 @@ const Methodology = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    console.log("Form Data:", formData);
-
-    // API call yahan lagegi
-    // await fetch("/api/brochure", {...})
+  try {
+    await emailjs.send(
+      "service_xxxxxxx", // apna Service ID
+      "template_xxxxxxx", // apna Template ID
+      {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+      },
+      "xxxxxxxxxxxxxxx" // apni Public Key
+    );
 
     alert(
-      "Thank you! Your details have been submitted successfully."
+      "Thank you! Your details have been submitted successfully. Please check your email."
     );
 
     setFormData({
@@ -1612,7 +1621,14 @@ const Methodology = () => {
     });
 
     setShowModal(false);
-  };
+  } catch (error) {
+    console.error("EmailJS Error:", error);
+
+    alert(
+      "Something went wrong. Please try again."
+    );
+  }
+};
 
   return (
     <section
@@ -1654,7 +1670,7 @@ const Methodology = () => {
           </button>
 
           <a
-            href="https://wa.me/919999999999"
+            href="https://wa.me/919100151051"
             target="_blank"
             rel="noopener noreferrer"
             className="px-8 py-4 rounded text-[14px] font-semibold text-center transition-all duration-300"
@@ -1856,53 +1872,95 @@ const Domains = () => {
           </Lead>
         </div>
         <div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px"
-          style={{ background: C.border, border: `1px solid ${C.border}` }}
+  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px"
+  style={{ background: C.border, border: `1px solid ${C.border}` }}
+>
+  {domains.map((d, i) => {
+    const isDark = i % 2 !== 0;
+
+    return (
+      <div
+        key={i}
+        className="relative overflow-hidden flex flex-col gap-4 p-6 sm:p-7 lg:p-8 transition-colors duration-200 cursor-default"
+        style={{
+          background:
+            hov === i
+              ? C.cream
+              : isDark
+              ? "#111111"
+              : C.white,
+        }}
+        onMouseEnter={() => setHov(i)}
+        onMouseLeave={() => setHov(null)}
+      >
+        <div
+          className="absolute top-0 left-0 right-0 h-[2px] transition-transform duration-300 origin-left"
+          style={{
+            background: C.gold,
+            transform: hov === i ? "scaleX(1)" : "scaleX(0)",
+          }}
+        />
+
+        <div
+          className="w-10 h-10 sm:w-11 sm:h-11 border rounded-sm flex items-center justify-center text-[18px] sm:text-[20px]"
+          style={{
+            borderColor: isDark
+              ? "rgba(255,255,255,0.15)"
+              : C.border,
+            background: isDark
+              ? "#1a1a1a"
+              : C.cream,
+          }}
         >
-          {domains.map((d, i) => (
-            <div
-              key={i}
-              className="relative overflow-hidden flex flex-col gap-4 p-6 sm:p-7 lg:p-8 transition-colors duration-200 cursor-default"
-              style={{ background: hov === i ? C.cream : C.white }}
-              onMouseEnter={() => setHov(i)}
-              onMouseLeave={() => setHov(null)}
+          {d.icon}
+        </div>
+
+        <div
+          className="font-bold text-[16px] sm:text-[17px] tracking-[-0.3px]"
+          style={{
+            fontFamily: "'Playfair Display',Georgia,serif",
+            color:
+              hov === i
+                ? C.navy
+                : isDark
+                ? "#ffffff"
+                : C.navy,
+          }}
+        >
+          {d.title}
+        </div>
+
+        <div className="flex gap-1.5 flex-wrap">
+          {d.tags.map((t) => (
+            <span
+              key={t}
+              className="text-[11px] font-medium px-2 py-0.5 rounded-sm"
+              style={{
+                color:
+                  hov === i
+                    ? C.stone
+                    : isDark
+                    ? "#ffffff"
+                    : C.stone,
+                background:
+                  hov === i
+                    ? C.mist
+                    : isDark
+                    ? "rgba(255,255,255,0.08)"
+                    : C.mist,
+                border: isDark
+                  ? "1px solid rgba(255,255,255,0.1)"
+                  : "none",
+              }}
             >
-              <div
-                className="absolute top-0 left-0 right-0 h-[2px] transition-transform duration-300 origin-left"
-                style={{
-                  background: C.gold,
-                  transform: hov === i ? "scaleX(1)" : "scaleX(0)",
-                }}
-              />
-              <div
-                className="w-10 h-10 sm:w-11 sm:h-11 border rounded-sm flex items-center justify-center text-[18px] sm:text-[20px]"
-                style={{ borderColor: C.border, background: C.cream }}
-              >
-                {d.icon}
-              </div>
-              <div
-                className="font-bold text-[16px] sm:text-[17px] tracking-[-0.3px]"
-                style={{
-                  fontFamily: "'Playfair Display',Georgia,serif",
-                  color: C.navy,
-                }}
-              >
-                {d.title}
-              </div>
-              <div className="flex gap-1.5 flex-wrap">
-                {d.tags.map((t) => (
-                  <span
-                    key={t}
-                    className="text-[11px] font-medium px-2 py-0.5 rounded-sm"
-                    style={{ color: C.stone, background: C.mist }}
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </div>
+              {t}
+            </span>
           ))}
         </div>
+      </div>
+    );
+  })}
+</div>
       </Wrap>
     </section>
   );
@@ -1911,7 +1969,7 @@ const Domains = () => {
 /* ══════════════════════════════════════════════════════════════════════════════
    CASE STUDIES
 ══════════════════════════════════════════════════════════════════════════════ */
-const CaseStudies = () =>  {
+const CaseStudies = () => {
   const services = [
     {
       title: "Personalized Mentoring",
@@ -1973,50 +2031,72 @@ const CaseStudies = () =>  {
           </Lead>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className="p-6 sm:p-8 rounded-sm border transition-all duration-300"
-                style={{
-                  borderColor: C.border,
-                  background: C.white,
-                }}
-              >
+            {services.map((service, index) => {
+              const isDark = index % 2 !== 0;
+
+              return (
                 <div
-                  className="w-11 h-11 flex items-center justify-center rounded-sm mb-5"
+                  key={index}
+                  className="p-6 sm:p-8 rounded-sm border transition-all duration-300 hover:-translate-y-1"
                   style={{
-                    background: C.navy,
-                    color: C.gold,
-                    fontFamily:
-                      "'Playfair Display', Georgia, serif",
-                    fontWeight: 700,
-                    fontSize: "15px",
+                    borderColor: isDark
+                      ? "rgba(255,255,255,0.12)"
+                      : C.border,
+                    background: isDark
+                      ? "#111111"
+                      : C.white,
                   }}
                 >
-                  {String(index + 1).padStart(2, "0")}
+                  <div
+                    className="w-11 h-11 flex items-center justify-center rounded-sm mb-5"
+                    style={{
+                      background: isDark
+                        ? "#1f1f1f"
+                        : C.navy,
+                      color: C.gold,
+                      fontFamily:
+                        "'Playfair Display', Georgia, serif",
+                      fontWeight: 700,
+                      fontSize: "15px",
+                      border: isDark
+                        ? "1px solid rgba(255,255,255,0.1)"
+                        : "none",
+                    }}
+                  >
+                    {String(index + 1).padStart(2, "0")}
+                  </div>
+
+                  <h3
+                    className="text-[16px] sm:text-[18px] font-bold mb-3"
+                    style={{
+                      color: isDark
+                        ? "#ffffff"
+                        : C.navy,
+                    }}
+                  >
+                    {service.title}
+                  </h3>
+
+                  <p
+                    className="text-[14px] leading-[1.8] font-light"
+                    style={{
+                      color: isDark
+                        ? "rgba(255,255,255,0.75)"
+                        : C.stone,
+                    }}
+                  >
+                    {service.body}
+                  </p>
                 </div>
-
-                <h3
-                  className="text-[16px] sm:text-[18px] font-bold mb-3"
-                  style={{ color: C.navy }}
-                >
-                  {service.title}
-                </h3>
-
-                <p
-                  className="text-[14px] leading-[1.8] font-light"
-                  style={{ color: C.stone }}
-                >
-                  {service.body}
-                </p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </Wrap>
     </section>
   );
 };
+
 
 /* ══════════════════════════════════════════════════════════════════════════════
    WHY US
@@ -2164,60 +2244,76 @@ const Testimonials = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
-          {cards.map((card, i) => (
-            <div
-              key={i}
-              className="p-6 sm:p-8 rounded border flex flex-col h-full transition-all duration-300 hover:-translate-y-1"
-              style={{
-                background: C.white,
-                borderColor: C.border,
-              }}
-            >
-              {/* Number Badge */}
+          {cards.map((card, i) => {
+            const isDark = i % 2 !== 0;
+
+            return (
               <div
-                className="w-12 h-12 rounded-full flex items-center justify-center mb-6"
+                key={i}
+                className="p-6 sm:p-8 rounded border flex flex-col h-full transition-all duration-300 hover:-translate-y-1"
                 style={{
-                  background: C.mist,
-                  color: C.gold,
+                  background: isDark ? "#111111" : C.white,
+                  borderColor: isDark
+                    ? "rgba(255,255,255,0.12)"
+                    : C.border,
                 }}
               >
-                <span
-                  className="text-xl font-bold"
+                {/* Number Badge */}
+                <div
+                  className="w-12 h-12 rounded-full flex items-center justify-center mb-6"
                   style={{
-                    fontFamily: "'Playfair Display', Georgia, serif",
+                    background: isDark
+                      ? "#1f1f1f"
+                      : C.mist,
+                    color: C.gold,
+                    border: isDark
+                      ? "1px solid rgba(255,255,255,0.1)"
+                      : "none",
                   }}
                 >
-                  {String(i + 1).padStart(2, "0")}
-                </span>
+                  <span
+                    className="text-xl font-bold"
+                    style={{
+                      fontFamily:
+                        "'Playfair Display', Georgia, serif",
+                    }}
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                </div>
+
+                {/* Title */}
+                <h3
+                  className="text-[22px] sm:text-[24px] leading-tight mb-4"
+                  style={{
+                    color: isDark ? "#ffffff" : C.navy,
+                    fontFamily:
+                      "'Playfair Display', Georgia, serif",
+                  }}
+                >
+                  {card.title}
+                </h3>
+
+                {/* Description */}
+                <p
+                  className="text-[15px] leading-[1.8] flex-1"
+                  style={{
+                    color: isDark
+                      ? "rgba(255,255,255,0.75)"
+                      : C.stone,
+                  }}
+                >
+                  {card.description}
+                </p>
               </div>
-
-              {/* Title */}
-              <h3
-                className="text-[22px] sm:text-[24px] leading-tight mb-4"
-                style={{
-                  color: C.navy,
-                  fontFamily: "'Playfair Display', Georgia, serif",
-                }}
-              >
-                {card.title}
-              </h3>
-
-              {/* Description */}
-              <p
-                className="text-[15px] leading-[1.8] flex-1"
-                style={{
-                  color: C.stone,
-                }}
-              >
-                {card.description}
-              </p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </Wrap>
     </section>
   );
 };
+
 
 
 /* ══════════════════════════════════════════════════════════════════════════════
@@ -2318,22 +2414,16 @@ const BottomCTA = () => {
    FOOTER
 ══════════════════════════════════════════════════════════════════════════════ */
 const Footer = () => {
-  const scroll = (id) => {
-    const el = document.getElementById(id);
-    if (el)
-      window.scrollTo({
-        top: el.getBoundingClientRect().top + scrollY - 68,
-        behavior: "smooth",
-      });
-  };
+  const navigate = useNavigate();
+
   const cols = [
     {
       title: "Program",
       links: [
-        { label: "Curriculum", id: "curriculum" },
-        { label: "Tools Covered", id: "tools" },
-        { label: "Methodology", id: "methodology" },
-        { label: "Case Studies", id: "projects" },
+        { label: "Business Analyst", path: "/business-analyst" },
+        { label: "Project Management", path: "/project-management" },
+        { label: "Cyber Security", path: "/cyber-security" },
+        { label: "Data Science", path: "/data-science" },
       ],
     },
     {
@@ -2358,6 +2448,7 @@ const Footer = () => {
       ],
     },
   ];
+
   return (
     <footer
       style={{
@@ -2371,7 +2462,10 @@ const Footer = () => {
           style={{ borderColor: "rgba(255,255,255,0.06)" }}
         >
           <div className="col-span-2 lg:col-span-1">
-            <a href="#" className="flex items-center gap-2.5 no-underline mb-4">
+            <a
+              href="#"
+              className="flex items-center gap-2.5 no-underline mb-4"
+            >
               <LogoMark size={28} />
               <strong
                 className="font-bold text-[15px] text-white"
@@ -2380,6 +2474,7 @@ const Footer = () => {
                 CodersBloom
               </strong>
             </a>
+
             <p
               className="text-[13px] leading-[1.7] font-light max-w-[260px]"
               style={{ color: "rgba(255,255,255,0.4)" }}
@@ -2389,6 +2484,7 @@ const Footer = () => {
               Placement is the promise.
             </p>
           </div>
+
           {cols.map((col) => (
             <div key={col.title}>
               <h4
@@ -2397,17 +2493,21 @@ const Footer = () => {
               >
                 {col.title}
               </h4>
+
               <ul className="flex flex-col gap-2.5 list-none">
                 {col.links.map((l) => (
                   <li key={l.label}>
-                    {l.id ? (
+                    {l.path ? (
                       <button
-                        onClick={() => scroll(l.id)}
+                        onClick={() => navigate(l.path)}
                         className="text-[12px] sm:text-[13px] font-light bg-transparent border-none cursor-pointer p-0 text-left transition-colors duration-150"
                         style={{ color: "rgba(255,255,255,0.4)" }}
-                        onMouseEnter={(e) => (e.target.style.color = "#fff")}
+                        onMouseEnter={(e) =>
+                          (e.target.style.color = "#fff")
+                        }
                         onMouseLeave={(e) =>
-                          (e.target.style.color = "rgba(255,255,255,0.4)")
+                          (e.target.style.color =
+                            "rgba(255,255,255,0.4)")
                         }
                       >
                         {l.label}
@@ -2417,9 +2517,12 @@ const Footer = () => {
                         href={l.href}
                         className="text-[12px] sm:text-[13px] font-light no-underline transition-colors duration-150"
                         style={{ color: "rgba(255,255,255,0.4)" }}
-                        onMouseEnter={(e) => (e.target.style.color = "#fff")}
+                        onMouseEnter={(e) =>
+                          (e.target.style.color = "#fff")
+                        }
                         onMouseLeave={(e) =>
-                          (e.target.style.color = "rgba(255,255,255,0.4)")
+                          (e.target.style.color =
+                            "rgba(255,255,255,0.4)")
                         }
                       >
                         {l.label}
@@ -2431,13 +2534,16 @@ const Footer = () => {
             </div>
           ))}
         </div>
+
         <div
           className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 py-5 text-[11px] sm:text-[12px]"
           style={{ color: "rgba(255,255,255,0.25)" }}
         >
           <p>
-            © 2025 CodersBloom. All rights reserved. Enabling Enterprises Change™
+            © 2025 CodersBloom. All rights reserved. Enabling Enterprises
+            Change™
           </p>
+
           <div className="flex gap-4 sm:gap-6 flex-wrap">
             {["Privacy Policy", "Terms of Service", "Refund Policy"].map(
               (t) => (
@@ -2447,15 +2553,17 @@ const Footer = () => {
                   className="no-underline transition-colors duration-150"
                   style={{ color: "rgba(255,255,255,0.25)" }}
                   onMouseEnter={(e) =>
-                    (e.target.style.color = "rgba(255,255,255,0.5)")
+                    (e.target.style.color =
+                      "rgba(255,255,255,0.5)")
                   }
                   onMouseLeave={(e) =>
-                    (e.target.style.color = "rgba(255,255,255,0.25)")
+                    (e.target.style.color =
+                      "rgba(255,255,255,0.25)")
                   }
                 >
                   {t}
                 </a>
-              ),
+              )
             )}
           </div>
         </div>

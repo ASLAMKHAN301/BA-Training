@@ -34,11 +34,12 @@ export default function Home() {
       <Hero />
       <TrustStrip />
       <Origin/>
+      <ToolsSection />
       <Thing/>
       <Location/>
 
       <ProgramsSection />
-      <ToolsSection />
+      
       <ProcessSection />
       <OutcomesSection />
       <TestimonialsSection />
