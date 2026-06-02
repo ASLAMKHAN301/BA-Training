@@ -627,15 +627,44 @@ const Objectives = () => {
   );
 })}
           {/* Full-width 7th card */}
-          <div className="sm:col-span-2 lg:col-span-3 flex flex-col gap-3.5 p-6 sm:p-7 lg:p-8"
-            style={{ background: C.navy, borderTop: `2px solid ${C.gold}` }}>
-            <div className="text-[13px] font-bold tracking-[1px]" style={{ fontFamily: "'Playfair Display',Georgia,serif", color: C.gold }}>07</div>
-            <div className="font-bold text-[18px] sm:text-[20px] text-white tracking-[-0.3px]"
-              style={{ fontFamily: "'Playfair Display',Georgia,serif" }}>Adapt to Change Without Losing Direction</div>
-            <p className="text-[14px] leading-[1.65] font-light max-w-[680px]" style={{ color: "rgba(255,255,255,0.5)" }}>
-              Manage scope changes, shifting priorities, and evolving stakeholder requirements without derailing delivery — using structured change control processes and agile principles in equal measure.
-            </p>
-          </div>
+          <div
+  className="sm:col-span-2 lg:col-span-3 flex flex-col gap-3.5 p-6 sm:p-7 lg:p-8"
+  style={{
+    background: C.white,
+    borderTop: `2px solid ${C.gold}`,
+  }}
+>
+  <div
+    className="text-[13px] font-bold tracking-[1px]"
+    style={{
+      fontFamily: "'Playfair Display',Georgia,serif",
+      color: C.gold,
+    }}
+  >
+    07
+  </div>
+
+  <div
+    className="font-bold text-[18px] sm:text-[20px] tracking-[-0.3px]"
+    style={{
+      fontFamily: "'Playfair Display',Georgia,serif",
+      color: C.navy,
+    }}
+  >
+    Adapt to Change Without Losing Direction
+  </div>
+
+  <p
+    className="text-[14px] leading-[1.65] font-light max-w-[680px]"
+    style={{
+      color: C.stone,
+    }}
+  >
+    Manage scope changes, shifting priorities, and evolving stakeholder
+    requirements without derailing delivery — using structured change
+    control processes and agile principles in equal measure.
+  </p>
+</div>
         </div>
       </Wrap>
     </section>
