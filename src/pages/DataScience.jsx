@@ -538,7 +538,7 @@ const Curriculum = () => {
                 style={{ background: C.navy, color: C.gold, fontFamily: "'Playfair Display',Georgia,serif" }}>RA</div>
               <div>
                 <strong className="block text-[14px] font-bold" style={{ color: C.navy }}>Reeti Ahuja</strong>
-                <span className="text-[12px]" style={{ color: C.stone }}>Programme Lead, BACentric</span>
+                <span className="text-[12px]" style={{ color: C.stone }}>Programme Lead, CodersBloom</span>
               </div>
             </div>
           </div>
@@ -1094,7 +1094,7 @@ const WhyUs = () => {
     }}>
       <GridBg opacity={0.05} />
       <Wrap className="relative z-10">
-        <Eyebrow label="Why BACentric" dark />
+        <Eyebrow label="Why CodersBloom" dark />
         <Display light className="mt-1">What Makes This<br /><Em>Different.</Em></Display>
         <Lead light className="mt-4">Our goal is not course completion. It is professional transformation. We make sure you leave as a Data Professional — not just someone who attended training.</Lead>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6 mt-10 sm:mt-[52px]">
@@ -1126,7 +1126,7 @@ const Career = () => {
     { icon: "📁", title: "Portfolio & Resume Building", desc: "A professional profile built to reflect your capability, credibility, and project readiness — including GitHub portfolio structuring and LinkedIn optimisation." },
     { icon: "📣", title: "Profile Marketing", desc: "We actively market participant profiles through alumni networks, corporate HRs, recruitment firms, and consultancies — so opportunities come to you." },
     { icon: "🎤", title: "Mock Interview Events", desc: "Practice with mentors and industry professionals so real interviews feel familiar — not intimidating. Every attempt is followed by structured performance analysis." },
-    { icon: "🌐", title: "Recruitment Network — 170+ Companies", desc: "BACentric connects top talent with recruiters across India. Our participants have been hired by leading global enterprises and consulting firms." },
+    { icon: "🌐", title: "Recruitment Network — 170+ Companies", desc: "CodersBloom connects top talent with recruiters across India. Our participants have been hired by leading global enterprises and consulting firms." },
     { icon: "🔍", title: "Interview Analysis", desc: "Preparation based on real job descriptions, plus post-interview analysis so every attempt becomes stronger than the last. We do not just prepare you — we debrief with you." },
     { icon: "🤝", title: "Post-Placement Job Support", desc: "Support continues after you join. The first few months on the job matter — and we remain available for guidance as you navigate your first real data science role." },
   ];
@@ -1440,8 +1440,8 @@ const Footer = () => {
       { label: "Data Science", path: "/data-science" },
     ],
   },
-    { title: "Institution", links: [{ label: "About BACentric", href: "#" }, { label: "Our Trainers", href: "#" }, { label: "Hiring Partners", href: "#" }, { label: "Blog & Insights", href: "#" }] },
-    { title: "Contact", links: [{ label: "1800-000-0000 (Free)", href: "tel:+911800000000" }, { label: "admissions@bacentric.in", href: "mailto:admissions@bacentric.in" }, { label: "WhatsApp Us", href: "#" }, { label: "Student Portal", href: "#" }] },
+    { title: "Institution", links: [{ label: "About CodersBloom", href: "#" }, { label: "Our Trainers", href: "#" }, { label: "Hiring Partners", href: "#" }, { label: "Blog & Insights", href: "#" }] },
+    { title: "Contact", links: [{ label: "1800-000-0000 (Free)", href: "tel:+911800000000" }, { label: "admissions@CodersBloom.in", href: "mailto:admissions@CodersBloom.in" }, { label: "WhatsApp Us", href: "#" }, { label: "Student Portal", href: "#" }] },
   ];
   return (
     <footer style={{ background: C.ink, borderTop: "1px solid rgba(255,255,255,0.05)" }}>
@@ -1451,7 +1451,7 @@ const Footer = () => {
           <div className="col-span-2 lg:col-span-1">
             <a href="#" className="flex items-center gap-2.5 no-underline mb-4">
               <LogoMark size={28} />
-              <strong className="font-bold text-[15px] text-white" style={{ fontFamily: "'Playfair Display',Georgia,serif" }}>BACentric</strong>
+              <strong className="font-bold text-[15px] text-white" style={{ fontFamily: "'Playfair Display',Georgia,serif" }}>CodersBloom</strong>
             </a>
             <p className="text-[13px] leading-[1.7] font-light max-w-[260px]" style={{ color: "rgba(255,255,255,0.4)" }}>
               Practical, industry-aligned Data Science, AI &amp; ML training — built for the role, not the certificate. Enabling Enterprises Change™
@@ -1502,7 +1502,7 @@ const Footer = () => {
         </div>
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 py-5 text-[11px] sm:text-[12px]"
           style={{ color: "rgba(255,255,255,0.25)" }}>
-          <p>© 2025 BACentric. All rights reserved. Enabling Enterprises Change™</p>
+          <p>© 2025 CodersBloom. All rights reserved. Enabling Enterprises Change™</p>
           <div className="flex gap-4 sm:gap-6 flex-wrap">
             {["Privacy Policy", "Terms of Service", "Refund Policy"].map(t => (
               <a key={t} href="#" className="no-underline transition-colors duration-150"
