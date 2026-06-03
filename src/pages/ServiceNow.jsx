@@ -3,7 +3,7 @@ import heroBg from "../assets/copernico-p_kICQCOM4s-unsplash.jpg";
 import objectivesBg from "../assets/microsoft-copilot-ghVMdPN33vM-unsplash.jpg";
 import toolsBg from "../assets/officeImg.jpg";
 import whyUsBg from "../assets/ofspace-llc-I96XlMeU4oY-unsplash.jpg";
-import bottomCtaBg from "../assets/bottomCtaBg.jpg";
+import bottomCtaBg from "../assets/bottomctaBg.jpg";
 import Nav from "../components/layout/Nav";
 
 // ── DATA ──────────────────────────────────────────────────────────────────────
