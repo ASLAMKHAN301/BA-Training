@@ -5,6 +5,7 @@ import toolsBg from "../assets/officeImg.jpg";
 import whyUsBg from "../assets/ofspace-llc-I96XlMeU4oY-unsplash.jpg";
 import bottomCtaBg from "../assets/bottomctaBg.jpg";
 import Nav from "../components/layout/Nav";
+import { Link } from "react-router-dom";
 
 // ── DATA ──────────────────────────────────────────────────────────────────────
 const COMPANIES = [
@@ -1523,116 +1524,111 @@ export default function ServiceNowTraining() {
 
       {/* ── FOOTER ── */}
       <footer className="bg-[#1C1C1C] border-t border-white/[0.05]">
-  <div className="max-w-[1160px] mx-auto px-5 lg:px-[60px]">
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr] gap-10 py-14 border-b border-white/[0.06]">
-      <div>
-        <a
-          href="/"
-          className="flex items-center gap-2.5 no-underline mb-4"
-        >
-          <div className="w-7 h-7 bg-black rounded-sm flex items-center justify-center flex-shrink-0">
-            <LogoIcon size={16} />
+        <div className="max-w-[1160px] mx-auto px-5 lg:px-[60px]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr] gap-10 py-14 border-b border-white/[0.06]">
+            <div>
+              <a
+                href="/"
+                className="flex items-center gap-2.5 no-underline mb-4"
+              >
+                <div className="w-7 h-7 bg-black rounded-sm flex items-center justify-center flex-shrink-0">
+                  <LogoIcon size={16} />
+                </div>
+
+                <strong className="playfair text-[15px] font-bold text-white">
+                  CodersBloom
+                </strong>
+              </a>
+
+              <p className="text-[13px] leading-[1.7] font-light max-w-[280px] text-white/40">
+                Practical, industry-aligned ServiceNow training — built for the
+                platform role, not the exam. Training is the beginning.
+                Placement is the promise.
+              </p>
+            </div>
+
+            {[
+              {
+                heading: "Program",
+                links: [
+                  { label: "Business Analyst", path: "/business-analyst" },
+                  { label: "Project Management", path: "/project-management" },
+                  { label: "Cyber Security", path: "/cyber-security" },
+                  {
+                    label: "ServiceNow Training",
+                    path: "/servicenow-training",
+                  },
+                  { label: "Data Science", path: "/data-science" },
+                ],
+              },
+              {
+                heading: "Institution",
+                links: [
+                  { label: "About CodersBloom", path: "#" },
+                  { label: "Our Trainers", path: "#" },
+                  { label: "Hiring Partners", path: "#" },
+                  { label: "Blog & Insights", path: "#" },
+                ],
+              },
+              {
+                heading: "Contact",
+                links: [
+                  { label: "1800-000-0000 (Free)", path: "tel:18000000000" },
+                  {
+                    label: "admissions@codersbloom.in",
+                    path: "mailto:admissions@codersbloom.in",
+                  },
+                  {
+                    label: "WhatsApp Us",
+                    path: "https://wa.me/919100151051",
+                  },
+                  { label: "Student Portal", path: "#" },
+                ],
+              },
+            ].map((section) => (
+              <div key={section.heading}>
+                <h4 className="text-[10px] font-bold tracking-[2px] uppercase text-amber-400 mb-4">
+                  {section.heading}
+                </h4>
+
+                <ul className="list-none flex flex-col gap-2.5 p-0 m-0">
+                  {section.links.map((link) => (
+                    <li key={link.label}>
+                      <Link
+                        to={link.path}
+                        className="text-[13px] font-light text-white/40 no-underline hover:text-white/70 transition-colors"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
 
-          <strong className="playfair text-[15px] font-bold text-white">
-            CodersBloom
-          </strong>
-        </a>
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 py-5 text-[12px] text-white/25">
+            <p>
+              © 2025 CodersBloom. All rights reserved. Training is the
+              beginning. Placement is the promise.™
+            </p>
 
-        <p className="text-[13px] leading-[1.7] font-light max-w-[280px] text-white/40">
-          Practical, industry-aligned ServiceNow training — built for the
-          platform role, not the exam. Training is the beginning.
-          Placement is the promise.
-        </p>
-      </div>
-
-      {[
-        {
-          heading: "Program",
-          links: [
-            { label: "Business Analyst", path: "/business-analyst" },
-            { label: "Project Management", path: "/project-management" },
-            { label: "Cyber Security", path: "/cyber-security" },
-            { label: "ServiceNow Training", path: "/servicenow-training" },
-            { label: "Data Science", path: "/data-science" },
-          ],
-        },
-        {
-          heading: "Institution",
-          links: [
-            { label: "About CodersBloom", path: "#" },
-            { label: "Our Trainers", path: "#" },
-            { label: "Hiring Partners", path: "#" },
-            { label: "Blog & Insights", path: "#" },
-          ],
-        },
-        {
-          heading: "Contact",
-          links: [
-            { label: "1800-000-0000 (Free)", path: "tel:18000000000" },
-            {
-              label: "admissions@codersbloom.in",
-              path: "mailto:admissions@codersbloom.in",
-            },
-            {
-              label: "WhatsApp Us",
-              path: "https://wa.me/919100151051",
-            },
-            { label: "Student Portal", path: "#" },
-          ],
-        },
-      ].map((section) => (
-        <div key={section.heading}>
-          <h4 className="text-[10px] font-bold tracking-[2px] uppercase text-amber-400 mb-4">
-            {section.heading}
-          </h4>
-
-          <ul className="list-none flex flex-col gap-2.5 p-0 m-0">
-            {section.links.map((link) => (
-              <li key={link.label}>
-                <a
-                  href={link.path}
-                  className="text-[13px] font-light text-white/40 no-underline hover:text-white/70 transition-colors"
-                  target={
-                    link.path.startsWith("http") ? "_blank" : undefined
-                  }
-                  rel={
-                    link.path.startsWith("http")
-                      ? "noopener noreferrer"
-                      : undefined
-                  }
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
+            <div className="flex gap-6">
+              {["Privacy Policy", "Terms of Service", "Refund Policy"].map(
+                (item) => (
+                  <a
+                    key={item}
+                    href="#"
+                    className="text-white/25 no-underline hover:text-white/50 transition-colors"
+                  >
+                    {item}
+                  </a>
+                ),
+              )}
+            </div>
+          </div>
         </div>
-      ))}
-    </div>
-
-    <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 py-5 text-[12px] text-white/25">
-      <p>
-        © 2025 CodersBloom. All rights reserved. Training is the
-        beginning. Placement is the promise.™
-      </p>
-
-      <div className="flex gap-6">
-        {["Privacy Policy", "Terms of Service", "Refund Policy"].map(
-          (item) => (
-            <a
-              key={item}
-              href="#"
-              className="text-white/25 no-underline hover:text-white/50 transition-colors"
-            >
-              {item}
-            </a>
-          )
-        )}
-      </div>
-    </div>
-  </div>
-</footer>
+      </footer>
 
       {/* ── MOBILE STICKY BAR ── */}
       <div className="lg:hidden fixed bottom-0 left-0 right-0 z-[200] bg-black border-t-2 border-amber-400 px-4 py-3 flex items-center justify-between">
