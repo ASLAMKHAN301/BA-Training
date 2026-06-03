@@ -191,9 +191,7 @@ export default function Nav() {
                 <div
                   style={{
                     color: programHover ? NAVY : STONE,
-                    background: programHover
-                      ? "#f3f4f6"
-                      : "transparent",
+                    background: programHover ? "#f3f4f6" : "transparent",
                     fontSize: 14,
                     fontWeight: 500,
                     padding: "8px 14px",
@@ -229,6 +227,11 @@ export default function Nav() {
                       to="/cyber-security"
                       text="Cybersecurity Program"
                     />
+                    
+                    <HoverDropdownItem
+                      to="/servicenow-training"
+                      text="ServiceNow Training Program"
+                    />
 
                     <HoverDropdownItem
                       to="/project-management"
@@ -239,6 +242,7 @@ export default function Nav() {
                       to="/data-science"
                       text="Data Science, AI, and ML Program"
                     />
+
                   </div>
                 )}
               </li>
@@ -260,9 +264,7 @@ export default function Nav() {
                     marginLeft: 10,
                     display: "block",
                     transition: "all 0.15s ease",
-                    transform: ctaHover
-                      ? "translateY(-2px)"
-                      : "translateY(0)",
+                    transform: ctaHover ? "translateY(-2px)" : "translateY(0)",
                   }}
                 >
                   Speak to an Advisor
@@ -290,39 +292,32 @@ export default function Nav() {
               </Link>
             </li>
 
-
             <li>
-              <Link
-                to="/business-analyst"
-                style={mobileLink}
-              >
+              <Link to="/business-analyst" style={mobileLink}>
                 Business Analyst Program
               </Link>
             </li>
 
             <li>
-              <Link
-                to="/cyber-security"
-                style={mobileLink}
-              >
+              <Link to="/cyber-security" style={mobileLink}>
                 Cybersecurity Program
               </Link>
             </li>
 
             <li>
-              <Link
-                to="/project-management"
-                style={mobileLink}
-              >
+              <Link to="/servicenow-training" style={mobileLink}>
+                ServiceNow Training Program
+              </Link>
+            </li>
+
+            <li>
+              <Link to="/project-management" style={mobileLink}>
                 Project Management Program
               </Link>
             </li>
 
             <li>
-              <Link
-                to="/data-science"
-                style={mobileLink}
-              >
+              <Link to="/data-science" style={mobileLink}>
                 Data Science, AI, and ML Program
               </Link>
             </li>

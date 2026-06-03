@@ -913,28 +913,24 @@ const Methodology = () => {
         <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12 sm:mb-16">
           <button
             onClick={() => setShowModal(true)}
-            className="px-8 py-4 rounded text-[14px] font-semibold text-center transition-all duration-300"
-            style={{
-              background: C.gold,
-              color: C.navy,
-            }}
+            className="px-8 py-4 rounded text-[14px] font-semibold text-center
+             bg-yellow-500 text-slate-900
+             hover:bg-yellow-600 hover:text-white
+             transition-all duration-300"
           >
             Download Brochure
           </button>
 
           <a
-            href="https://wa.me/919999999999"
+            href="https://wa.me/919100151051"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-8 py-4 rounded text-[14px] font-semibold text-center transition-all duration-300"
-            style={{
-              backgroundColor: "#25D366",
-              color: "#ffffff",
-            }}
+            className="px-8 py-4 rounded text-[14px] font-semibold text-center text-white bg-[#25D366] hover:bg-[#1EBE5D] transition-all duration-300"
           >
             WhatsApp Us
           </a>
         </div>
+
 
         {/* Percentage bars */}
         <div
@@ -1437,6 +1433,7 @@ const Footer = () => {
       { label: "Business Analyst", path: "/business-analyst" },
       { label: "Project Management", path: "/project-management" },
       { label: "Cyber Security", path: "/cyber-security" },
+      { label: "ServiceNow Training", path: "/servicenow-training" },
       { label: "Data Science", path: "/data-science" },
     ],
   },

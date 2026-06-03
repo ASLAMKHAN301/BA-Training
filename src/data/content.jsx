@@ -281,7 +281,7 @@ export const CTA_CHECKLIST = [
 export const FOOTER_COLUMNS = [
   {
     title: "Programs",
-    links: ["Business Analyst", "Project Management", "Cyber Security", "Data Science"],
+    links: ["Business Analyst", "Project Management", "Cyber Security","ServiceNow Training" , "Data Science"],
   },
   {
     title: "Institution",

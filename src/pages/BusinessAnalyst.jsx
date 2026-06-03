@@ -915,9 +915,12 @@ const About = () => {
               className="text-[15px] leading-[1.8] font-light mt-5 mb-5"
               style={{ color: C.stone }}
             >
-              This Business Analyst program is designed around what the industry actually demands from a capable, modern BA —
+              This Business Analyst program is designed around what the industry
+              actually demands from a capable, modern BA —
               <strong style={{ color: C.navy, fontWeight: 600 }}>
-                sharp analytical thinking, structured problem-solving, the ability to manage stakeholders, and the confidence to drive a project from brief to delivery.
+                sharp analytical thinking, structured problem-solving, the
+                ability to manage stakeholders, and the confidence to drive a
+                project from brief to delivery.
               </strong>
             </p>
             <blockquote
@@ -928,27 +931,34 @@ const About = () => {
                 borderLeft: `3px solid ${C.gold}`,
               }}
             >
-              Real business analysis isn't something you absorb from a slide deck. It's something you develop by doing.
+              Real business analysis isn't something you absorb from a slide
+              deck. It's something you develop by doing.
             </blockquote>
             <p
               className="text-[15px] leading-[1.8] font-light mb-4"
               style={{ color: C.stone }}
             >
-              Every part of this program is {" "}
+              Every part of this program is{" "}
               <strong style={{ color: C.navy, fontWeight: 600 }}>
                 built around practical application,
               </strong>
-               from requirements gathering and documentation through to stakeholder communication, project delivery, and post-implementation support. 
+              from requirements gathering and documentation through to
+              stakeholder communication, project delivery, and
+              post-implementation support.
             </p>
             <p
               className="text-[15px] leading-[1.8] font-light"
               style={{ color: C.stone }}
             >
-              What sets this apart from conventional training is who's in the room with you. These programs are led by expert working professionals from our own delivery teams —{" "}
+              What sets this apart from conventional training is who's in the
+              room with you. These programs are led by expert working
+              professionals from our own delivery teams —{" "}
               <strong style={{ color: C.navy, fontWeight: 600 }}>
-                practitioners who have successfully owned and delivered projects {" "}
+                practitioners who have successfully owned and delivered
+                projects{" "}
               </strong>
-              across industries including insurance, fintech, banking, and healthcare.
+              across industries including insurance, fintech, banking, and
+              healthcare.
             </p>
           </div>
           <div
@@ -1123,12 +1133,14 @@ const Objectives = () => {
       <Wrap className="relative z-10">
         <Eyebrow label="Program Objectives" dark />
         <Display light className="mt-1">
-          Three Pillars. 
+          Three Pillars.
           <br />
           One <Em>Outcome.</Em>
         </Display>
         <Lead light className="mt-4">
-          Everything in this program is sequenced with intention. Each stage builds on the last — moving you from understanding to ability to evidence.
+          Everything in this program is sequenced with intention. Each stage
+          builds on the last — moving you from understanding to ability to
+          evidence.
         </Lead>
         <div
           className="obj-grid grid grid-cols-1 md:grid-cols-3 mt-10 sm:mt-[60px]"
@@ -1179,9 +1191,9 @@ const Objectives = () => {
 const Curriculum = () => {
   const [openIdx, setOpenIdx] = useState(0);
   const modules = [
-  {
-    title: "Foundation: The Business Analyst Role",
-    body: `
+    {
+      title: "Foundation: The Business Analyst Role",
+      body: `
 Start with a clear picture of where Business Analysis sits within the industry — its origins, its purpose, and what the role actually looks like in practice.
 
 • The origin and evolution of Business Analysis as a discipline
@@ -1191,17 +1203,17 @@ Start with a clear picture of where Business Analysis sits within the industry �
 • Core roles, responsibilities, and professional standards of the BA
 • The real-world dos and don'ts that practitioners learn the hard way
     `,
-    tags: [
-      "Business Analysis",
-      "IT Industry",
-      "BA Role",
-      "Professional Standards",
-    ],
-  },
+      tags: [
+        "Business Analysis",
+        "IT Industry",
+        "BA Role",
+        "Professional Standards",
+      ],
+    },
 
-  {
-    title: "Waterfall Methodology & Requirements Management",
-    body: `
+    {
+      title: "Waterfall Methodology & Requirements Management",
+      body: `
 A deep dive into the structured side of project delivery and the documentation that holds it together.
 
 • Identifying stakeholders and managing them throughout a project
@@ -1216,20 +1228,20 @@ A deep dive into the structured side of project delivery and the documentation t
   - Requirements Traceability Matrix (RTM)
   - Use Case Documents
     `,
-    tags: [
-      "Waterfall",
-      "Requirements",
-      "Stakeholders",
-      "BRD",
-      "FRD",
-      "SRS",
-      "RTM",
-    ],
-  },
+      tags: [
+        "Waterfall",
+        "Requirements",
+        "Stakeholders",
+        "BRD",
+        "FRD",
+        "SRS",
+        "RTM",
+      ],
+    },
 
-  {
-    title: "Agile & Scrum",
-    body: `
+    {
+      title: "Agile & Scrum",
+      body: `
 How Business Analysis works inside agile environments, from principles through to daily practice.
 
 • Core Agile principles and frameworks
@@ -1239,18 +1251,12 @@ How Business Analysis works inside agile environments, from principles through t
 • Backlog prioritization and sprint velocity
 • Story estimation techniques including planning poker and t-shirt sizing
     `,
-    tags: [
-      "Agile",
-      "Scrum",
-      "User Stories",
-      "Backlog",
-      "Planning Poker",
-    ],
-  },
+      tags: ["Agile", "Scrum", "User Stories", "Backlog", "Planning Poker"],
+    },
 
-  {
-    title: "Core Skills You'll Walk Away With",
-    body: `
+    {
+      title: "Core Skills You'll Walk Away With",
+      body: `
 Developed across the program as an integrated set, not isolated modules.
 
 • Planning and leading requirements activities end to end
@@ -1259,29 +1265,29 @@ Developed across the program as an integrated set, not isolated modules.
 • Writing, validating, and maintaining documentation to a professional standard
 • Managing requirements communication across the full project lifecycle
     `,
-    tags: [
-      "Communication",
-      "Analysis",
-      "Documentation",
-      "Stakeholder Management",
-    ],
-  },
+      tags: [
+        "Communication",
+        "Analysis",
+        "Documentation",
+        "Stakeholder Management",
+      ],
+    },
 
-  {
-    title: "Tools & Case Studies",
-    body: `
+    {
+      title: "Tools & Case Studies",
+      body: `
 Every module is supported by industry-standard tools and real-world case studies drawn from live project environments.
 
 You won't be learning on hypothetical scenarios — you'll be applying your skills to the kind of problems practicing BAs encounter every day.
     `,
-    tags: [
-      "Case Studies",
-      "Industry Tools",
-      "Real Projects",
-      "Hands-On Learning",
-    ],
-  },
-];
+      tags: [
+        "Case Studies",
+        "Industry Tools",
+        "Real Projects",
+        "Hands-On Learning",
+      ],
+    },
+  ];
   return (
     <section
       id="curriculum"
@@ -1294,12 +1300,14 @@ You won't be learning on hypothetical scenarios — you'll be applying your skil
             <Eyebrow label="Course Curriculum" />
             <Display>
               What You'll
-              
               <br />
               <Em>Learn.</Em>
             </Display>
             <Lead className="mt-4">
-              This curriculum is structured to take you from foundational understanding through to hands-on delivery, covering every dimension of the Business Analyst role across both traditional and agile project environments.
+              This curriculum is structured to take you from foundational
+              understanding through to hands-on delivery, covering every
+              dimension of the Business Analyst role across both traditional and
+              agile project environments.
             </Lead>
             <div
               className="mt-6 p-4 sm:p-5 flex items-center gap-4"
@@ -1596,39 +1604,37 @@ const Methodology = () => {
   };
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  try {
-    await emailjs.send(
-      "service_xxxxxxx", // apna Service ID
-      "template_xxxxxxx", // apna Template ID
-      {
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-      },
-      "xxxxxxxxxxxxxxx" // apni Public Key
-    );
+    try {
+      await emailjs.send(
+        "service_xxxxxxx", // apna Service ID
+        "template_xxxxxxx", // apna Template ID
+        {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+        },
+        "xxxxxxxxxxxxxxx", // apni Public Key
+      );
 
-    alert(
-      "Thank you! Your details have been submitted successfully. Please check your email."
-    );
+      alert(
+        "Thank you! Your details have been submitted successfully. Please check your email.",
+      );
 
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-    });
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+      });
 
-    setShowModal(false);
-  } catch (error) {
-    console.error("EmailJS Error:", error);
+      setShowModal(false);
+    } catch (error) {
+      console.error("EmailJS Error:", error);
 
-    alert(
-      "Something went wrong. Please try again."
-    );
-  }
-};
+      alert("Something went wrong. Please try again.");
+    }
+  };
 
   return (
     <section
@@ -1650,9 +1656,8 @@ const Methodology = () => {
           </Display>
 
           <SectionLead className="mt-4 mx-auto text-center">
-            Security competence is not a knowledge problem — it is a
-            practice problem. Our methodology is built around this
-            truth.
+            Security competence is not a knowledge problem — it is a practice
+            problem. Our methodology is built around this truth.
           </SectionLead>
         </div>
 
@@ -1660,11 +1665,10 @@ const Methodology = () => {
         <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12 sm:mb-16">
           <button
             onClick={() => setShowModal(true)}
-            className="px-8 py-4 rounded text-[14px] font-semibold text-center transition-all duration-300"
-            style={{
-              background: C.gold,
-              color: C.navy,
-            }}
+            className="px-8 py-4 rounded text-[14px] font-semibold text-center
+             bg-yellow-500 text-slate-900
+             hover:bg-yellow-600 hover:text-white
+             transition-all duration-300"
           >
             Download Brochure
           </button>
@@ -1673,11 +1677,7 @@ const Methodology = () => {
             href="https://wa.me/919100151051"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-8 py-4 rounded text-[14px] font-semibold text-center transition-all duration-300"
-            style={{
-              backgroundColor: "#25D366",
-              color: "#ffffff",
-            }}
+            className="px-8 py-4 rounded text-[14px] font-semibold text-center text-white bg-[#25D366] hover:bg-[#1EBE5D] transition-all duration-300"
           >
             WhatsApp Us
           </a>
@@ -1702,8 +1702,7 @@ const Methodology = () => {
               <div
                 className="font-bold leading-none tracking-[-2px]"
                 style={{
-                  fontFamily:
-                    "'Playfair Display', Georgia, serif",
+                  fontFamily: "'Playfair Display', Georgia, serif",
                   fontSize: "clamp(36px,4vw,52px)",
                   color: b.dark ? C.gold : C.navy,
                 }}
@@ -1723,9 +1722,7 @@ const Methodology = () => {
               <div
                 className="text-[13px] leading-[1.65] font-light"
                 style={{
-                  color: b.dark
-                    ? "rgba(255,255,255,0.45)"
-                    : C.stone,
+                  color: b.dark ? "rgba(255,255,255,0.45)" : C.stone,
                 }}
               >
                 {b.desc}
@@ -1738,22 +1735,15 @@ const Methodology = () => {
         {showModal && (
           <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4">
             <div className="bg-white rounded-2xl w-full max-w-md p-6 shadow-2xl">
-              <h2
-                className="text-2xl font-bold mb-2"
-                style={{ color: C.navy }}
-              >
+              <h2 className="text-2xl font-bold mb-2" style={{ color: C.navy }}>
                 Download Brochure
               </h2>
 
               <p className="text-sm text-gray-600 mb-6">
-                Please enter your details to receive the
-                brochure.
+                Please enter your details to receive the brochure.
               </p>
 
-              <form
-                onSubmit={handleSubmit}
-                className="space-y-4"
-              >
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <input
                   type="text"
                   name="name"
@@ -1872,95 +1862,78 @@ const Domains = () => {
           </Lead>
         </div>
         <div
-  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px"
-  style={{ background: C.border, border: `1px solid ${C.border}` }}
->
-  {domains.map((d, i) => {
-    const isDark = i % 2 !== 0;
-
-    return (
-      <div
-        key={i}
-        className="relative overflow-hidden flex flex-col gap-4 p-6 sm:p-7 lg:p-8 transition-colors duration-200 cursor-default"
-        style={{
-          background:
-            hov === i
-              ? C.cream
-              : isDark
-              ? "#111111"
-              : C.white,
-        }}
-        onMouseEnter={() => setHov(i)}
-        onMouseLeave={() => setHov(null)}
-      >
-        <div
-          className="absolute top-0 left-0 right-0 h-[2px] transition-transform duration-300 origin-left"
-          style={{
-            background: C.gold,
-            transform: hov === i ? "scaleX(1)" : "scaleX(0)",
-          }}
-        />
-
-        <div
-          className="w-10 h-10 sm:w-11 sm:h-11 border rounded-sm flex items-center justify-center text-[18px] sm:text-[20px]"
-          style={{
-            borderColor: isDark
-              ? "rgba(255,255,255,0.15)"
-              : C.border,
-            background: isDark
-              ? "#1a1a1a"
-              : C.cream,
-          }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px"
+          style={{ background: C.border, border: `1px solid ${C.border}` }}
         >
-          {d.icon}
-        </div>
+          {domains.map((d, i) => {
+            const isDark = i % 2 !== 0;
 
-        <div
-          className="font-bold text-[16px] sm:text-[17px] tracking-[-0.3px]"
-          style={{
-            fontFamily: "'Playfair Display',Georgia,serif",
-            color:
-              hov === i
-                ? C.navy
-                : isDark
-                ? "#ffffff"
-                : C.navy,
-          }}
-        >
-          {d.title}
-        </div>
+            return (
+              <div
+                key={i}
+                className="relative overflow-hidden flex flex-col gap-4 p-6 sm:p-7 lg:p-8 transition-colors duration-200 cursor-default"
+                style={{
+                  background:
+                    hov === i ? C.cream : isDark ? "#111111" : C.white,
+                }}
+                onMouseEnter={() => setHov(i)}
+                onMouseLeave={() => setHov(null)}
+              >
+                <div
+                  className="absolute top-0 left-0 right-0 h-[2px] transition-transform duration-300 origin-left"
+                  style={{
+                    background: C.gold,
+                    transform: hov === i ? "scaleX(1)" : "scaleX(0)",
+                  }}
+                />
 
-        <div className="flex gap-1.5 flex-wrap">
-          {d.tags.map((t) => (
-            <span
-              key={t}
-              className="text-[11px] font-medium px-2 py-0.5 rounded-sm"
-              style={{
-                color:
-                  hov === i
-                    ? C.stone
-                    : isDark
-                    ? "#ffffff"
-                    : C.stone,
-                background:
-                  hov === i
-                    ? C.mist
-                    : isDark
-                    ? "rgba(255,255,255,0.08)"
-                    : C.mist,
-                border: isDark
-                  ? "1px solid rgba(255,255,255,0.1)"
-                  : "none",
-              }}
-            >
-              {t}
-            </span>
-          ))}
+                <div
+                  className="w-10 h-10 sm:w-11 sm:h-11 border rounded-sm flex items-center justify-center text-[18px] sm:text-[20px]"
+                  style={{
+                    borderColor: isDark ? "rgba(255,255,255,0.15)" : C.border,
+                    background: isDark ? "#1a1a1a" : C.cream,
+                  }}
+                >
+                  {d.icon}
+                </div>
+
+                <div
+                  className="font-bold text-[16px] sm:text-[17px] tracking-[-0.3px]"
+                  style={{
+                    fontFamily: "'Playfair Display',Georgia,serif",
+                    color: hov === i ? C.navy : isDark ? "#ffffff" : C.navy,
+                  }}
+                >
+                  {d.title}
+                </div>
+
+                <div className="flex gap-1.5 flex-wrap">
+                  {d.tags.map((t) => (
+                    <span
+                      key={t}
+                      className="text-[11px] font-medium px-2 py-0.5 rounded-sm"
+                      style={{
+                        color:
+                          hov === i ? C.stone : isDark ? "#ffffff" : C.stone,
+                        background:
+                          hov === i
+                            ? C.mist
+                            : isDark
+                              ? "rgba(255,255,255,0.08)"
+                              : C.mist,
+                        border: isDark
+                          ? "1px solid rgba(255,255,255,0.1)"
+                          : "none",
+                      }}
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
         </div>
-      </div>
-    );
-  })}
-</div>
       </Wrap>
     </section>
   );
@@ -2025,9 +1998,9 @@ const CaseStudies = () => {
           </Display>
 
           <Lead className="mt-4 mb-12 max-w-[760px]">
-            We don't stop at training. Every participant receives
-            dedicated career support designed to get them hired and
-            help them stay ahead once they are.
+            We don't stop at training. Every participant receives dedicated
+            career support designed to get them hired and help them stay ahead
+            once they are.
           </Lead>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -2039,23 +2012,16 @@ const CaseStudies = () => {
                   key={index}
                   className="p-6 sm:p-8 rounded-sm border transition-all duration-300 hover:-translate-y-1"
                   style={{
-                    borderColor: isDark
-                      ? "rgba(255,255,255,0.12)"
-                      : C.border,
-                    background: isDark
-                      ? "#111111"
-                      : C.white,
+                    borderColor: isDark ? "rgba(255,255,255,0.12)" : C.border,
+                    background: isDark ? "#111111" : C.white,
                   }}
                 >
                   <div
                     className="w-11 h-11 flex items-center justify-center rounded-sm mb-5"
                     style={{
-                      background: isDark
-                        ? "#1f1f1f"
-                        : C.navy,
+                      background: isDark ? "#1f1f1f" : C.navy,
                       color: C.gold,
-                      fontFamily:
-                        "'Playfair Display', Georgia, serif",
+                      fontFamily: "'Playfair Display', Georgia, serif",
                       fontWeight: 700,
                       fontSize: "15px",
                       border: isDark
@@ -2069,9 +2035,7 @@ const CaseStudies = () => {
                   <h3
                     className="text-[16px] sm:text-[18px] font-bold mb-3"
                     style={{
-                      color: isDark
-                        ? "#ffffff"
-                        : C.navy,
+                      color: isDark ? "#ffffff" : C.navy,
                     }}
                   >
                     {service.title}
@@ -2080,9 +2044,7 @@ const CaseStudies = () => {
                   <p
                     className="text-[14px] leading-[1.8] font-light"
                     style={{
-                      color: isDark
-                        ? "rgba(255,255,255,0.75)"
-                        : C.stone,
+                      color: isDark ? "rgba(255,255,255,0.75)" : C.stone,
                     }}
                   >
                     {service.body}
@@ -2097,12 +2059,11 @@ const CaseStudies = () => {
   );
 };
 
-
 /* ══════════════════════════════════════════════════════════════════════════════
    WHY US
 ══════════════════════════════════════════════════════════════════════════════ */
 const WhyUs = () => {
-  const cards = [  
+  const cards = [
     {
       icon: "📹",
       title: "Video Learning Support",
@@ -2147,7 +2108,9 @@ const WhyUs = () => {
           Us <Em>Different.</Em>
         </Display>
         <Lead light className="mt-4">
-          We train you to the standard we'd hold someone to on our own projects. That shows in every decision we've made about how this program is built.
+          We train you to the standard we'd hold someone to on our own projects.
+          That shows in every decision we've made about how this program is
+          built.
         </Lead>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 mt-10 sm:mt-[52px]">
           {cards.map((c, i) => (
@@ -2192,7 +2155,6 @@ const WhyUs = () => {
     </section>
   );
 };
-
 
 /* ══════════════════════════════════════════════════════════════════════════════
    TESTIMONIALS
@@ -2253,29 +2215,22 @@ const Testimonials = () => {
                 className="p-6 sm:p-8 rounded border flex flex-col h-full transition-all duration-300 hover:-translate-y-1"
                 style={{
                   background: isDark ? "#111111" : C.white,
-                  borderColor: isDark
-                    ? "rgba(255,255,255,0.12)"
-                    : C.border,
+                  borderColor: isDark ? "rgba(255,255,255,0.12)" : C.border,
                 }}
               >
                 {/* Number Badge */}
                 <div
                   className="w-12 h-12 rounded-full flex items-center justify-center mb-6"
                   style={{
-                    background: isDark
-                      ? "#1f1f1f"
-                      : C.mist,
+                    background: isDark ? "#1f1f1f" : C.mist,
                     color: C.gold,
-                    border: isDark
-                      ? "1px solid rgba(255,255,255,0.1)"
-                      : "none",
+                    border: isDark ? "1px solid rgba(255,255,255,0.1)" : "none",
                   }}
                 >
                   <span
                     className="text-xl font-bold"
                     style={{
-                      fontFamily:
-                        "'Playfair Display', Georgia, serif",
+                      fontFamily: "'Playfair Display', Georgia, serif",
                     }}
                   >
                     {String(i + 1).padStart(2, "0")}
@@ -2287,8 +2242,7 @@ const Testimonials = () => {
                   className="text-[22px] sm:text-[24px] leading-tight mb-4"
                   style={{
                     color: isDark ? "#ffffff" : C.navy,
-                    fontFamily:
-                      "'Playfair Display', Georgia, serif",
+                    fontFamily: "'Playfair Display', Georgia, serif",
                   }}
                 >
                   {card.title}
@@ -2298,9 +2252,7 @@ const Testimonials = () => {
                 <p
                   className="text-[15px] leading-[1.8] flex-1"
                   style={{
-                    color: isDark
-                      ? "rgba(255,255,255,0.75)"
-                      : C.stone,
+                    color: isDark ? "rgba(255,255,255,0.75)" : C.stone,
                   }}
                 >
                   {card.description}
@@ -2313,8 +2265,6 @@ const Testimonials = () => {
     </section>
   );
 };
-
-
 
 /* ══════════════════════════════════════════════════════════════════════════════
    BOTTOM CTA
@@ -2423,6 +2373,7 @@ const Footer = () => {
         { label: "Business Analyst", path: "/business-analyst" },
         { label: "Project Management", path: "/project-management" },
         { label: "Cyber Security", path: "/cyber-security" },
+        { label: "ServiceNow Training", path: "/servicenow-training" },
         { label: "Data Science", path: "/data-science" },
       ],
     },
@@ -2462,10 +2413,7 @@ const Footer = () => {
           style={{ borderColor: "rgba(255,255,255,0.06)" }}
         >
           <div className="col-span-2 lg:col-span-1">
-            <a
-              href="#"
-              className="flex items-center gap-2.5 no-underline mb-4"
-            >
+            <a href="#" className="flex items-center gap-2.5 no-underline mb-4">
               <LogoMark size={28} />
               <strong
                 className="font-bold text-[15px] text-white"
@@ -2502,12 +2450,9 @@ const Footer = () => {
                         onClick={() => navigate(l.path)}
                         className="text-[12px] sm:text-[13px] font-light bg-transparent border-none cursor-pointer p-0 text-left transition-colors duration-150"
                         style={{ color: "rgba(255,255,255,0.4)" }}
-                        onMouseEnter={(e) =>
-                          (e.target.style.color = "#fff")
-                        }
+                        onMouseEnter={(e) => (e.target.style.color = "#fff")}
                         onMouseLeave={(e) =>
-                          (e.target.style.color =
-                            "rgba(255,255,255,0.4)")
+                          (e.target.style.color = "rgba(255,255,255,0.4)")
                         }
                       >
                         {l.label}
@@ -2517,12 +2462,9 @@ const Footer = () => {
                         href={l.href}
                         className="text-[12px] sm:text-[13px] font-light no-underline transition-colors duration-150"
                         style={{ color: "rgba(255,255,255,0.4)" }}
-                        onMouseEnter={(e) =>
-                          (e.target.style.color = "#fff")
-                        }
+                        onMouseEnter={(e) => (e.target.style.color = "#fff")}
                         onMouseLeave={(e) =>
-                          (e.target.style.color =
-                            "rgba(255,255,255,0.4)")
+                          (e.target.style.color = "rgba(255,255,255,0.4)")
                         }
                       >
                         {l.label}
@@ -2553,17 +2495,15 @@ const Footer = () => {
                   className="no-underline transition-colors duration-150"
                   style={{ color: "rgba(255,255,255,0.25)" }}
                   onMouseEnter={(e) =>
-                    (e.target.style.color =
-                      "rgba(255,255,255,0.5)")
+                    (e.target.style.color = "rgba(255,255,255,0.5)")
                   }
                   onMouseLeave={(e) =>
-                    (e.target.style.color =
-                      "rgba(255,255,255,0.25)")
+                    (e.target.style.color = "rgba(255,255,255,0.25)")
                   }
                 >
                   {t}
                 </a>
-              )
+              ),
             )}
           </div>
         </div>

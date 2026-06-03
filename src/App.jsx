@@ -8,6 +8,7 @@ import BusinessAnalyst from "./pages/BusinessAnalyst";
 import CyberSecurity from "./pages/CyberSecurity";
 import ProjectManagement from "./pages/ProjectManagement";
 import DataScience from "./pages/DataScience";
+import ServiceNowTraining from "./pages/ServiceNow";
 
 /* Scroll To Top */
 function ScrollToTop() {
@@ -27,41 +28,23 @@ function ScrollToTop() {
 export default function App() {
   return (
     <>
-
       {/* Auto Scroll Top On Page Change */}
       <ScrollToTop />
 
       <Routes>
-
         {/* Home */}
-        <Route
-          path="/"
-          element={<Home />}
-        />
-
-      
+        <Route path="/" element={<Home />} />
 
         {/* Programs */}
-        <Route
-          path="/business-analyst"
-          element={<BusinessAnalyst />}
-        />
+        <Route path="/business-analyst" element={<BusinessAnalyst />} />
 
-        <Route
-          path="/cyber-security"
-          element={<CyberSecurity />}
-        />
+        <Route path="/cyber-security" element={<CyberSecurity />} />
 
-        <Route
-          path="/project-management"
-          element={<ProjectManagement />}
-        />
+        <Route path="/project-management" element={<ProjectManagement />} />
 
-        <Route
-          path="/data-science"
-          element={<DataScience />}
-        />
+        <Route path="/data-science" element={<DataScience />} />
 
+        <Route path="/servicenow-training" element={<ServiceNowTraining />} />
       </Routes>
     </>
   );

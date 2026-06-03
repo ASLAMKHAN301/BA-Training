@@ -111,6 +111,9 @@ function FooterColumn({ col }) {
       case "Cyber Security":
         return "/cyber-security";
 
+      case "ServiceNow Training":
+        return "/servicenow-training";
+
       case "Data Science":
         return "/data-science";
 
