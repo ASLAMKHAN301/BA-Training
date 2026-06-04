@@ -99,6 +99,36 @@ const COMPANIES = [
   },
 ];
 
+/* ─── Design tokens ──────────────────────────────────────────────────────────── */
+const C = {
+  navy: "#000000",
+  navyMid: "#1A1A1A",
+  gold: "#C9A84C",
+  goldLt: "#F5EDD6",
+  cream: "#FAF8F3",
+  white: "#FFFFFF",
+  ink: "#1C1C1C",
+  mist: "#F0EDE6",
+  stone: "#7A7060",
+  border: "#E2DDD4",
+};
+const Eyebrow = ({ label, dark = false, center = false }) => (
+  <div
+    className={`inline-flex items-center gap-2.5 mb-4 ${center ? "justify-center w-full" : ""}`}
+  >
+    <div
+      className="w-7 h-px flex-shrink-0"
+      style={{ background: dark ? "rgba(201,168,76,0.5)" : C.gold }}
+    />
+    <span
+      className="text-[11px] font-semibold tracking-[2.5px] uppercase"
+      style={{ color: C.gold }}
+    >
+      {label}
+    </span>
+  </div>
+);
+
 const CURRICULUM = [
   {
     title: "Platform Fundamentals & ITSM Overview",
@@ -420,10 +450,10 @@ const LogoIcon = ({ size = 18 }) => (
 const SectionLabel = ({ text, light = false }) => (
   <div className="inline-flex items-center gap-2.5 mb-4">
     <div
-      className={`w-7 h-px flex-shrink-0 ${light ? "bg-amber-400/50" : "bg-amber-500"}`}
+      className={`w-7 h-px flex-shrink-0 ${light ? "bg-[#C9A84C]/50" : "bg-[#C9A84C]"}`}
     />
     <span
-      className={`text-[11px] font-semibold tracking-[2.5px] uppercase ${light ? "text-amber-400" : "text-amber-600"}`}
+      className={`text-[11px] font-semibold tracking-[2.5px] uppercase ${light ? "text-[#C9A84C]" : "text-amber-600"}`}
     >
       {text}
     </span>
@@ -519,6 +549,30 @@ export default function ServiceNowTraining() {
 
   const handleInput = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  const [showModal, setShowModal] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    console.log(formData);
+
+    alert("Thank you! Your details have been submitted successfully.");
+
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+    });
+
+    setShowModal(false);
+  };
 
   return (
     <div className="font-[Outfit,sans-serif] bg-[#FAF8F3] text-[#1C1C1C] overflow-x-hidden">
@@ -535,7 +589,7 @@ export default function ServiceNowTraining() {
       {/* ── TOP BANNER ── */}
       <div className="bg-black text-white/80 text-center py-2.5 px-4 text-[13px] relative z-10">
         Next intake opens{" "}
-        <strong className="text-amber-400">October 2025</strong> — Limited to 5
+        <strong className="text-[#C9A84C]">October 2025</strong> — Limited to 5
         seats per batch.{" "}
         <a
           href="#enrol"
@@ -566,15 +620,21 @@ export default function ServiceNowTraining() {
           backdropFilter: "blur(6px)",
         }}
       >
-        <div className="absolute top-0 left-0 right-0 h-[3px] bg-amber-400" />
+        <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#C9A84C]" />
         <div className="absolute inset-0 pointer-events-none grid-overlay" />
 
         <div className="max-w-[1160px] mx-auto px-5 lg:px-[60px] grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-10 lg:gap-[60px] relative z-10">
           {/* Left */}
           <div className="py-16 lg:py-20">
             <div className="inline-flex items-center gap-2.5 mb-6">
-              <div className="w-8 h-px bg-amber-400 flex-shrink-0" />
-              <span className="text-[11px] font-semibold tracking-[2.5px] uppercase text-amber-400">
+              <div
+                className="w-8 h-px flex-shrink-0"
+                style={{ background: C.gold }}
+              />
+              <span
+                className="text-[11px] font-semibold tracking-[2.5px] uppercase"
+                style={{ color: C.gold }}
+              >
                 ServiceNow Training Programme — CSA · CIS · CAD
               </span>
             </div>
@@ -584,7 +644,7 @@ export default function ServiceNowTraining() {
               <br />
               Own the Platform.
               <br />
-              <em className="text-amber-400">End to End.</em>
+              <em style={{ color: C.gold }}>End to End.</em>
             </h1>
 
             <div className="flex flex-wrap gap-6 mb-5">
@@ -597,7 +657,10 @@ export default function ServiceNowTraining() {
                   key={t}
                   className="text-[11px] font-semibold tracking-[1.5px] uppercase text-white/50 flex items-center gap-2"
                 >
-                  <span className="w-1 h-1 rounded-full bg-amber-400 flex-shrink-0" />
+                  <span
+                    className="w-1 h-1 rounded-full flex-shrink-0"
+                    style={{ background: C.gold }}
+                  />
                   {t}
                 </span>
               ))}
@@ -613,7 +676,8 @@ export default function ServiceNowTraining() {
             <div className="flex flex-wrap gap-3">
               <a
                 href="#enrol"
-                className="bg-amber-400 text-black text-sm font-bold px-6 py-3.5 rounded-sm no-underline hover:bg-amber-300 transition-colors"
+                className="text-black text-sm font-bold px-6 py-3.5 rounded-sm no-underline hover:bg-amber-300 transition-colors"
+                style={{ background: C.gold }}
               >
                 Enroll Now
               </a>
@@ -649,7 +713,10 @@ export default function ServiceNowTraining() {
           {/* Right cards */}
           <div className="flex flex-col gap-5 my-10 lg:my-10">
             {/* Fee card */}
-            <div className="bg-amber-400 rounded-[4px] p-7 relative overflow-hidden">
+            <div
+              className="rounded-[4px] p-7 relative overflow-hidden"
+              style={{ background: C.gold }}
+            >
               <div className="absolute inset-0 pointer-events-none fee-grid" />
               <div className="relative z-[1]">
                 <div className="text-[10px] font-bold tracking-[2.5px] uppercase text-black/50 mb-2">
@@ -719,7 +786,7 @@ export default function ServiceNowTraining() {
                       key={i}
                       className="flex items-start gap-3 text-[13px] leading-[1.55] font-light text-stone-400"
                     >
-                      <span className="w-[18px] h-[18px] rounded-full border border-amber-400 bg-amber-400/12 inline-flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <span className="w-[18px] h-[18px] rounded-full border border-[#C9A84C] bg-[#C9A84C]/12 inline-flex items-center justify-center flex-shrink-0 mt-0.5">
                         <GoldCheckIcon />
                       </span>
                       <span>{item}</span>
@@ -748,11 +815,11 @@ export default function ServiceNowTraining() {
       >
         <div className="max-w-[1160px] mx-auto px-5 lg:px-[60px] grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div>
-            <SectionLabel text="What We Do" />
+            <Eyebrow label="What We Do" />
             <h2 className="playfair text-[clamp(26px,3.5vw,44px)] font-bold leading-[1.12] tracking-[-0.5px] text-black">
               We Train You to Run
               <br />
-              <em className="text-amber-500 italic">
+              <em className="italic" style={{ color: C.gold }}>
                 ServiceNow. Not Just Use It.
               </em>
             </h2>
@@ -762,7 +829,14 @@ export default function ServiceNowTraining() {
               tickets, checking approvals, updating records. Real ServiceNow
               expertise is something altogether different.
             </p>
-            <blockquote className="playfair text-[22px] italic leading-[1.5] pl-6 my-6 text-black border-l-[3px] border-amber-400">
+            <blockquote
+              className="playfair text-[22px] italic leading-[1.5] pl-6 my-6 text-black border-l-[3px] border-[#C9A84C]"
+              style={{
+                fontFamily: "'Playfair Display',Georgia,serif",
+                color: C.navy,
+                borderLeft: `3px solid ${C.gold}`,
+              }}
+            >
               A ServiceNow professional who cannot configure the platform cannot
               claim to know it. This programme changes that.
             </blockquote>
@@ -816,7 +890,7 @@ export default function ServiceNowTraining() {
                 className={`p-7 flex flex-col gap-1.5 ${dark ? "bg-black" : "bg-[#FAF8F3]"}`}
               >
                 <div
-                  className={`playfair text-[clamp(26px,3vw,40px)] font-bold leading-none tracking-[-1px] ${dark ? "text-amber-400" : "text-black"}`}
+                  className={`playfair text-[clamp(26px,3vw,40px)] font-bold leading-none tracking-[-1px] ${dark ? "text-[#C9A84C]" : "text-black"}`}
                 >
                   {val}
                 </div>
@@ -837,10 +911,12 @@ export default function ServiceNowTraining() {
         className="bg-white border-b border-stone-200 py-16 lg:py-[88px]"
       >
         <div className="max-w-[1160px] mx-auto px-5 lg:px-[60px]">
-          <SectionLabel text="Programme Details" />
+          <Eyebrow label="Programme Details" />
           <h2 className="playfair text-[clamp(26px,3.5vw,44px)] font-bold leading-[1.12] text-black">
             Structured for the{" "}
-            <em className="text-amber-500 italic">Serious Professional.</em>
+            <em className="text-[#C9A84C] italic" style={{ color: C.gold }}>
+              Serious Professional.
+            </em>
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-stone-200 border border-stone-200 mt-12">
             {PROGRAMME_DETAILS.map(({ label, value, desc, dark }) => (
@@ -848,7 +924,10 @@ export default function ServiceNowTraining() {
                 key={label}
                 className={`p-8 flex flex-col gap-2.5 ${dark ? "bg-black" : "bg-[#FAF8F3]"}`}
               >
-                <div className="text-[10px] font-bold tracking-[2px] uppercase text-amber-500">
+                <div
+                  className="text-[10px] font-bold tracking-[2px] uppercase text-[#C9A84C]"
+                  style={{ color: C.gold }}
+                >
                   {label}
                 </div>
                 <div
@@ -888,11 +967,13 @@ export default function ServiceNowTraining() {
       >
         <div className="absolute inset-0 pointer-events-none grid-overlay-faint" />
         <div className="max-w-[1160px] mx-auto px-5 lg:px-[60px] relative z-10">
-          <SectionLabel text="Who This Is For" light />
+          <Eyebrow label="Who This Is For" light />
           <h2 className="playfair text-[clamp(26px,3.5vw,44px)] font-bold leading-[1.12] text-white mt-1">
             Before You Join,
             <br />
-            <em className="text-amber-400">Know What We Expect.</em>
+            <em className="text-[#C9A84C]" style={{ color: C.gold }}>
+              Know What We Expect.
+            </em>
           </h2>
           <p className="text-[15px] leading-[1.75] font-light max-w-[520px] mt-4 text-white/50">
             This programme is not entry-level. It is designed for professionals
@@ -906,7 +987,7 @@ export default function ServiceNowTraining() {
                   key={num}
                   className="grid grid-cols-[40px_1fr] gap-4 py-7 border-b border-white/[0.08]"
                 >
-                  <div className="playfair text-[13px] font-bold text-amber-400 mt-0.5">
+                  <div className="playfair text-[13px] font-bold text-[#C9A84C] mt-0.5">
                     {num}
                   </div>
                   <div>
@@ -933,7 +1014,7 @@ export default function ServiceNowTraining() {
                 {PROFILES.map((p) => (
                   <span
                     key={p}
-                    className="text-[12px] font-semibold px-3.5 py-1.5 rounded-sm border border-amber-400/25 text-amber-400 bg-amber-400/10"
+                    className="text-[12px] font-semibold px-3.5 py-1.5 rounded-sm border border-[#C9A84C]/25 text-[#C9A84C] bg-[#C9A84C]/10"
                   >
                     {p}
                   </span>
@@ -947,7 +1028,7 @@ export default function ServiceNowTraining() {
                 </p>
                 <a
                   href="#enrol"
-                  className="inline-block text-[13px] font-bold px-5 py-2.5 rounded-sm no-underline bg-amber-400 text-black hover:bg-amber-300 transition-colors"
+                  className="inline-block text-[13px] font-bold px-5 py-2.5 rounded-sm no-underline bg-[#C9A84C] text-black hover:bg-amber-300 transition-colors"
                 >
                   Check My Eligibility →
                 </a>
@@ -963,11 +1044,11 @@ export default function ServiceNowTraining() {
         className="bg-[#FAF8F3] border-b border-stone-200 py-16 lg:py-[88px]"
       >
         <div className="max-w-[1160px] mx-auto px-5 lg:px-[60px]">
-          <SectionLabel text="Programme Objectives" />
+          <Eyebrow label="Programme Objectives" />
           <h2 className="playfair text-[clamp(26px,3.5vw,44px)] font-bold leading-[1.12] text-black mt-1">
             Seven Things You Will
             <br />
-            Be Able to <em className="text-amber-500 italic">Do.</em>
+            Be Able to <em className="text-[#C9A84C] italic">Do.</em>
           </h2>
           <p className="text-[15px] leading-[1.75] font-light max-w-[520px] mt-4 text-stone-400">
             These are not learning outcomes written for a brochure. They are the
@@ -981,7 +1062,7 @@ export default function ServiceNowTraining() {
                 key={num}
                 className={`p-8 flex flex-col gap-3.5 ${dark ? "bg-[#111]" : "bg-white"}`}
               >
-                <div className="playfair text-[13px] font-bold tracking-[1px] text-amber-400">
+                <div className="playfair text-[13px] font-bold tracking-[1px] text-[#C9A84C]">
                   {num}
                 </div>
                 <div
@@ -997,8 +1078,8 @@ export default function ServiceNowTraining() {
               </div>
             ))}
             {/* Obj 07 spans full row */}
-            <div className="bg-white p-8 sm:col-span-2 lg:col-span-3 border-t-2 border-amber-400 flex flex-col gap-3.5">
-              <div className="playfair text-[13px] font-bold tracking-[1px] text-amber-400">
+            <div className="bg-white p-8 sm:col-span-2 lg:col-span-3 border-t-2 border-[#C9A84C] flex flex-col gap-3.5">
+              <div className="playfair text-[13px] font-bold tracking-[1px] text-[#C9A84C]">
                 07
               </div>
               <div className="playfair text-[20px] font-bold text-black">
@@ -1029,15 +1110,15 @@ export default function ServiceNowTraining() {
               <h2 className="playfair text-[clamp(26px,3.5vw,44px)] font-bold leading-[1.12] text-black">
                 Everything the Job
                 <br />
-                Demands. <em className="text-amber-500 italic">Covered.</em>
+                Demands. <em className="text-[#C9A84C] italic">Covered.</em>
               </h2>
               <p className="text-[15px] leading-[1.75] font-light max-w-[520px] mt-4 text-stone-400">
                 Ten modules covering platform fundamentals through advanced
                 development — built around real implementation scenarios, not
                 theoretical frameworks.
               </p>
-              <div className="mt-6 p-4 flex items-center gap-4 bg-amber-50 border-l-[3px] border-amber-400">
-                <div className="w-12 h-12 rounded-full bg-black flex items-center justify-center flex-shrink-0 playfair text-[15px] font-bold text-amber-400">
+              <div className="mt-6 p-4 flex items-center gap-4 bg-amber-50 border-l-[3px] border-[#C9A84C]">
+                <div className="w-12 h-12 rounded-full bg-black flex items-center justify-center flex-shrink-0 playfair text-[15px] font-bold text-[#C9A84C]">
                   AK
                 </div>
                 <div>
@@ -1091,7 +1172,7 @@ export default function ServiceNowTraining() {
         <div className="max-w-[1160px] mx-auto px-5 lg:px-[60px] relative z-10">
           <SectionLabel text="Tools You Will Master" light />
           <h2 className="playfair text-[clamp(26px,3.5vw,44px)] font-bold leading-[1.12] text-white mt-1">
-            The <em className="text-amber-400 italic">Exact Toolkit</em>
+            The <em className="text-[#C9A84C] italic">Exact Toolkit</em>
             <br />
             Every ServiceNow Pro Needs.
           </h2>
@@ -1123,6 +1204,69 @@ export default function ServiceNowTraining() {
       </section>
 
       {/* ── METHODOLOGY ── */}
+      {showModal && (
+        <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-2xl w-full max-w-md p-6 shadow-2xl">
+            <h2 className="text-2xl font-bold mb-2 text-black">
+              Download Brochure
+            </h2>
+
+            <p className="text-sm text-gray-600 mb-6">
+              Please enter your details to receive the brochure.
+            </p>
+
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <input
+                type="text"
+                name="name"
+                placeholder="Full Name"
+                required
+                value={formData.name}
+                onChange={handleChange}
+                className="w-full border rounded-lg p-3 outline-none"
+              />
+
+              <input
+                type="email"
+                name="email"
+                placeholder="Email Address"
+                required
+                value={formData.email}
+                onChange={handleChange}
+                className="w-full border rounded-lg p-3 outline-none"
+              />
+
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Phone Number"
+                required
+                value={formData.phone}
+                onChange={handleChange}
+                className="w-full border rounded-lg p-3 outline-none"
+              />
+
+              <div className="flex gap-3 pt-2">
+                <button
+                  type="submit"
+                  className="flex-1 py-3 rounded-lg font-semibold bg-[#C9A84C] text-black"
+                >
+                  Submit
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setShowModal(false)}
+                  className="flex-1 py-3 rounded-lg border font-semibold"
+                >
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
       <section
         id="methodology"
         className="bg-white border-b border-stone-200 py-16 lg:py-[88px]"
@@ -1135,7 +1279,7 @@ export default function ServiceNowTraining() {
             <h2 className="playfair text-[clamp(26px,3.5vw,44px)] font-bold leading-[1.12] text-black">
               How We Build
               <br />
-              <em className="text-amber-500 italic">
+              <em className="text-[#C9A84C] italic">
                 ServiceNow Professionals.
               </em>
             </h2>
@@ -1146,11 +1290,14 @@ export default function ServiceNowTraining() {
           </div>
 
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12 sm:mb-16">
-            <button className="bg-amber-400 text-black border-0 px-8 py-4 rounded text-sm font-semibold cursor-pointer hover:bg-amber-300 transition-colors">
+            <button
+              onClick={() => setShowModal(true)}
+              className="bg-[#C9A84C] text-black border-0 px-8 py-4 rounded text-sm font-semibold cursor-pointer hover:bg-amber-300 transition-colors"
+            >
               Download Brochure
             </button>
             <a
-              href="https://wa.me/+919100151051"
+              href="https://wa.me/919100151051"
               target="_blank"
               rel="noreferrer"
               className="bg-[#25D366] text-white border-0 px-8 py-4 rounded text-sm font-semibold text-center cursor-pointer no-underline items-center hover:bg-[#1db858] transition-colors"
@@ -1185,7 +1332,7 @@ export default function ServiceNowTraining() {
                 className={`p-9 flex flex-col gap-3 ${dark ? "bg-black" : "bg-[#FAF8F3]"}`}
               >
                 <div
-                  className={`playfair text-[clamp(36px,4vw,52px)] font-bold leading-none tracking-[-2px] ${dark ? "text-amber-400" : "text-black"}`}
+                  className={`playfair text-[clamp(36px,4vw,52px)] font-bold leading-none tracking-[-2px] ${dark ? "text-[#C9A84C]" : "text-black"}`}
                 >
                   {pct}
                 </div>
@@ -1230,7 +1377,7 @@ export default function ServiceNowTraining() {
           <h2 className="playfair text-[clamp(26px,3.5vw,44px)] font-bold leading-[1.12] text-white mt-1">
             What Separates This
             <br />
-            <em className="text-amber-400 italic">From Everything Else.</em>
+            <em className="text-[#C9A84C] italic">From Everything Else.</em>
           </h2>
           <p className="text-[15px] leading-[1.75] font-light max-w-[520px] mt-4 text-white/50">
             There is no shortage of ServiceNow courses. There is a real shortage
@@ -1243,7 +1390,7 @@ export default function ServiceNowTraining() {
                 key={title}
                 className="flex flex-col gap-3 p-7 rounded-lg border border-white/[0.08] bg-white/[0.04]"
               >
-                <div className="w-11 h-11 rounded-lg border border-amber-400/25 bg-amber-400/12 flex items-center justify-center text-[20px]">
+                <div className="w-11 h-11 rounded-lg border border-[#C9A84C]/25 bg-[#C9A84C]/12 flex items-center justify-center text-[20px]">
                   {icon}
                 </div>
                 <div className="text-[15px] font-bold text-white">{title}</div>
@@ -1268,7 +1415,7 @@ export default function ServiceNowTraining() {
               <h2 className="playfair text-[clamp(26px,3.5vw,44px)] font-bold leading-[1.12] text-black">
                 Assistance To Placement Is
                 <br />
-                <em className="text-amber-500 italic">The Promise.</em>
+                <em className="text-[#C9A84C] italic">The Promise.</em>
               </h2>
             </div>
             <p className="text-[15px] leading-[1.75] font-light max-w-[280px] text-stone-400">
@@ -1302,7 +1449,7 @@ export default function ServiceNowTraining() {
               <h2 className="playfair text-[clamp(26px,3.5vw,44px)] font-bold leading-[1.12] text-black">
                 Designed For
                 <br />
-                <em className="text-amber-500 italic">Long-Term Success.</em>
+                <em className="text-[#C9A84C] italic">Long-Term Success.</em>
               </h2>
             </div>
             <p className="text-[15px] leading-[1.75] font-light max-w-[320px] text-stone-400">
@@ -1337,7 +1484,7 @@ export default function ServiceNowTraining() {
                 className={`border rounded p-8 flex flex-col h-full ${dark ? "bg-[#111] border-white/[0.12]" : "bg-white border-stone-200"}`}
               >
                 <div
-                  className={`w-12 h-12 rounded-full flex items-center justify-center mb-6 playfair text-[20px] font-bold text-amber-400 ${dark ? "bg-[#1F1F1F] border border-white/10" : "bg-stone-100"}`}
+                  className={`w-12 h-12 rounded-full flex items-center justify-center mb-6 playfair text-[20px] font-bold text-[#C9A84C] ${dark ? "bg-[#1F1F1F] border border-white/10" : "bg-stone-100"}`}
                 >
                   {num}
                 </div>
@@ -1377,7 +1524,7 @@ export default function ServiceNowTraining() {
         }}
       >
         <div className="absolute inset-0 pointer-events-none grid-overlay-faint" />
-        <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-amber-400" />
+        <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#C9A84C]" />
         <div className="max-w-[1160px] mx-auto px-5 lg:px-[60px] relative z-10">
           <div className="py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
             {/* Left */}
@@ -1385,7 +1532,7 @@ export default function ServiceNowTraining() {
               <h2 className="playfair text-[clamp(24px,3.5vw,42px)] font-bold leading-[1.12] text-white tracking-[-0.8px] mb-4">
                 One Conversation
                 <br />
-                Can Change Your <em className="text-amber-400">Career.</em>
+                Can Change Your <em className="text-[#C9A84C]">Career.</em>
               </h2>
               <p className="text-[15px] leading-[1.7] font-light mb-8 text-white/50">
                 Our advisors are working ServiceNow professionals who have
@@ -1406,7 +1553,7 @@ export default function ServiceNowTraining() {
                     key={item}
                     className="flex items-start gap-3 text-sm text-white/75"
                   >
-                    <span className="w-[18px] h-[18px] rounded-full border border-amber-400 bg-amber-400/20 inline-flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="w-[18px] h-[18px] rounded-full border border-[#C9A84C] bg-[#C9A84C]/20 inline-flex items-center justify-center flex-shrink-0 mt-0.5">
                       <GoldCheckIcon />
                     </span>
                     {item}
@@ -1587,7 +1734,7 @@ export default function ServiceNowTraining() {
               },
             ].map((section) => (
               <div key={section.heading}>
-                <h4 className="text-[10px] font-bold tracking-[2px] uppercase text-amber-400 mb-4">
+                <h4 className="text-[10px] font-bold tracking-[2px] uppercase text-[#C9A84C] mb-4">
                   {section.heading}
                 </h4>
 
@@ -1631,13 +1778,13 @@ export default function ServiceNowTraining() {
       </footer>
 
       {/* ── MOBILE STICKY BAR ── */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-[200] bg-black border-t-2 border-amber-400 px-4 py-3 flex items-center justify-between">
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-[200] bg-black border-t-2 border-[#C9A84C] px-4 py-3 flex items-center justify-between">
         <p className="text-[12px] font-medium text-white/75 mr-3">
           Free career counselling available
         </p>
         <a
           href="#enrol"
-          className="bg-amber-400 text-black text-[13px] font-bold px-4 py-2 rounded-sm no-underline whitespace-nowrap flex-shrink-0 hover:bg-amber-300 transition-colors"
+          className="bg-[#C9A84C] text-black text-[13px] font-bold px-4 py-2 rounded-sm no-underline whitespace-nowrap flex-shrink-0 hover:bg-amber-300 transition-colors"
         >
           Book Now →
         </a>

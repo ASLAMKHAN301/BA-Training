@@ -378,7 +378,7 @@ const Hero = () => {
     "Merit-based scholarships available",
   ];
   const overviewPoints = [
-    { bold: "20 weeks", text: " of intensive, practitioner-led training" },
+    { bold: "4 weeks", text: " of intensive, practitioner-led training" },
     { bold: "Batch size of 5", text: " — mentorship, not a lecture hall" },
     { bold: "Evenings & weekends", text: " — for working professionals" },
     { bold: "CEH, Security+, SOC Analyst", text: " certification alignment" },
