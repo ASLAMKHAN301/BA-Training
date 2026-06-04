@@ -306,12 +306,12 @@ const PROFILES = [
 
 const WHY_REASONS = [
   {
-    icon: "🛠",
+    icon: "🏋️",
     title: "Trainers on Active Implementations",
     desc: "Every trainer is a working ServiceNow architect or developer on live projects. The configurations they teach are ones they deployed this month — not archived content from a course platform.",
   },
   {
-    icon: "🖥",
+    icon: "👁️",
     title: "Your Own Personal Developer Instance",
     desc: "Every participant gets their own PDI for the full duration of the programme. This is not a shared environment or a demo — it is a real ServiceNow instance you configure, break, fix, and build in.",
   },
