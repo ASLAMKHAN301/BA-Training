@@ -857,19 +857,36 @@ const Methodology = () => {
     });
   };
 
-  const handleSubmit = (e) => {
-  e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  window.open("/brochure.pdf", "_blank");
+    try {
+      // EmailJS ya koi aur API call
+      // await emailjs.send(...);
 
-  setFormData({
-    name: "",
-    email: "",
-    phone: "",
-  });
+      // PDF Download Start
+      const link = document.createElement("a");
+      link.href = "/brochure.pdf";
+      link.download = "Cybersecurity-Brochure.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      // PDF Download End
 
-  setShowModal(false);
-};
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+      });
+
+      setShowModal(false);
+
+      alert("Brochure downloaded successfully!");
+    } catch (error) {
+      console.error(error);
+      alert("Something went wrong.");
+    }
+  };
 
   return (
     <section

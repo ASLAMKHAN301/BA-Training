@@ -1604,35 +1604,35 @@ const Methodology = () => {
   };
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  try {
-    // EmailJS ya koi aur API call
-    // await emailjs.send(...);
+    try {
+      // EmailJS ya koi aur API call
+      // await emailjs.send(...);
 
-    // PDF Download Start
-    const link = document.createElement("a");
-    link.href = "/brochure.pdf";
-    link.download = "Cybersecurity-Brochure.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    // PDF Download End
+      // PDF Download Start
+      const link = document.createElement("a");
+      link.href = "/brochure.pdf";
+      link.download = "Cybersecurity-Brochure.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      // PDF Download End
 
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-    });
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+      });
 
-    setShowModal(false);
+      setShowModal(false);
 
-    alert("Brochure downloaded successfully!");
-  } catch (error) {
-    console.error(error);
-    alert("Something went wrong.");
-  }
-};
+      alert("Brochure downloaded successfully!");
+    } catch (error) {
+      console.error(error);
+      alert("Something went wrong.");
+    }
+  };
 
   return (
     <section
