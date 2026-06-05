@@ -1603,38 +1603,19 @@ const Methodology = () => {
     });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = (e) => {
+  e.preventDefault();
 
-    try {
-      await emailjs.send(
-        "service_xxxxxxx", // apna Service ID
-        "template_xxxxxxx", // apna Template ID
-        {
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-        },
-        "xxxxxxxxxxxxxxx", // apni Public Key
-      );
+  window.open("/brochure.pdf", "_blank");
 
-      alert(
-        "Thank you! Your details have been submitted successfully. Please check your email.",
-      );
+  setFormData({
+    name: "",
+    email: "",
+    phone: "",
+  });
 
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-      });
-
-      setShowModal(false);
-    } catch (error) {
-      console.error("EmailJS Error:", error);
-
-      alert("Something went wrong. Please try again.");
-    }
-  };
+  setShowModal(false);
+};
 
   return (
     <section

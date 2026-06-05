@@ -559,20 +559,18 @@ export default function ServiceNowTraining() {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    console.log(formData);
+  window.open("/brochure.pdf", "_blank");
 
-    alert("Thank you! Your details have been submitted successfully.");
+  setFormData({
+    name: "",
+    email: "",
+    phone: "",
+  });
 
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-    });
-
-    setShowModal(false);
-  };
+  setShowModal(false);
+};
 
   return (
     <div className="font-[Outfit,sans-serif] bg-[#FAF8F3] text-[#1C1C1C] overflow-x-hidden">

@@ -830,26 +830,19 @@ const Methodology = () => {
     });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = (e) => {
+  e.preventDefault();
 
-    console.log("Form Data:", formData);
+  window.open("/brochure.pdf", "_blank");
 
-    // API call yahan lagegi
-    // await fetch("/api/brochure", {...})
+  setFormData({
+    name: "",
+    email: "",
+    phone: "",
+  });
 
-    alert(
-      "Thank you! Your details have been submitted successfully."
-    );
-
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-    });
-
-    setShowModal(false);
-  };
+  setShowModal(false);
+};
 
   return (
     <section
