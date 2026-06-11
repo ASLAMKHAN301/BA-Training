@@ -6,6 +6,7 @@ import whyUsBg  from "../assets/surface-CqQWt4a-XfY-unsplash.jpg";
 import bottomCtaBg  from "../assets/syful-islam-sW1_Yx5b54k-unsplash.jpg";
 import Nav from "../components/layout/Nav";
 import { useNavigate } from "react-router-dom";
+import BookingForm from "../components/ui/BookingForm";
 
 /* ─── Design tokens ──────────────────────────────────────────────────────────── */
 const C = {
@@ -1560,75 +1561,8 @@ const BottomCTA = () => {
           </div>
 
           {/* Form panel */}
-          <div className="bg-white rounded p-6 sm:p-9" style={{ boxShadow: "0 32px 80px rgba(0,0,0,0.3)" }}>
-            <div className="font-bold text-[18px] sm:text-[20px] tracking-[-0.3px] mb-1"
-              style={{ fontFamily: "'Playfair Display',Georgia,serif", color: C.navy }}>Book Your Free Session</div>
-            <div className="text-[12px] sm:text-[13px] leading-[1.5] mb-5" style={{ color: C.stone }}>
-              A programme advisor will contact you within 24 hours.
-            </div>
-
-            {/* Name row */}
-            <div className="grid grid-cols-2 gap-3 mb-3">
-              {[{ label: "First Name", key: "firstName", placeholder: "Arjun" }, { label: "Last Name", key: "lastName", placeholder: "Mehta" }].map((f) => (
-                <div key={f.key} className="flex flex-col gap-1.5">
-                  <label className="text-[10px] sm:text-[11px] font-semibold tracking-[0.8px] uppercase" style={{ color: C.navy }}>{f.label}</label>
-                  <input style={inputStyle(f.key)} placeholder={f.placeholder} value={form[f.key]}
-                    onChange={(e) => setForm({ ...form, [f.key]: e.target.value })}
-                    onFocus={(e) => (e.target.style.borderColor = C.navy)}
-                    onBlur={(e) => (e.target.style.borderColor = errors[f.key] ? C.gold : C.border)} />
-                </div>
-              ))}
-            </div>
-
-            {[
-              { label: "Phone / WhatsApp", key: "phone", type: "tel", placeholder: "+91 98765 43210" },
-              { label: "Email Address", key: "email", type: "email", placeholder: "arjun@example.com" },
-            ].map((f) => (
-              <div key={f.key} className="flex flex-col gap-1.5 mb-3">
-                <label className="text-[10px] sm:text-[11px] font-semibold tracking-[0.8px] uppercase" style={{ color: C.navy }}>{f.label}</label>
-                <input type={f.type} style={inputStyle(f.key)} placeholder={f.placeholder} value={form[f.key]}
-                  onChange={(e) => setForm({ ...form, [f.key]: e.target.value })}
-                  onFocus={(e) => (e.target.style.borderColor = C.navy)}
-                  onBlur={(e) => (e.target.style.borderColor = errors[f.key] ? C.gold : C.border)} />
-              </div>
-            ))}
-
-            <div className="flex flex-col gap-1.5 mb-3">
-              <label className="text-[10px] sm:text-[11px] font-semibold tracking-[0.8px] uppercase" style={{ color: C.navy }}>Track of Interest</label>
-              <select style={inputStyle("track")} value={form.track}
-                onChange={(e) => setForm({ ...form, track: e.target.value })}>
-                <option value="">Select a track...</option>
-                <option>Ethical Hacking / Pen Testing</option>
-                <option>SOC Analysis & Threat Detection</option>
-                <option>GRC — Governance, Risk & Compliance</option>
-                <option>Cloud Security</option>
-                <option>Help me decide</option>
-              </select>
-            </div>
-
-            <div className="flex flex-col gap-1.5 mb-4">
-              <label className="text-[10px] sm:text-[11px] font-semibold tracking-[0.8px] uppercase" style={{ color: C.navy }}>Current Status</label>
-              <select style={inputStyle("status")} value={form.status}
-                onChange={(e) => setForm({ ...form, status: e.target.value })}>
-                <option value="">Select...</option>
-                <option>Final Year / Recent Graduate</option>
-                <option>IT Professional (1–3 yrs)</option>
-                <option>IT Professional (3+ yrs)</option>
-                <option>Non-IT Professional (Career Change)</option>
-                <option>Currently in Cybersecurity</option>
-              </select>
-            </div>
-
-            <button onClick={handleSubmit} disabled={submitted}
-              className="w-full text-white border-none text-[14px] font-semibold py-3.5 rounded-sm cursor-pointer transition-colors duration-150"
-              style={{ background: submitted ? "#16A34A" : C.navy }}
-              onMouseEnter={(e) => { if (!submitted) e.currentTarget.style.background = C.navyMid; }}
-              onMouseLeave={(e) => { if (!submitted) e.currentTarget.style.background = submitted ? "#16A34A" : C.navy; }}>
-              {submitted ? "✓ We'll be in touch within 24 hours" : "Book My Free Session →"}
-            </button>
-            <p className="text-[11px] text-center mt-2.5 leading-[1.5]" style={{ color: C.stone }}>
-              🔒 No spam. No pressure. Your information is completely confidential.
-            </p>
+          <div>
+            <BookingForm light />
           </div>
         </div>
       </Wrap>

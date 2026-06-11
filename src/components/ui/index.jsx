@@ -52,25 +52,61 @@ export function DisplayH2({ children, light = false, style = {} }) {
 }
 
 // ─── FormField ───────────────────────────────────────────────────────────────
-export function FormField({ label, type = "text", placeholder, children }) {
+export function FormField({
+  label,
+  type = "text",
+  placeholder,
+  value,
+  onChange,
+  children,
+}) {
   const [focused, setFocused] = useState(false);
+
   const inputStyle = {
     background: focused ? "white" : CREAM,
     border: `1px solid ${focused ? NAVY : BORDER}`,
-    borderRadius: 2, padding: "11px 14px", fontSize: 14,
-    fontFamily: "'Outfit', sans-serif", color: INK,
-    outline: "none", width: "100%", appearance: "none",
-    WebkitAppearance: "none", transition: "border-color 0.12s",
+    borderRadius: 2,
+    padding: "11px 14px",
+    fontSize: 14,
+    fontFamily: "'Outfit', sans-serif",
+    color: INK,
+    outline: "none",
+    width: "100%",
+    appearance: "none",
+    WebkitAppearance: "none",
+    transition: "border-color 0.12s",
   };
+
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 5, marginBottom: 14 }}>
-      <label style={{ fontSize: 11, fontWeight: 600, color: NAVY, letterSpacing: "0.8px", textTransform: "uppercase" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: 5,
+        marginBottom: 14,
+      }}
+    >
+      <label
+        style={{
+          fontSize: 11,
+          fontWeight: 600,
+          color: NAVY,
+          letterSpacing: "0.8px",
+          textTransform: "uppercase",
+        }}
+      >
         {label}
       </label>
+
       {children ?? (
         <input
-          type={type} placeholder={placeholder} style={inputStyle}
-          onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
+          type={type}
+          placeholder={placeholder}
+          value={value}
+          onChange={onChange}
+          style={inputStyle}
+          onFocus={() => setFocused(true)}
+          onBlur={() => setFocused(false)}
         />
       )}
     </div>
@@ -78,22 +114,39 @@ export function FormField({ label, type = "text", placeholder, children }) {
 }
 
 // ─── FormSelect ──────────────────────────────────────────────────────────────
-export function FormSelect({ label, options }) {
+export function FormSelect({
+  label,
+  options,
+  value,
+  onChange,
+}) {
   const [focused, setFocused] = useState(false);
+
   return (
     <FormField label={label}>
       <select
+        value={value}
+        onChange={onChange}
         style={{
           background: focused ? "white" : CREAM,
           border: `1px solid ${focused ? NAVY : BORDER}`,
-          borderRadius: 2, padding: "11px 14px", fontSize: 14,
-          fontFamily: "'Outfit', sans-serif", color: INK,
-          outline: "none", width: "100%", appearance: "none", WebkitAppearance: "none",
+          borderRadius: 2,
+          padding: "11px 14px",
+          fontSize: 14,
+          fontFamily: "'Outfit', sans-serif",
+          color: INK,
+          outline: "none",
+          width: "100%",
+          appearance: "none",
+          WebkitAppearance: "none",
         }}
-        onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
+        onFocus={() => setFocused(true)}
+        onBlur={() => setFocused(false)}
       >
         {options.map((o, i) => (
-          <option key={i} value={i === 0 ? "" : o}>{o}</option>
+          <option key={i} value={i === 0 ? "" : o}>
+            {o}
+          </option>
         ))}
       </select>
     </FormField>

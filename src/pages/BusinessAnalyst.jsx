@@ -8,6 +8,7 @@ import Nav from "../components/layout/Nav";
 import { Link } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import { useNavigate } from "react-router-dom";
+import BookingForm from "../components/ui/BookingForm";
 
 /* ─── Design tokens ──────────────────────────────────────────────────────────── */
 const C = {
@@ -189,180 +190,6 @@ const AnnounceBanner = () => (
 /* ══════════════════════════════════════════════════════════════════════════════
    HERO
 ══════════════════════════════════════════════════════════════════════════════ */
-const HeroForm = ({ compact = false }) => {
-  const [form, setForm] = useState({
-    firstName: "",
-    lastName: "",
-    phone: "",
-    email: "",
-    status: "",
-    domain: "",
-  });
-  const [submitted, setSubmitted] = useState(false);
-  const [errors, setErrors] = useState({});
-
-  const handleSubmit = () => {
-    const errs = {};
-    Object.keys(form).forEach((k) => {
-      if (!form[k]) errs[k] = true;
-    });
-    setErrors(errs);
-    if (!Object.keys(errs).length) setSubmitted(true);
-  };
-
-  const fld = (key) => inputStyle(errors[key]);
-
-  return (
-    <div
-      className={`bg-white rounded ${compact ? "p-6" : "p-7 sm:p-9"}`}
-      style={{ boxShadow: "0 24px 64px rgba(0,0,0,0.25)" }}
-    >
-      <div
-        className="font-bold text-[18px] sm:text-[20px] tracking-[-0.3px] mb-1"
-        style={{
-          fontFamily: "'Playfair Display',Georgia,serif",
-          color: C.navy,
-        }}
-      >
-        Start Your BA Journey
-      </div>
-      <div
-        className="text-[12px] sm:text-[13px] mb-5"
-        style={{ color: C.stone }}
-      >
-        Speak with a program advisor. No pressure — just honest guidance.
-      </div>
-
-      <div className="grid grid-cols-2 gap-3 mb-3">
-        {[
-          { label: "First Name", key: "firstName", placeholder: "Priya" },
-          { label: "Last Name", key: "lastName", placeholder: "Sharma" },
-        ].map((f) => (
-          <div key={f.key} className="flex flex-col gap-1.5">
-            <label
-              className="text-[10px] sm:text-[11px] font-semibold tracking-[0.8px] uppercase"
-              style={{ color: C.navy }}
-            >
-              {f.label}
-            </label>
-            <input
-              style={fld(f.key)}
-              placeholder={f.placeholder}
-              value={form[f.key]}
-              onChange={(e) => setForm({ ...form, [f.key]: e.target.value })}
-              onFocus={(e) => (e.target.style.borderColor = C.navy)}
-              onBlur={(e) =>
-                (e.target.style.borderColor = errors[f.key] ? C.gold : C.border)
-              }
-            />
-          </div>
-        ))}
-      </div>
-
-      {[
-        {
-          label: "Phone / WhatsApp",
-          key: "phone",
-          type: "tel",
-          placeholder: "+91 98765 43210",
-        },
-        {
-          label: "Email Address",
-          key: "email",
-          type: "email",
-          placeholder: "priya@example.com",
-        },
-      ].map((f) => (
-        <div key={f.key} className="flex flex-col gap-1.5 mb-3">
-          <label
-            className="text-[10px] sm:text-[11px] font-semibold tracking-[0.8px] uppercase"
-            style={{ color: C.navy }}
-          >
-            {f.label}
-          </label>
-          <input
-            type={f.type}
-            style={fld(f.key)}
-            placeholder={f.placeholder}
-            value={form[f.key]}
-            onChange={(e) => setForm({ ...form, [f.key]: e.target.value })}
-            onFocus={(e) => (e.target.style.borderColor = C.navy)}
-            onBlur={(e) =>
-              (e.target.style.borderColor = errors[f.key] ? C.gold : C.border)
-            }
-          />
-        </div>
-      ))}
-
-      <div className="flex flex-col gap-1.5 mb-3">
-        <label
-          className="text-[10px] sm:text-[11px] font-semibold tracking-[0.8px] uppercase"
-          style={{ color: C.navy }}
-        >
-          Current Status
-        </label>
-        <select
-          style={fld("status")}
-          value={form.status}
-          onChange={(e) => setForm({ ...form, status: e.target.value })}
-        >
-          <option value="">Select...</option>
-          <option>Final Year Student</option>
-          <option>Recent Graduate (0–2 yrs)</option>
-          <option>Working Professional (2–5 yrs)</option>
-          <option>Working Professional (5+ yrs)</option>
-          <option>Career Break / Returning to Work</option>
-        </select>
-      </div>
-
-      <div className="flex flex-col gap-1.5 mb-4">
-        <label
-          className="text-[10px] sm:text-[11px] font-semibold tracking-[0.8px] uppercase"
-          style={{ color: C.navy }}
-        >
-          Domain of Interest
-        </label>
-        <select
-          style={fld("domain")}
-          value={form.domain}
-          onChange={(e) => setForm({ ...form, domain: e.target.value })}
-        >
-          <option value="">Select a domain...</option>
-          <option>Banking &amp; Finance</option>
-          <option>Insurance</option>
-          <option>Healthcare</option>
-          <option>Technology / Fintech</option>
-          <option>Help me decide</option>
-        </select>
-      </div>
-
-      <button
-        onClick={handleSubmit}
-        disabled={submitted}
-        className="w-full text-white border-none text-[14px] font-semibold py-3.5 rounded-sm cursor-pointer transition-colors duration-150"
-        style={{ background: submitted ? "#16A34A" : C.navy }}
-        onMouseEnter={(e) => {
-          if (!submitted) e.currentTarget.style.background = C.navyMid;
-        }}
-        onMouseLeave={(e) => {
-          if (!submitted)
-            e.currentTarget.style.background = submitted ? "#16A34A" : C.navy;
-        }}
-      >
-        {submitted
-          ? "✓ We'll be in touch within 24 hours"
-          : "Book My Free Session →"}
-      </button>
-      <p
-        className="text-[11px] text-center mt-2.5 leading-[1.5]"
-        style={{ color: C.stone }}
-      >
-        🔒 No spam. No pressure. Your information is completely confidential.
-      </p>
-    </div>
-  );
-};
-
 const Hero = () => {
   const stats = [
     { n: "34.5L", l: "Highest Salary Offered" },
@@ -2350,7 +2177,7 @@ const BottomCTA = () => {
             </ul>
           </div>
           <div>
-            <HeroForm compact />
+            <BookingForm light />
           </div>
         </div>
       </Wrap>

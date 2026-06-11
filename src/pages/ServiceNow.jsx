@@ -6,6 +6,7 @@ import whyUsBg from "../assets/ofspace-llc-I96XlMeU4oY-unsplash.jpg";
 import bottomCtaBg from "../assets/bottomctaBg.jpg";
 import Nav from "../components/layout/Nav";
 import { Link } from "react-router-dom";
+import BookingForm from "../components/ui/BookingForm";
 
 // ── DATA ──────────────────────────────────────────────────────────────────────
 const COMPANIES = [
@@ -1577,108 +1578,9 @@ export default function ServiceNowTraining() {
               </ul>
             </div>
 
-            {/* Form */}
-            <div
-              className="bg-white rounded p-9"
-              style={{ boxShadow: "0 32px 80px rgba(0,0,0,0.3)" }}
-            >
-              <div className="playfair text-[20px] font-bold text-black tracking-[-0.3px] mb-1">
-                Book Your Free Session
-              </div>
-              <div className="text-[13px] text-stone-400 mb-5">
-                A programme advisor will contact you within 24 hours.
-              </div>
-
-              <div className="grid grid-cols-2 gap-3 mb-3">
-                {[
-                  ["firstName", "First Name", "Arjun", "text"],
-                  ["lastName", "Last Name", "Sharma", "text"],
-                ].map(([name, label, ph, type]) => (
-                  <div key={name} className="flex flex-col gap-1.5">
-                    <label className="text-[11px] font-semibold tracking-[0.8px] uppercase text-black">
-                      {label}
-                    </label>
-                    <input
-                      name={name}
-                      type={type}
-                      placeholder={ph}
-                      value={formData[name]}
-                      onChange={handleInput}
-                      className="bg-[#FAF8F3] border border-stone-200 text-[#1C1C1C] font-[Outfit,sans-serif] rounded-sm text-sm w-full px-3.5 py-2.5"
-                    />
-                  </div>
-                ))}
-              </div>
-
-              {[
-                ["phone", "Phone / WhatsApp", "+91 98765 43210", "tel"],
-                ["email", "Email Address", "arjun@example.com", "email"],
-              ].map(([name, label, ph, type]) => (
-                <div key={name} className="flex flex-col gap-1.5 mb-3">
-                  <label className="text-[11px] font-semibold tracking-[0.8px] uppercase text-black">
-                    {label}
-                  </label>
-                  <input
-                    name={name}
-                    type={type}
-                    placeholder={ph}
-                    value={formData[name]}
-                    onChange={handleInput}
-                    className="bg-[#FAF8F3] border border-stone-200 text-[#1C1C1C] font-[Outfit,sans-serif] rounded-sm text-sm w-full px-3.5 py-2.5"
-                  />
-                </div>
-              ))}
-
-              <div className="flex flex-col gap-1.5 mb-3">
-                <label className="text-[11px] font-semibold tracking-[0.8px] uppercase text-black">
-                  Current Role
-                </label>
-                <select
-                  name="role"
-                  value={formData.role}
-                  onChange={handleInput}
-                  className="bg-[#FAF8F3] border border-stone-200 text-[#1C1C1C] font-[Outfit,sans-serif] rounded-sm text-sm w-full px-3.5 py-2.5 appearance-none"
-                >
-                  <option value="">Select your current role...</option>
-                  {[
-                    "IT Support Engineer",
-                    "System Administrator",
-                    "ITSM / Help Desk Analyst",
-                    "Business Analyst (IT)",
-                    "Junior Developer",
-                    "Other IT Professional",
-                  ].map((o) => (
-                    <option key={o}>{o}</option>
-                  ))}
-                </select>
-              </div>
-
-              <div className="flex flex-col gap-1.5 mb-4">
-                <label className="text-[11px] font-semibold tracking-[0.8px] uppercase text-black">
-                  Years of Experience
-                </label>
-                <select
-                  name="experience"
-                  value={formData.experience}
-                  onChange={handleInput}
-                  className="bg-[#FAF8F3] border border-stone-200 text-[#1C1C1C] font-[Outfit,sans-serif] rounded-sm text-sm w-full px-3.5 py-2.5 appearance-none"
-                >
-                  <option value="">Select...</option>
-                  {["1–3 years", "3–6 years", "6–10 years", "10+ years"].map(
-                    (o) => (
-                      <option key={o}>{o}</option>
-                    ),
-                  )}
-                </select>
-              </div>
-
-              <button className="w-full bg-black text-white border-0 text-sm font-semibold py-3.5 rounded-sm cursor-pointer hover:bg-stone-800 transition-colors">
-                Book My Free Session →
-              </button>
-              <p className="text-[11px] text-center mt-2.5 leading-[1.5] text-stone-400">
-                🔒 No spam. No pressure. Your information is completely
-                confidential.
-              </p>
+            {/* Form panel */}
+            <div>
+              <BookingForm light />
             </div>
           </div>
         </div>
